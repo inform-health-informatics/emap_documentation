@@ -52,6 +52,8 @@ between gathering and querying, but maybe there is a little more info that could
 
 ![EMAP pipeline](./images/Figure_2.png)
 
+[//]: # (Later on this document mentions that laptops symbolise code in this figure and for consistency I'd be tempted
+to add it to the label here too. Somebody may think there is hardware and software here?)
 
 ## Pipeline
 
@@ -178,11 +180,19 @@ expect that everyone reading this document knows what indexing is and joining, w
 The code written for the EMAP pipeline consists of a number of Java packages denoted by the laptop icon in Figure 2. 
 We have used the following technologies and frameworks.
 
+[//]: # (I personally would probably add a summary of what is all there first before going into detail of each. At the 
+moment the transitions happen quite abruptly and I wonder whether someone less familiar with technology would take well
+to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
+now proceed to explain these technologies further.")
+
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
 configuration also allows us to determine whether a message is processed “at least once” or “at most once”. Our 
 priority is that we capture all data and so the potential data loss of the “at most once” approach would not be 
 suitable.
+
+[//]: # (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
+Couldn't I just make records as they appear in one long list? why would a message be processed more than once?)
 
 Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client, and flagging it. 
 It isn't marked as delivered until it is ‘acked’ by the client application, which only happens when processing is 
@@ -194,11 +204,20 @@ us, this handling of duplicate messages is needed not just to account for possib
 RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
 recovery.
 
+[//]: # (can we safely assume that every reader knows what a "client" is? "acked" I assume is acknowledged? In terms 
+of ordering, I'd probably move this paragraph before the one before so that there is an explanation of how the hospital 
+system operates in itself and how EMAP complements it with RabbitMQ)
+
 Our RabbitMQ is also configured to backup running queues to disk. This avoids data loss in the case of a RabbitMQ 
 failure. This does have some minor performance implications but these were deemed small enough to be negligible in our 
 case. Since we know the general size of messages being sent we mitigated the use of disk space by configuring length 
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
+
+[//]: # (The above paragraph is slightly confusing to me, but this may be due to my limited of RabbitMQ. While RabbitMQ
+is running, it's generating back-ups of it active queues, that I follow. However, when it has a failure does it still 
+continue to record occurring message and backing them up -- I would have expected it to stop recording and therefore 
+incur a loss of messages that would have needed to be written to the queues while there was a failure.)
 
 Libraries and frameworks generally reduce code by virtue of providing specialist functionality. The Spring framework 
 has components for databases, RabbitMQ (AMQP) and scheduling and so fitted our use of standard enterprise software. 
@@ -206,20 +225,32 @@ Hibernate provides the perfect partner for Spring with database interaction. Lom
 classes, reducing the amount of boilerplate code required to create getters, setters and equals methods, although we 
 did write our own bespoke annotation processor to generate audit classes for the database.
 
+[//]: # (do we expect that intended readers of this document know what data classes, boilerplate code, getters, setters,
+equals methods, annotations and audit classes are?)
+
 We used PostgreSQL as it is a widely used relational database implementation which is a good match for the UDS. It 
 could be argued that Cassandra, which has first class sharding to handle the ever growing volume, would be a better 
 fit for the IDS, since it is a stream database with no relationships. However, we relied on the infrastructure that 
 could be supported via the hospital IT and contractors so it was deemed more pragmatic that both databases use 
 PostgreSQL initially.
 
+[//]: # (Do all the intended readers know what "relationships" in a database sense are? Some may equate this to foreign
+keys ... )
+
 Internally we use Glowroot, an Open source Java Application Performance Monitor that allows us to monitor the 
 performance of the pipeline. It allows tracing slow requests, errors and transaction times as well as supporting 
 monitoring of SQL capture and aggregation. Each microservice has a Glowroot instance attached, allowing precise 
 monitoring of each aspect individually.
 
+[//]: # (Microservice was not used before and I wonder it is easy to make the connection that these are the parts of 
+the pipeline. I guess I would aim for consistency and if this is a term that should be included already start 
+introducing it very early on and use it throughout the entire document)
+
 We use Docker containers to build and deploy the services that constitute the pipeline. This greatly facilitates 
 development, as we can deploy containers based on different branches of code to test new features or debug specific 
 issues. 
+
+[//]: # (Do all intended readers know what "Docker containers" are and what is meant by "debugging issues"?)
 
 ## Testing and validating data
 
@@ -228,14 +259,22 @@ our code has low-level unit testing employing the JUnit testing framework. Code 
 which are set up to run both linting and the suite of unit tests as part of the continuous integration cycle. All code 
 is peer reviewed and must be approved by a non-author before it can be fully merged into the relevant code base. 
 
+[//]: # (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
+
 As each element of our pipeline is written as a separate microservice, dummy input tests are also written for each 
 element to test that the output from each is as expected. 
+
+[//]: # (Do we expect that every reader knows what "dummy input tests" are?)
 
 As part of our testing we also create a set of permutation tests of fake messages that allow us to test the pipeline 
 for the random receipt of messages.  It is not unknown for us to receive a cancel message before we receive the actual 
 message from the live feed, and running all possible permutations of batches of 5-7 messages for different situations 
 with defined final states in the database allows us to ensure that the service is robust to duplicate and out-of-order 
 messages.
+
+[//]: # (Reading this paragraph makes me think that instead of specific messages that are relevant to the information 
+we are after, we're instead waiting for a specific sequence of messages. If this is the case, I personally would add
+this earlier on; then the notion of a queuing system would make also more sense)
 
 In order to establish the validity of the data being stored in the EMAP star database we have created an R package to 
 query data from both star and hospital databases and perform comparisons. These comparisons allow us to quickly identify 
@@ -246,8 +285,13 @@ prevent data in star, derived using only information provided by the live feed, 
 databases. These mis-matches can be made available to users, enabling them to determine which data is most suitable for 
 their particular purpose.
 
+[//]: # (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
+the UDS that we are talking about here?)
+
 Besides automated testing and data comparison, we do manually check random entries in the star database with official 
 hospital records to verify that the data in star is an accurate representation of the records.
+
+[//]: # (See previous comment)
  
 ## Storage and Access control 
 
@@ -255,10 +299,16 @@ The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7
 export to the IDS are turned on the amount of data will obviously increase. Current prognosis is that we have enough 
 space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
 
+[//]: # (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
+record between IDS and UDS?)
+
 The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star schema and a number of 
 development/test schemas used by the development team are not the only databases hosted on the UDS. Users can create 
 their own schemas. Ultimately the star schema will need to have priority in the space as more and more data is added 
 and options such as sharding will need to be considered.
+
+[//]: # (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential
+reader know what "sharding" is?)
 
 At present potential users must apply for access to any individual schema on UDS.  Schemas can be set up specifically 
 for projects and users can add their own data, but can also be provided access to either the general research database 
