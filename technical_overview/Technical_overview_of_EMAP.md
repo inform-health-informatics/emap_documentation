@@ -1,5 +1,7 @@
 # Technical Overview EMAP
 
+[//]: # (I should probably know this by now, but is EMAP an abbreviation of some sort?)
+
 ## Introduction
 
 Data and metadata are an integral part of any hospital’s electronic information systems. In hospital systems data is 
@@ -10,7 +12,18 @@ databases (Caboodle/Clarity in Figure 1) tailored for hospital reporting. While 
 the nightly consolidation process means that the databases are always behind what is currently happening and may not 
 exactly match events as they occurred. 
 
+[//]: # (When reading the "data" and "metadata", the question arose what sort of data it is that we're talking about,
+text, images, videos? it might not be relevant here, but it made me wonder whether a small example of "data" could be 
+added)
+
+[//]: # (Again, this might be me not knowing better, but what is the "core system" and why is it not suitable for 
+"general reporting"? I guess that could be added a little more detail in half a sentence or so)
+
 ![Data flow in the hospital](./images/Figure_1.png)
+
+[//]: # (If I were to polish this figure, I would probably aim to have the labels not run over arrows if possible. What 
+is Chronicles, POC, SIP and HSL? Could that perhaps be added in the label? I notice that a clinician might know these 
+acronyms, but for me it's more guessing ... )
 
 In order to provide live data suitable for research and clinical applications we have created EMAP, a pipeline that 
 includes both gathering data in real-time and retrieving historical data; functionality not mirrored by any other 
@@ -21,6 +34,19 @@ load on these systems. As a non-operational database it allows provision for lon
 on the hospital systems. The resulting database can be used, for example, by a researcher creating a predictive model 
 of whether a patient presenting in ED is likely to be admitted to the main hospital, or by a technically inspired 
 clinician to create an up-to-date view of derived metrics of each patient in a given ward. 
+
+[//]: # (I'm not sure that I know what is meant by "logically modelled" and could benefit from a bit of additional info
+or rephrase here)
+
+[//]: # (This might be because I'm not a native speaker, but "individual researchers" made it sound that EMAP is 
+something "nice to have" rather than something crucial to have, which might be fine. I guess if I wanted to stretch the 
+importance of the system, I'd lead with the stats on a ward for the clinician and then mention that this data is also 
+useful for research projects.)
+
+[//]: # (There might be a confusion in my mind, but I guess "slow queries" makes me wonder how slow "slow" is. The 
+struggle I have -- and this might be rooted in a misunderstanding -- is that I thought that one benefit of EMAP was to
+have data available much faster and it somehow contracts the "slow queries". I appreciate that there is a difference
+between gathering and querying, but maybe there is a little more info that could be added here to clarify this?)
 
 ![EMAP pipeline](./images/Figure_2.png)
 
