@@ -23,7 +23,8 @@ added)
 
 [//]: # (If I were to polish this figure, I would probably aim to have the labels not run over arrows if possible. What 
 is Chronicles, POC, SIP and HSL? Could that perhaps be added in the label? I notice that a clinician might know these 
-acronyms, but for me it's more guessing ... )
+acronyms and some are mentioned in the text going forward, but I guess if the reader is already directed here it might
+help adding the information to the label?)
 
 In order to provide live data suitable for research and clinical applications we have created EMAP, a pipeline that 
 includes both gathering data in real-time and retrieving historical data; functionality not mirrored by any other 
@@ -41,7 +42,8 @@ or rephrase here)
 [//]: # (This might be because I'm not a native speaker, but "individual researchers" made it sound that EMAP is 
 something "nice to have" rather than something crucial to have, which might be fine. I guess if I wanted to stretch the 
 importance of the system, I'd lead with the stats on a ward for the clinician and then mention that this data is also 
-useful for research projects.)
+useful for research projects. The other way is leading with hospitals are set to transform and active research is 
+necessary to make data fit for purpose so that it can be used going forward to inform decision making)
 
 [//]: # (There might be a confusion in my mind, but I guess "slow queries" makes me wonder how slow "slow" is. The 
 struggle I have -- and this might be rooted in a misunderstanding -- is that I thought that one benefit of EMAP was to
@@ -56,19 +58,29 @@ between gathering and querying, but maybe there is a little more info that could
 Streams of messages within the hospital are published to the SIP (Strategic Integration Platform) which routes these to 
 one or more consumers. For the purposes of EMAP, a subset of messages from a subset of these streams are copied to a 
 dedicated PostgreSQL database that assigns a unique ID to each message and creates a copy of the message as-is in the 
-database as well as creating columns for common message data fields, e.g.. PatientName. This database, the 'IDS' 
+database as well as creating columns for common message data fields, e.g. PatientName. This database, the 'IDS' 
 (Immutable Data Store) in Figure 2, provides a backup of all live messages that have been transmitted to it from the 
 point when any given feed went live. This has proved invaluable to development of the pipeline and resulting database 
 as it provides an increasing set of test data with which to optimize the workflow and resulting database schema. 
 As more live message streams have been added, we have been able to identify and fix issues that may occur with 
 out-of-order, duplicate or indeed missing messages. This step in the pipeline is facilitated by ATOS (hospital 
 IT contractor) with whom we have a good working relationship for resolving issues that arise. 
- 
+
+[//]: # (What are "streams of messages" used for in the hospital, e.g. notify a clinician about something or do the 
+messages have more details than that? When does a new stream become available and how will those be integrated into 
+EMAP? I guess I'm wondering about governance going forward: if I'm a researcher that needs a new stream, whom do I ask
+for that to be added; does that work automatically? How do these message streams relate to the information in the 
+Caboodle/Clarity databases?) 
+
 The Hoover code is written to allow incremental loading from any of the databases within the hospital system, running 
 different queries against different databases as required. Since the instance and type of database may vary, the service 
 has been designed to abstract the processing of data, only requiring classes that define the database connections, 
 querying the database and converting that into a set of messages using our in-house interchange format. 
- 
+
+[//]: # (How are these databases different from the "core system" and the EMAP database -- is that perhaps the 
+historical clinical data? Why was it necessary to introduce an "in-house interchange format"? It's the first time 
+it's mentioned here and could benefit from a little more detail)
+
 Message types within the hospital go ‘live’ at different points depending on when that interface was configured to send 
 to EMAP. Thus, in order to provide access to all data for a particular feed, we also use the Hoover instances to 
 provide data that pre-dates the live status or complements these with types of data that are not yet live.   
@@ -87,17 +99,27 @@ integration and system testing and helper methods for testing. The format has be
 HL7 implementation semantics into use-specific fields, allowing the processing of these messages downstream to be 
 ignorant of HL7. This standardisation step also allows the interchange format to be readily included in any code 
 involving data sources or destinations. 
+
+[//]: # (Still not quite clear as to why a separate format is needed. Couldn't all the data have been formatted as HL7?)
  
 Messages, in the interchange format, are batched and sent to the appropriate queue managed by the RabbitMQ server. 
 Priority is given to messages originating with the live stream. Each queue has a maximum number of messages that are 
 allowed, and the services publishing to the queues implement an exponential backoff policy to limit the amount of disk 
 space used by the queues.  
+
+[//]: # (It might be good to add info that there's more detail on RabbitMQ to come; why is priority given to messages 
+from live streams? Is there any instance where this might be a false assumption to make because of approval not yet 
+been through or something? thinking here about GP who gets e.g. blood results and while these results are flagged, a GP
+still goes manually through them before the result is given to you. Would it be helpful to add a short explanation for 
+what a queue is and why it is needed?)
  
 The event processor receives messages in the interchange format from RabbitMQ. Each message is received and processed 
 individually before data is added into the ‘star schema’ of the UDS (User Data Store) (see Figure 3). 
 
 We maintain two instances of the star schema with views created for the current active instance. This allows us to 
 update code, perform fixes and add additional feeds without requiring downtime and disruption to users.
+
+[//]: # (is this really instance of the schema as opposed to data stored in schema?)
 
 Data being added to the database must be checked to ensure that references to the same patient or the same hospital 
 visit are correctly recorded. Patients arriving at the hospital are allocated an MRN (medical record number) and in 
@@ -114,10 +136,18 @@ be merged. EMAP creates an audit table (not shown) to mirror each table that can
 information that has been updated or deleted is recorded. This facilitates distinguishing valid data from invalid data 
 (the star schema always contains the latest values), whilst providing an audit history for any changed information.
 
+[//]: # ("assigned to different MRNs" -- is this meant to be "two" instead of "to"? is two the upper limit or can there 
+be more than that? One thought that occurred at this point is, what happens when a new live stream is added that holds
+data that does not exist in UDS, does it time-wise backfill this information or is it only available from the time the 
+stream is added?)
+
 Entries are also made in the star database to record the last message processed with the corresponding timestamp. 
 This allows maintainers of the database to check progress and establish the timeframe of missing data should any of 
 the pipeline or hospital infrastructure feeding it have suffered a period of outage. It also allows the HL7 Reader to 
 restart in the event of a crash or system failure, since it has persistent state.
+
+[//]: # (Depending on audience, I might be tempted to replace "feeding it" with something like "no messages available" 
+available or something)
 
 ## Star schema
  
@@ -129,6 +159,9 @@ requirements for EMAP included demographics and time 'aware' information which c
 OMOP standard without significant changes. OMOP is also not suited to live data. We concluded that we would need to 
 devise our own schema.
 
+[//]: # (I might have the wrong end of the stick, but "solution" in my mind is not the same as schema; the way it's 
+phrased currently, I wonder whether someone would understand it to be the same though)
+
 Initially we looked at an entity-attribute-value approach for maximum flexibility. This did allow easy addition of 
 different types of data but caused major usability issues for alpha users, with slow indexing and complex joins. 
 Technical evaluation and the learning process involved in creating the pipeline showed that the flexibility provided 
@@ -136,6 +169,9 @@ was unnecessary, and thus we undertook a redesign that separated the data into c
 shown in Figure 3. This has proved popular with our users and feedback confirms it is faster and more intuitive than 
 the generic approach.
 
+[//]: # (is everyone in the audience of this document aware what an entity-attribute-value approach is? If not it might 
+be helpful to add a little explanation for it. Not sure whether that is best done as a figure or so. Similarly, can we
+expect that everyone reading this document knows what indexing is and joining, with reference to data that is?) 
 
 ## Technologies used 
 
