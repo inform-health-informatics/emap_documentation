@@ -52,7 +52,9 @@
 
 ## S
 
--SIP 
+- SIP Strategic Integration Platform
+	
+	The SIP acts as a central controller for all electronic messaged being sent within the hospital. It routes messages from various sources (POC, HSL, Imaging) to be recorded in the appropriate databases. 
 
 ## T
 
