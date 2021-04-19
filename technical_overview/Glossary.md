@@ -22,7 +22,9 @@
 
 ## H
 
-- HSL 
+- HSL Health Service Laboratories
+
+	HSL provides the biochemistry and mircobiology analysis for the hospital.
 
 ## I
 
@@ -40,7 +42,9 @@
 
 ## P
 
-- POC Point Of Care testing, test done with results generated at bedside
+- POC Point Of Care testing
+
+     These are tests that can done with results generated at bedsidein situ. Examples include basic urinanlysis and glucose level monitoring. 
 
 ## Q
 
