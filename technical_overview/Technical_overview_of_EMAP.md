@@ -133,7 +133,7 @@ to the appropriate patient.
 ![Schema for the EMAP ‘star’ database stored on the UDS](./images/Figure_3.png)
 
 Messages being processed by the EventProcessor must also allow for changes in existing information. For example, a 
-patient can be inadvertently assigned to different MRNs, and once this has been detected the records for each need to 
+patient can be inadvertently assigned multiple MRNs, and once this has been detected the records for each need to 
 be merged. EMAP creates an audit table (not shown) to mirror each table that can have meaningful changes, into which 
 information that has been updated or deleted is recorded. This facilitates distinguishing valid data from invalid data 
 (the star schema always contains the latest values), whilst providing an audit history for any changed information.
