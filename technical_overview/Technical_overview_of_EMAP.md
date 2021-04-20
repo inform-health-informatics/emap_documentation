@@ -1,6 +1,6 @@
 # Technical Overview EMAP
 
-[//]: # (I should probably know this by now, but is EMAP an abbreviation of some sort?)
+[//]: #1 (I should probably know this by now, but is EMAP an abbreviation of some sort?)
 
 ## Introduction
 
@@ -15,12 +15,12 @@ exactly match events as they occurred.
 
 
 
-[//]: # (Again, this might be me not knowing better, but what is the "core system" and why is it not suitable for 
+[//]: #2 (Again, this might be me not knowing better, but what is the "core system" and why is it not suitable for 
 "general reporting"? I guess that could be added a little more detail in half a sentence or so)
 
 ![Data flow in the hospital](./images/Figure_1.png)
 
-[//]: # (If I were to polish this figure, I would probably aim to have the labels not run over arrows if possible. What 
+[//]: #3 (If I were to polish this figure, I would probably aim to have the labels not run over arrows if possible. What 
 is Chronicles, POC, SIP and HSL? Could that perhaps be added in the label? I notice that a clinician might know these 
 acronyms and some are mentioned in the text going forward, but I guess if the reader is already directed here it might
 help adding the information to the label?)
@@ -35,23 +35,23 @@ on the hospital systems. The resulting database can be used, for example, by a r
 of whether a patient presenting in ED is likely to be admitted to the main hospital, or by a technically inspired 
 clinician to create an up-to-date view of derived metrics of each patient in a given ward. 
 
-[//]: # (I'm not sure that I know what is meant by "logically modelled" and could benefit from a bit of additional info
+[//]: #4 (I'm not sure that I know what is meant by "logically modelled" and could benefit from a bit of additional info
 or rephrase here)
 
-[//]: # (This might be because I'm not a native speaker, but "individual researchers" made it sound that EMAP is 
+[//]: #5 (This might be because I'm not a native speaker, but "individual researchers" made it sound that EMAP is 
 something "nice to have" rather than something crucial to have, which might be fine. I guess if I wanted to stretch the 
 importance of the system, I'd lead with the stats on a ward for the clinician and then mention that this data is also 
 useful for research projects. The other way is leading with hospitals are set to transform and active research is 
 necessary to make data fit for purpose so that it can be used going forward to inform decision making)
 
-[//]: # (There might be a confusion in my mind, but I guess "slow queries" makes me wonder how slow "slow" is. The 
+[//]: #6 (There might be a confusion in my mind, but I guess "slow queries" makes me wonder how slow "slow" is. The 
 struggle I have -- and this might be rooted in a misunderstanding -- is that I thought that one benefit of EMAP was to
 have data available much faster and it somehow contracts the "slow queries". I appreciate that there is a difference
 between gathering and querying, but maybe there is a little more info that could be added here to clarify this?)
 
 ![EMAP pipeline](./images/Figure_2.png)
 
-[//]: # (Later on this document mentions that laptops symbolise code in this figure and for consistency I'd be tempted
+[//]: #7 (Later on this document mentions that laptops symbolise code in this figure and for consistency I'd be tempted
 to add it to the label here too. Somebody may think there is hardware and software here?)
 
 ## Pipeline
@@ -67,7 +67,7 @@ As more live message streams have been added, we have been able to identify and 
 out-of-order, duplicate or indeed missing messages. This step in the pipeline is facilitated by ATOS (hospital 
 IT contractor) with whom we have a good working relationship for resolving issues that arise. 
 
-[//]: # (What are "streams of messages" used for in the hospital, e.g. notify a clinician about something or do the 
+[//]: #8 (What are "streams of messages" used for in the hospital, e.g. notify a clinician about something or do the 
 messages have more details than that? When does a new stream become available and how will those be integrated into 
 EMAP? I guess I'm wondering about governance going forward: if I'm a researcher that needs a new stream, whom do I ask
 for that to be added; does that work automatically? How do these message streams relate to the information in the 
@@ -78,7 +78,7 @@ different queries against different databases as required. Since the instance an
 has been designed to abstract the processing of data, only requiring classes that define the database connections, 
 querying the database and converting that into a set of messages using our in-house interchange format. 
 
-[//]: # (How are these databases different from the "core system" and the EMAP database -- is that perhaps the 
+[//]: #9 (How are these databases different from the "core system" and the EMAP database -- is that perhaps the 
 historical clinical data? Why was it necessary to introduce an "in-house interchange format"? It's the first time 
 it's mentioned here and could benefit from a little more detail)
 
@@ -101,14 +101,14 @@ HL7 implementation semantics into use-specific fields, allowing the processing o
 ignorant of HL7. This standardisation step also allows the interchange format to be readily included in any code 
 involving data sources or destinations. 
 
-[//]: # (Still not quite clear as to why a separate format is needed. Couldn't all the data have been formatted as HL7?)
+[//]: #10 (Still not quite clear as to why a separate format is needed. Couldn't all the data have been formatted as HL7?)
  
 Messages, in the interchange format, are batched and sent to the appropriate queue managed by the RabbitMQ server. 
 Priority is given to messages originating with the live stream. Each queue has a maximum number of messages that are 
 allowed, and the services publishing to the queues implement an exponential backoff policy to limit the amount of disk 
 space used by the queues.  
 
-[//]: # (It might be good to add info that there's more detail on RabbitMQ to come; why is priority given to messages 
+[//]: #11 (It might be good to add info that there's more detail on RabbitMQ to come; why is priority given to messages 
 from live streams? Is there any instance where this might be a false assumption to make because of approval not yet 
 been through or something? thinking here about GP who gets e.g. blood results and while these results are flagged, a GP
 still goes manually through them before the result is given to you. Would it be helpful to add a short explanation for 
@@ -120,7 +120,7 @@ individually before data is added into the ‘star schema’ of the UDS (User Da
 We maintain two instances of the star schema with views created for the current active instance. This allows us to 
 update code, perform fixes and add additional feeds without requiring downtime and disruption to users.
 
-[//]: # (is this really instance of the schema as opposed to data stored in schema?)
+[//]: #12 (is this really instance of the schema as opposed to data stored in schema?)
 
 Data being added to the database must be checked to ensure that references to the same patient or the same hospital 
 visit are correctly recorded. Patients arriving at the hospital are allocated an MRN (medical record number) and in 
@@ -137,7 +137,7 @@ be merged. EMAP creates an audit table (not shown) to mirror each table that can
 information that has been updated or deleted is recorded. This facilitates distinguishing valid data from invalid data 
 (the star schema always contains the latest values), whilst providing an audit history for any changed information.
 
-[//]: # ("assigned to different MRNs" -- is this meant to be "two" instead of "to"? is two the upper limit or can there 
+[//]: #13 ("assigned to different MRNs" -- is this meant to be "two" instead of "to"? is two the upper limit or can there 
 be more than that? One thought that occurred at this point is, what happens when a new live stream is added that holds
 data that does not exist in UDS, does it time-wise backfill this information or is it only available from the time the 
 stream is added?)
@@ -147,7 +147,7 @@ This allows maintainers of the database to check progress and establish the time
 the pipeline or hospital infrastructure feeding it have suffered a period of outage. It also allows the HL7 Reader to 
 restart in the event of a crash or system failure, since it has persistent state.
 
-[//]: # (Depending on audience, I might be tempted to replace "feeding it" with something like "no messages available" 
+[//]: #14 (Depending on audience, I might be tempted to replace "feeding it" with something like "no messages available" 
 available or something)
 
 ## Star schema
@@ -160,7 +160,7 @@ requirements for EMAP included demographics and time 'aware' information which c
 OMOP standard without significant changes. OMOP is also not suited to live data. We concluded that we would need to 
 devise our own schema.
 
-[//]: # (I might have the wrong end of the stick, but "solution" in my mind is not the same as schema; the way it's 
+[//]: #15 (I might have the wrong end of the stick, but "solution" in my mind is not the same as schema; the way it's 
 phrased currently, I wonder whether someone would understand it to be the same though)
 
 Initially we looked at an entity-attribute-value approach for maximum flexibility. This did allow easy addition of 
@@ -170,7 +170,7 @@ was unnecessary, and thus we undertook a redesign that separated the data into c
 shown in Figure 3. This has proved popular with our users and feedback confirms it is faster and more intuitive than 
 the generic approach.
 
-[//]: # (is everyone in the audience of this document aware what an entity-attribute-value approach is? If not it might 
+[//]: #16 (is everyone in the audience of this document aware what an entity-attribute-value approach is? If not it might 
 be helpful to add a little explanation for it. Not sure whether that is best done as a figure or so. Similarly, can we
 expect that everyone reading this document knows what indexing is and joining, with reference to data that is?) 
 
@@ -179,7 +179,7 @@ expect that everyone reading this document knows what indexing is and joining, w
 The code written for the EMAP pipeline consists of a number of Java packages denoted by the laptop icon in Figure 2. 
 We have used the following technologies and frameworks.
 
-[//]: # (I personally would probably add a summary of what is all there first before going into detail of each. At the 
+[//]: #17 (I personally would probably add a summary of what is all there first before going into detail of each. At the 
 moment the transitions happen quite abruptly and I wonder whether someone less familiar with technology would take well
 to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
 now proceed to explain these technologies further.")
@@ -190,7 +190,7 @@ configuration also allows us to determine whether a message is processed “at l
 priority is that we capture all data and so the potential data loss of the “at most once” approach would not be 
 suitable.
 
-[//]: # (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
+[//]: #18 (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
 Couldn't I just make records as they appear in one long list? why would a message be processed more than once?)
 
 Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client, and flagging it. 
@@ -203,7 +203,7 @@ us, this handling of duplicate messages is needed not just to account for possib
 RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
 recovery.
 
-[//]: # (can we safely assume that every reader knows what a "client" is? "acked" I assume is acknowledged? In terms 
+[//]: #19 (can we safely assume that every reader knows what a "client" is? "acked" I assume is acknowledged? In terms 
 of ordering, I'd probably move this paragraph before the one before so that there is an explanation of how the hospital 
 system operates in itself and how EMAP complements it with RabbitMQ)
 
@@ -213,7 +213,7 @@ case. Since we know the general size of messages being sent we mitigated the use
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
 
-[//]: # (The above paragraph is slightly confusing to me, but this may be due to my limited of RabbitMQ. While RabbitMQ
+[//]: #20 (The above paragraph is slightly confusing to me, but this may be due to my limited of RabbitMQ. While RabbitMQ
 is running, it's generating back-ups of it active queues, that I follow. However, when it has a failure does it still 
 continue to record occurring message and backing them up -- I would have expected it to stop recording and therefore 
 incur a loss of messages that would have needed to be written to the queues while there was a failure.)
@@ -224,7 +224,7 @@ Hibernate provides the perfect partner for Spring with database interaction. Lom
 classes, reducing the amount of boilerplate code required to create getters, setters and equals methods, although we 
 did write our own bespoke annotation processor to generate audit classes for the database.
 
-[//]: # (do we expect that intended readers of this document know what data classes, boilerplate code, getters, setters,
+[//]: #21 (do we expect that intended readers of this document know what data classes, boilerplate code, getters, setters,
 equals methods, annotations and audit classes are?)
 
 We used PostgreSQL as it is a widely used relational database implementation which is a good match for the UDS. It 
@@ -233,7 +233,7 @@ fit for the IDS, since it is a stream database with no relationships. However, w
 could be supported via the hospital IT and contractors so it was deemed more pragmatic that both databases use 
 PostgreSQL initially.
 
-[//]: # (Do all the intended readers know what "relationships" in a database sense are? Some may equate this to foreign
+[//]: #22 (Do all the intended readers know what "relationships" in a database sense are? Some may equate this to foreign
 keys ... )
 
 Internally we use Glowroot, an Open source Java Application Performance Monitor that allows us to monitor the 
@@ -241,7 +241,7 @@ performance of the pipeline. It allows tracing slow requests, errors and transac
 monitoring of SQL capture and aggregation. Each microservice has a Glowroot instance attached, allowing precise 
 monitoring of each aspect individually.
 
-[//]: # (Microservice was not used before and I wonder it is easy to make the connection that these are the parts of 
+[//]: #23 (Microservice was not used before and I wonder it is easy to make the connection that these are the parts of 
 the pipeline. I guess I would aim for consistency and if this is a term that should be included already start 
 introducing it very early on and use it throughout the entire document)
 
@@ -249,7 +249,7 @@ We use Docker containers to build and deploy the services that constitute the pi
 development, as we can deploy containers based on different branches of code to test new features or debug specific 
 issues. 
 
-[//]: # (Do all intended readers know what "Docker containers" are and what is meant by "debugging issues"?)
+[//]: #24 (Do all intended readers know what "Docker containers" are and what is meant by "debugging issues"?)
 
 ## Testing and validating data
 
@@ -258,12 +258,12 @@ our code has low-level unit testing employing the JUnit testing framework. Code 
 which are set up to run both linting and the suite of unit tests as part of the continuous integration cycle. All code 
 is peer reviewed and must be approved by a non-author before it can be fully merged into the relevant code base. 
 
-[//]: # (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
+[//]: #25 (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
 
 As each element of our pipeline is written as a separate microservice, dummy input tests are also written for each 
 element to test that the output from each is as expected. 
 
-[//]: # (Do we expect that every reader knows what "dummy input tests" are?)
+[//]: #26 (Do we expect that every reader knows what "dummy input tests" are?)
 
 As part of our testing we also create a set of permutation tests of fake messages that allow us to test the pipeline 
 for the random receipt of messages.  It is not unknown for us to receive a cancel message before we receive the actual 
@@ -271,7 +271,7 @@ message from the live feed, and running all possible permutations of batches of 
 with defined final states in the database allows us to ensure that the service is robust to duplicate and out-of-order 
 messages.
 
-[//]: # (Reading this paragraph makes me think that instead of specific messages that are relevant to the information 
+[//]: #27 (Reading this paragraph makes me think that instead of specific messages that are relevant to the information 
 we are after, we're instead waiting for a specific sequence of messages. If this is the case, I personally would add
 this earlier on; then the notion of a queuing system would make also more sense)
 
@@ -284,7 +284,7 @@ prevent data in star, derived using only information provided by the live feed, 
 databases. These mis-matches can be made available to users, enabling them to determine which data is most suitable for 
 their particular purpose.
 
-[//]: # (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
+[//]: #28 (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
 the UDS that we are talking about here?)
 
 Besides automated testing and data comparison, we do manually check random entries in the star database with official 
@@ -298,7 +298,7 @@ The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7
 export to the IDS are turned on the amount of data will obviously increase. Current prognosis is that we have enough 
 space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
 
-[//]: # (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
+[//]: #29 (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
 record between IDS and UDS?)
 
 The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star schema and a number of 
@@ -306,7 +306,7 @@ development/test schemas used by the development team are not the only databases
 their own schemas. Ultimately the star schema will need to have priority in the space as more and more data is added 
 and options such as sharding will need to be considered.
 
-[//]: # (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential
+[//]: #30 (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential
 reader know what "sharding" is?)
 
 At present potential users must apply for access to any individual schema on UDS.  Schemas can be set up specifically 
