@@ -155,7 +155,7 @@ available or something)
  
 Most schemas for healthcare data are proprietary e.g. EPIC. Open source schemas tend to be for data transfer. We 
 nevertheless reviewed existing options. OpenEMR is a popular open source electronic health records and medical 
-practice management solution. However this standard is vast, and includes large amounts of data that are not of 
+practice management solution. However this uses a standard that is vast, and includes large amounts of data that are not of 
 interest for EMAP. The OMOP format provides an anonymous, fixed version of patient record data. However, the user 
 requirements for EMAP included demographics and time 'aware' information which could not be provided by using the 
 OMOP standard without significant changes. OMOP is also not suited to live data. We concluded that we would need to 
