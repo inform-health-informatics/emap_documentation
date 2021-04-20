@@ -145,7 +145,7 @@ stream is added?)
 
 Entries are also made in the star database to record the last message processed with the corresponding timestamp. 
 This allows maintainers of the database to check progress and establish the timeframe of missing data should any of 
-the pipeline or hospital infrastructure feeding it have suffered a period of outage. It also allows the HL7 Reader to 
+the pipeline or hospital infrastructure routing data to it have suffered a period of outage. It also allows the HL7 Reader to 
 restart in the event of a crash or system failure, since it has persistent state.
 
 [//]: #14 (Depending on audience, I might be tempted to replace "feeding it" with something like "no messages available" 
