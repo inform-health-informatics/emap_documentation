@@ -27,8 +27,7 @@ help adding the information to the label?)
 
 In order to provide live data suitable for research and clinical applications we have created EMAP, a pipeline that 
 includes both gathering data in real-time and retrieving historical data; functionality not mirrored by any other 
-accessible database within the Hospital Trust. The database is structured in a logically modelled fashion to allow easy 
-access. Data targeted by EMAP is data that has been specifically identified as useful to individual researchers 
+accessible database within the Hospital Trust. The database is structured in such a fashion to be intuitive, with table and columns names reflecting data type as well as keeping consistency with other databases where possible. Data targeted by EMAP is data that has been specifically identified as useful to individual researchers 
 requesting access. Providing these users with the relevant data outside of the hospital operational systems lowers the 
 load on these systems. As a non-operational database it allows provision for long, slow queries without risking impact 
 on the hospital systems. The resulting database can be used, for example, by a researcher creating a predictive model 
