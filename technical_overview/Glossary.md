@@ -11,7 +11,7 @@
 	Hospital database
 - Chronicles
 
-	Hospital database
+	The live data store of the running Epic application. Live chronicles is the data you interact with when using Epic. Shadow chronicles is a second copy (~1-5 seconds behind) which is used to generate reports. [Technically chronicles is the name of the application used to access this data, but the data itself is also referred to by the name.]
 - Clarity
 
 	Hospital database
@@ -21,6 +21,9 @@
 ## E
 
 - EMAP
+- EPIC
+
+	Epic systems is one of the largest providers of health information technology. Epic is a complete suite of application which can cater to all sections of the hospital and can be customised for a particular institute.
 
 ## F
 
