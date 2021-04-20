@@ -15,11 +15,13 @@
 - Clarity
 
 	Hospital database
+- CSN 
 
 ## D
 
 ## E
 
+- EAV Entity Attribute Value
 - EMAP
 - EPIC
 
@@ -31,23 +33,51 @@
 
 ## H
 
+- HL7
+- Hoover (in EMAP pipeline)
+
 - HSL Health Service Laboratories
 
 	HSL provides the biochemistry and mircobiology analysis for the hospital.
 
 ## I
 
+- IDS Immutable Data Store
+
+	This is the database that receives all live HL7 messages being sent by the Epic system. This database is never changed or deleted, and thus holds a record of all live HL7 messages sent since the point at which Epic was turned on.
+- Indexing
+
+	A database index allows a query to efficiently retrieve data from a database.  Indexes are related to specific tables and consist of one or more keys.
+
+	
+
 ## J
 
+- Join
+
+	A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+
+
+
 ## K
+
+- Key
+
+	Keys are used to establish and identify relationships between database tables and also to uniquely identify any record or row of data inside a table.
 
 ## L
 
 ## M
 
+- MRN
+
 ## N
 
 ## O
+
+- OMOP
+- OpenEMR
 
 ## P
 
@@ -58,6 +88,8 @@
 ## Q
 
 ## R
+
+- RabbitMQ
 
 ## S
 
