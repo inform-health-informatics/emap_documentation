@@ -101,6 +101,7 @@ ignorant of HL7. This standardisation step also allows the interchange format to
 involving data sources or destinations. 
 
 [//]: #10 (Still not quite clear as to why a separate format is needed. Couldn't all the data have been formatted as HL7?)
+[//]: SK hopefully addressed by my changes for #9
  
 Messages, in the interchange format, are batched and sent to the appropriate queue managed by the RabbitMQ server (see later for more details). 
  Each queue has a maximum number of messages that are 
@@ -120,6 +121,7 @@ We maintain two instances of the star schema with views created for the current 
 update code, perform fixes and add additional feeds without requiring downtime and disruption to users.
 
 [//]: #12 (is this really instance of the schema as opposed to data stored in schema?)
+[//]: SK not sure I understand the distinction (in the wrong job clearly !??
 
 Data being added to the database must be checked to ensure that references to the same patient or the same hospital 
 visit are correctly recorded. Patients arriving at the hospital are allocated an MRN (medical record number) and in 
@@ -140,6 +142,7 @@ information that has been updated or deleted is recorded. This facilitates disti
 be more than that? One thought that occurred at this point is, what happens when a new live stream is added that holds
 data that does not exist in UDS, does it time-wise backfill this information or is it only available from the time the 
 stream is added?)
+[//]: Hopefully I've already addressed this
 
 Entries are also made in the star database to record the last message processed with the corresponding timestamp. 
 This allows maintainers of the database to check progress and establish the timeframe of missing data should any of 
