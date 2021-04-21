@@ -5,7 +5,8 @@
 ## Introduction
 
 Data and metadata are an integral part of any hospital’s electronic information systems. In hospital systems data is 
-recorded in a variety of locations depending on the needs of the administrative and clinical staff.  Data can also come in many forms, it may be plain text, images and even on occasions pdfs. Metadata relates the concept being recorded to internal mapping or external ontology records. At UCLH, all data messages are recorded within the system but not in a systematic, formatted way that is easy to work with. Front end databases (Caboodle/Clarity in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. This creates databases that are tailored for hospital reporting. While this data can be used for research, 
+recorded in a variety of locations depending on the needs of the administrative and clinical staff.  Data can also come in many forms, it may be plain text, images and even on occasions pdfs. Metadata relates the concept being recorded to internal mapping or external ontology records. At UCLH, all data messages are recorded within the system but not in a systematic, formatted way that is easy to work with. Front end databases (Caboodle/Clarity in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. This creates databases that are tailored for hospital reporting. G
+While this data can be used for research, 
 the nightly consolidation process means that the databases are always behind what is currently happening and may not 
 exactly match events as they occurred. 
 
@@ -26,7 +27,7 @@ In order to provide live data suitable for research and clinical applications we
 includes both gathering data in real-time and retrieving historical data; functionality not mirrored by any other 
 accessible database within the Hospital Trust. The database is structured in such a fashion to be intuitive, with table and columns names reflecting data type as well as keeping consistency with other databases where possible. Data targeted by EMAP is data that has been specifically identified as useful to research groups 
 requesting access. Providing these users with the relevant data outside of the hospital operational systems lowers the 
-load on these systems. As a non-operational database it allows provision for long, slow queries without risking impact 
+load on these systems. As a non-operational database it allows provision for long, slow queries such as complex queries trawling years of data, without risking impact 
 on the hospital systems. The resulting database can be used, for example, by a researcher creating a predictive model 
 of whether a patient presenting in ED is likely to be admitted to the main hospital, or by a technically inspired 
 clinician to create an up-to-date view of derived metrics of each patient in a given ward. 
