@@ -2,6 +2,9 @@
 
 ## A
 
+- ATOS
+
+
 ## B
 
 ## C
@@ -22,7 +25,7 @@
 ## E
 
 - EAV Entity Attribute Value
-- EMAP
+- EMAP Experimental Medicine Application Platform
 - EPIC
 
 	Epic systems is one of the largest providers of health information technology. Epic is a complete suite of application which can cater to all sections of the hospital and can be customised for a particular institute.
