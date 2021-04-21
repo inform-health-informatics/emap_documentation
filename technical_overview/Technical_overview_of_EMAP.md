@@ -102,10 +102,10 @@ involving data sources or destinations.
 
 [//]: #10 (Still not quite clear as to why a separate format is needed. Couldn't all the data have been formatted as HL7?)
  
-Messages, in the interchange format, are batched and sent to the appropriate queue managed by the RabbitMQ server. 
-Priority is given to messages originating with the live stream. Each queue has a maximum number of messages that are 
+Messages, in the interchange format, are batched and sent to the appropriate queue managed by the RabbitMQ server (see later for more details). 
+ Each queue has a maximum number of messages that are 
 allowed, and the services publishing to the queues implement an exponential backoff policy to limit the amount of disk 
-space used by the queues.  
+space used by the queues. During normal operation of EMAP, the hoovers are triggered by the hospital nightly batch process to the databases. This heavily overloads the queue from the hoovers and so priority is given to messages originating with the live stream. This ensures that there is no delay on live data being received by EMAP, and the load from the hoover continues between live messages until the data being processed by the hoover is complete, which with normal flow of messages will happen by about 9am.
 
 [//]: #11 (It might be good to add info that there's more detail on RabbitMQ to come; why is priority given to messages 
 from live streams? Is there any instance where this might be a false assumption to make because of approval not yet 
