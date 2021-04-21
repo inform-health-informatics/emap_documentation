@@ -72,10 +72,10 @@ EMAP? I guess I'm wondering about governance going forward: if I'm a researcher 
 for that to be added; does that work automatically? How do these message streams relate to the information in the 
 Caboodle/Clarity databases?) 
 
-The Hoover code is written to allow incremental loading from any of the databases within the hospital system, running 
-different queries against different databases as required. Since the instance and type of database may vary, the service 
+The Hoover code is written to allow incremental loading from any of the static databases within the hospital system, running 
+different queries against different databases as required. This enables us to capture data that pre-dates the live message stream for a particular data item. Since the instance and type of database being queried by the hoover may vary, the service 
 has been designed to abstract the processing of data, only requiring classes that define the database connections, 
-querying the database and converting that into a set of messages using our in-house interchange format. 
+querying the database and converting that into a set of messages using our in-house interchange format. This interchange format is used for data parsed by both the hoover and HL7 Reader and allows subsequent parts of the pipeline to be consistent regardless of where the data originated (live stream/static database).
 
 [//]: #9 (How are these databases different from the "core system" and the EMAP database -- is that perhaps the 
 historical clinical data? Why was it necessary to introduce an "in-house interchange format"? It's the first time 
@@ -83,7 +83,7 @@ it's mentioned here and could benefit from a little more detail)
 
 Message types within the hospital go ‘live’ at different points depending on when that interface was configured to send 
 to EMAP. Thus, in order to provide access to all data for a particular feed, we also use the Hoover instances to 
-provide data that pre-dates the live status or complements these with types of data that are not yet live.   
+provide data that pre-dates the live status or complements these with types of data that are not yet live. For example, 'infection status' was added to the live message stream in early 2021. the hoover instance allows us to populate 'infection status' for all records in EMAP which dates from May 2019.
  
 The HL7 Reader processes the live messages as they appear in the IDS. HL7 (Health Level Seven) is a standard for 
 exchanging information between medical applications. An HL7 message consists of one or more segments. Each segment 
