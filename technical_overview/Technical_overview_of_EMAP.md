@@ -5,10 +5,7 @@
 ## Introduction
 
 Data and metadata are an integral part of any hospital’s electronic information systems. In hospital systems data is 
-recorded in a variety of locations depending on the needs of the administrative and clinical staff.  Data can also come in many forms, it may be plain text, images and even on occasions pdfs. Metadata relates the concept being recorded to internal mapping or external ontology records. The core system, 
-which records most data, is not suitable for general reporting and so secondary data sources are automatically created, 
-as bulk loads. In UCLH the data is consolidated during a nightly process of automated batch loads that creates multiple 
-databases (Caboodle/Clarity in Figure 1) tailored for hospital reporting. While this data can be used for research, 
+recorded in a variety of locations depending on the needs of the administrative and clinical staff.  Data can also come in many forms, it may be plain text, images and even on occasions pdfs. Metadata relates the concept being recorded to internal mapping or external ontology records. At UCLH, all data messages are recorded within the system but not in a systematic, formatted way that is easy to work with. Front end databases (Caboodle/Clarity in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. This creates databases that are tailored for hospital reporting. While this data can be used for research, 
 the nightly consolidation process means that the databases are always behind what is currently happening and may not 
 exactly match events as they occurred. 
 
