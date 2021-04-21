@@ -55,13 +55,13 @@ to add it to the label here too. Somebody may think there is hardware and softwa
 
 ## Pipeline
 
-Streams of messages within the hospital are published to the SIP (Strategic Integration Platform) which routes these to 
-one or more consumers. For the purposes of EMAP, a subset of messages from a subset of these streams are copied to a 
+Streams of messages recording details of every aspect of 'life' within the hospital are published to the SIP (Strategic Integration Platform) which routes these to 
+one or more consumers. These messages contain data ranging from patient name to lab results, medications and admission/discharge times. The SIP maintains a bi-directional interface to the Chronicles data store continually updating information within the hospital.For the purposes of EMAP, a subset of messages from a subset of these streams, i.e. messages sent using the HL7 format, are copied to a 
 dedicated PostgreSQL database that assigns a unique ID to each message and creates a copy of the message as-is in the 
 database as well as creating columns for common message data fields, e.g. PatientName. This database, the 'IDS' 
 (Immutable Data Store) in Figure 2, provides a backup of all live messages that have been transmitted to it from the 
 point when any given feed went live. This has proved invaluable to development of the pipeline and resulting database 
-as it provides an increasing set of test data with which to optimize the workflow and resulting database schema. 
+as it provides an increasing set of test data with which to optimize the workflow and resulting database schema. As researchers identify data needs they can request these be added to EMAP. We work closely with the Epic Team to design the format of new HL7 messages to best capture this information from existing interfaces or new input forms designed to capture the relevant data from the operational system.. 
 As more live message streams have been added, we have been able to identify and fix issues that may occur with 
 out-of-order, duplicate or indeed missing messages. This step in the pipeline is facilitated by ATOS (hospital 
 IT contractor) with whom we have a good working relationship for resolving issues that arise. 
