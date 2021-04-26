@@ -23,9 +23,12 @@ has finished, the patient is then sent back to the GP they talked to before and 
 decides what is best in the case of the patient, e.g. whether a plaster is appropriate because the bone is fractured or
 pain killers suffice as it was more of a shock than any damage taken to the physical structure of the patient. 
 
-From this examples, we see some important concepts emerge that are important for understanding what is happening in a 
-hospital at any one point in time: patients, GPs, nurses, diagnostic instruments and people being able to operate this 
-equipment, locations (e.g. wards or special units), time of admission and duration of a hospital stay, and 
-medication/treatment received while staying in the hospital. 
+It is important to note that this is a very simple example for illustration purposes and depending on the complications
+experienced by a patient, they might have to stay in the hospital for a period of time, being operated on to stabilise 
+their conditions or they might come back after having been released with potentially new conditions. 
 
+Nonetheless, we see some important concepts emerge from this simplistic example that are important for understanding 
+what data needs to be governed in a hospital at real-time: patients, GPs, nurses, diagnostic instruments and people 
+being able to operate this equipment, locations (e.g. wards or special units), time of admission and duration of a 
+hospital stay, number of hospital visit for a condition and medication/treatment received while staying in the hospital.
 Any data pipeline employed in a hospital setting must be able to handle these different concepts adequately. 
