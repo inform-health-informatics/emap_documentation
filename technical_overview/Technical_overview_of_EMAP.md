@@ -136,12 +136,8 @@ to the appropriate patient.
 
 The event processor receives messages in the interchange format from RabbitMQ. Each message is received and processed 
 individually before data is added into the ‘star schema’ of the UDS (User Data Store) (see Figure 3). We maintain two 
-instances of the star schema with views created for the current active instance. This allows us to update code, 
+instances of the star database (star_a & star_b) with views (star) created for the current active instance. This allows us to update code, 
 perform fixes and add additional feeds without requiring downtime and disruption to users.
-
-[//]: #12 (is this really instance of the schema as opposed to data stored in schema?)
-[//]: SK not sure I understand the distinction (in the wrong job clearly !??
-
 
 ![Schema for the EMAP ‘star’ database stored on the UDS](./images/Figure_3.png)
 
