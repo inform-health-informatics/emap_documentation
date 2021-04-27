@@ -40,7 +40,7 @@ clinician to create an up-to-date view of derived metrics of each patient in a g
 
 Figure 2 illustrates how the EMAP pipeline integrates with the previously existing technical infrastructure for 
 hospital data (as illustrated in Figure 1). It further highlights all individual components of the pipeline, which are 
-further explained in the following.
+further explained in the following. The components indicated by laptops in the figure represent the 'microservices' created to process and direct data within the pipeline.   
 
 It is important to note here that the EMAP pipeline aims to record all the full history of events and not just the 
 "status quo" at one point in time. This means that the resulting data store will not only show how many beds are 
@@ -174,13 +174,13 @@ confirms it is faster and more intuitive than the generic approach.
 
 ## Technologies used 
 
-The code written for the EMAP pipeline consists of a number of Java packages denoted by the laptop icon in Figure 2. 
-We have used the following technologies and frameworks.
+The EMAP pipeline infrastructure makes use of RabbitMQ scheduling, Java Spring and Hibernate frameworks, PostGres databases, Glowroot monitoring and Docker containers.Further details of the use of each framework follow below. Using these technologies we have created a number of microservices (Hoover, HL7Reader & EventProcessor indicated by laptops in Figure 2) which link together to form the data pipeline. 
 
 [//]: #17 (I personally would probably add a summary of what is all there first before going into detail of each. At the 
 moment the transitions happen quite abruptly and I wonder whether someone less familiar with technology would take well
 to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
 now proceed to explain these technologies further.")
+
 
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
