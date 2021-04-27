@@ -18,15 +18,17 @@
 - Clarity
 
 	Hospital database
-- CSN 
 
+- CRIU
+
+- CSN Contact Serial Number
 ## D
 
 ## E
 
 - EAV Entity Attribute Value
 
-- ED  ?  
+- ED  Emergency Department
 
 - EMAP Experimental Medicine Application Platform
 - EPIC
@@ -39,7 +41,11 @@
 
 ## H
 
-- HL7
+- HL7 Health Level 7
+
+	A standard for exchanging information between medical applications.
+
+	
 - Hoover (in EMAP pipeline)
 
 - HSL Health Service Laboratories
@@ -76,14 +82,18 @@
 
 ## M
 
-- MRN
+- MRN Medical Record Number
 
 ## N
 
 ## O
 
-- OMOP
+- OMOP Observational Medical Outcomes Partnership
+
+	A public-private partnership established to inform the appropriate use of observational healthcare databases for studying the effects of medical products.
 - OpenEMR
+
+	An open source electronic health records and medical practice management solution.
 
 ## P
 
@@ -102,19 +112,19 @@
 - SIP Strategic Integration Platform
 	
 	The SIP acts as a central controller for all electronic messaged being sent within the hospital. It routes messages from various sources (POC, HSL, Imaging) to be recorded in the appropriate databases. 
+- Star
+
+	The EMAP database that contains the processed data and can be queried by users.
 
 ## T
 
 ## U
 
-- UCLH
+- UCLH UCL Hospitals NHS Foundation Trust
 
-	UCL Hospitals NHS Foundation Trust
+- UDS User Data Store
 
-- UDS 
-	
-	User Data Store
-
+	This is the storage for the star database
 ## V
 
 ## W
