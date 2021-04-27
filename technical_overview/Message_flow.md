@@ -14,6 +14,8 @@ the format of data differs depending on where it originates from. To overcome th
 format has been defined to which all the data is transferred to in order to compare and align it. For further 
 information in the exchange format, please take a look [here](./Interchange_format.md). 
 
+As not everyone might be familiar with the nature of the data in a hospital setting, additional information on the 
+nature of the available data in a hospital can be found [here](./Background_information.md)
 
 ## Two different data flows
 To illustrate the process of how data is merged as part of the EMAP pipeline, we have split this section into two parts,
@@ -35,6 +37,7 @@ structure and text instead of being easily recallable for comparison. See the bo
 the EMAP HL7 reader.
 
 After the message has been written to the IDS, it is transformed into a flowsheet, the internal EMAP interchange format.
+In a flowsheet, 
 A single flowsheet or a batch of flowsheets is then added into a queue for further processing. 
 
 

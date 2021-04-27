@@ -31,4 +31,5 @@ Nonetheless, we see some important concepts emerge from this simplistic example 
 what data needs to be governed in a hospital at real-time: patients, GPs, nurses, diagnostic instruments and people 
 being able to operate this equipment, locations (e.g. wards or special units), time of admission and duration of a 
 hospital stay, number of hospital visit for a condition and medication/treatment received while staying in the hospital.
-Any data pipeline employed in a hospital setting must be able to handle these different concepts adequately. 
+Any data pipeline employed in a hospital setting must be able to handle these different concepts adequately.
+
