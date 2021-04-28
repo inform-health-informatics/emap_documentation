@@ -192,13 +192,11 @@ suitable.
 [//]: #18 (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
 Couldn't I just make records as they appear in one long list? why would a message be processed more than once?)
 
-Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client, and flagging it. 
-It isn't marked as delivered until it is ‘acked’ by the client application, which only happens when processing is 
-complete. Failing to receive an ack means that the message is resent, ensuring each message is received. In the event 
-of a failure between finishing processing and the ack being sent, the message would be sent again allowing for 
-redundancy in the presence of failures, which may cause duplicate processing. Using this configuration option required 
+Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client (the EventProcessor microservice receiving the message and applying to database), and flagging it. 
+It isn't marked as delivered or removed from the queue until it is ‘acked’, that is, the client returns a message back to RabbitMQ acknowledging that it has received and processed the message. In the event 
+of a failure at any point in processing or before the ack is sent, RabbitMQ resends the message. This ensures there is no loss of messages at this point in the pipeline but may cause duplicate processing. Using this configuration option required 
 investing time in making sure that such duplicate messages don't lead to duplicated data in the UDS. Conveniently for 
-us, this handling of duplicate messages is needed not just to account for possible failure scenarios within our own 
+us, this handling of duplicate messages is needed, not just to account for possible failure scenarios within our own 
 RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
 recovery.
 
@@ -206,8 +204,8 @@ recovery.
 of ordering, I'd probably move this paragraph before the one before so that there is an explanation of how the hospital 
 system operates in itself and how EMAP complements it with RabbitMQ)
 
-Our RabbitMQ is also configured to backup running queues to disk. This avoids data loss in the case of a RabbitMQ 
-failure. This does have some minor performance implications but these were deemed small enough to be negligible in our 
+Messages are sent to the RabbitMQ in batches. As it is also configured to backup running queues to disk, this avoids data loss in the case of a RabbitMQ 
+failure. The current batch is backed up, and following messages are still retained by the sending microservice. This does have some minor performance implications but these were deemed small enough to be negligible in our 
 case. Since we know the general size of messages being sent we mitigated the use of disk space by configuring length 
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
