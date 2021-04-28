@@ -181,6 +181,7 @@ moment the transitions happen quite abruptly and I wonder whether someone less f
 to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
 now proceed to explain these technologies further.")
 
+As mentioned above, the pipeline receives messages from the live HL7 stream and data from databases using the Hoover. Messages arrive in the databases in large dumps but EMAP priority is our live data. This means we make use of a queuing system that allows the live stream to have priority and processes messages from the Hoover in between processing live messages. 
 
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
