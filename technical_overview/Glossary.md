@@ -5,7 +5,16 @@
 - ATOS
 
 	Hospital IT Contractor
+
+- Audit classes
+
+	Code used to keep track of hospital data that been corrected/deleted to allow for a complete trail of changes in an item of data to be preserved.
 ## B
+
+- Boilerplate code
+
+	In computer programming, boilerplate code or just boilerplate are sections of code that are repeated in multiple places with little to no variation. 
+	
 
 ## C
 
@@ -38,6 +47,10 @@
 ## F
 
 ## G
+
+- getter
+
+	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to retrieve the 'name' piece of data. Opposite of setter. 
 
 ## H
 
@@ -108,6 +121,10 @@
 - RabbitMQ
 
 ## S
+
+- setter
+
+	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Opposite of getter.
 
 - SIP Strategic Integration Platform
 	
