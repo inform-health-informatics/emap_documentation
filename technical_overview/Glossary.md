@@ -28,10 +28,21 @@
 
 	Hospital database
 
+- Continuous integration
+
+	need info
 - CRIU
 
 - CSN Contact Serial Number
 ## D
+
+- Debug
+
+	add info
+
+- Docker container
+
+	add info
 
 ## E
 
@@ -93,6 +104,10 @@
 
 ## L
 
+- Linting
+
+	Need info
+
 ## M
 
 - MRN Medical Record Number
@@ -120,11 +135,17 @@
 
 - RabbitMQ
 
+- Relationships (database)
+
 ## S
 
 - setter
 
 	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Opposite of getter.
+
+- Sharding
+
+	need info
 
 - SIP Strategic Integration Platform
 	
@@ -142,6 +163,10 @@
 - UDS User Data Store
 
 	This is the storage for the star database
+
+- Unit tests
+
+	Need info
 ## V
 
 ## W
