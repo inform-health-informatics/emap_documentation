@@ -293,15 +293,15 @@ hospital records to verify that the data in star is an accurate representation o
 ## Storage and Access control 
 
 The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7 streams and other forms of live data 
-export to the IDS are turned on the amount of data will obviously increase. Current prognosis is that we have enough 
+export to the IDS are turned on the amount of data will obviously increase. Data in the IDS is persistent, allowing the star database to be recreated at any point if necessary. Current prognosis is that we have enough 
 space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
 
 [//]: #29 (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
 record between IDS and UDS?)
 
-The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star schema and a number of 
-development/test schemas used by the development team are not the only databases hosted on the UDS. Users can create 
-their own schemas. Ultimately the star schema will need to have priority in the space as more and more data is added 
+The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star database and a number of 
+development/test databases used by the development team are not the only databases hosted on the UDS. Users can create 
+their own databases with their own schemas. Ultimately the star database will need to have priority in the space as more and more data is added 
 and options such as sharding will need to be considered.
 
 [//]: #30 (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential
