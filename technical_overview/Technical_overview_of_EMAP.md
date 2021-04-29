@@ -283,6 +283,7 @@ their particular purpose.
 
 [//]: #28 (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
 the UDS that we are talking about here?)
+[//] SK: We are talking about data that is in star which is only a small bit of data stored by various people on the UDS
 
 Besides automated testing and data comparison, we do manually check random entries in the star database with official 
 hospital records to verify that the data in star is an accurate representation of the records.
