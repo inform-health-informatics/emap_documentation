@@ -257,7 +257,7 @@ is peer reviewed and must be approved by a non-author before it can be fully mer
 
 [//]: #25 (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
 
-As each element of our pipeline is written as a separate microservice, dummy input tests are also written for each 
+As each element of our pipeline is written as a separate microservice, dummy input tests, i.e. fake messages are also written for each 
 element to test that the output from each is as expected. 
 
 [//]: #26 (Do we expect that every reader knows what "dummy input tests" are?)
