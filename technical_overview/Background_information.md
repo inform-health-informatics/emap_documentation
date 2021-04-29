@@ -24,7 +24,7 @@ decides what is best in the case of the patient, e.g. whether a plaster is appro
 pain killers suffice as it was more of a shock than any damage taken to the physical structure of the patient. 
 
 It is important to note that this is a very simple example for illustration purposes and depending on the complications
-experienced by a patient, they might have to stay in the hospital for a period of time, being operated on to stabilise 
+experienced by a patient, they may be admitted into hospital for a period of time, being operated on to stabilise 
 their conditions or they might come back after having been released with potentially new conditions. 
 
 Nonetheless, we see some important concepts emerge from this simplistic example that are important for understanding 
