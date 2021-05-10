@@ -6,13 +6,14 @@
   
 	Hospital IT Contractor
 
-- Audit classes
+- <b>Audit classes</b>
 
-	Code used to keep track of hospital data that been corrected/deleted to allow for a complete trail of changes in an item of data to be preserved.
+	Code used to keep track of hospital data that has been corrected/deleted to allow for a complete trail of changes 
+    in an item of data to be preserved.
   
 ## B
 
-- Boilerplate code
+- <b>Boilerplate code</b>
 
 	In computer programming, boilerplate code or just boilerplate are sections of code that are repeated in multiple places with little to no variation. 
 	
@@ -36,17 +37,19 @@
 	Contact Serial Number, assigned to patients arriving in the hospital. Note though that not every patient is assigned
     a CSN. All the information relevant to a patient is available through the CSN or [MRN](#mrn) of a patient.
 
-- Continuous integration  
-	need info
-- CRIU
+- <b>Continuous integration</b>  
+	When working as a team of software developers, each developer works on their own copy of the code. However, with 
+    continuous integration, the several copies of code are merged several times a day.
+  
+- <b>CRIU</b>
 
 ## D
 
-- Debug
+- <b>Debug</b>
 
 	add info
 
-- Docker container
+- <b>Docker container</b>
 
 	add info
 
@@ -57,11 +60,9 @@
 	Entity Attribute Value is a representation whereby entities are described with attributes, and these attributes are
     then further described with values. For example, a patient could be the entity with an attribute age, which could 
     have the value 56. 
-- <b>ED</b>    
-
-- ED  
+- <b>ED</b>  
   
-	Emergency Department
+	Emergency Department of a hospital.
 - <a id="emap" style="pointer-events: none"><span style="color:black"><b>EMAP</b></span></a> 
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (see Caboodle and 
@@ -75,20 +76,13 @@
 
 ## G
 
-- getter
+- <b>getter </b>
 
-	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to retrieve the 'name' piece of data. Opposite of setter. 
+	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to 
+    retrieve the 'name' piece of data. Opposite of setter. 
 
 ## H
 
-- HL7 Health Level 7
-
-	A standard for exchanging information between medical applications.
-
-	
-- Hoover (in EMAP pipeline)
-
-- HSL Health Service Laboratories
 - <a id="hl7" style="pointer-events: none"><span style="color:black"><b>HL7</b></span></a>
 
 	Health Level 7 International is a set of standards for sharing, intergrating, and exchanging electronic healthcare 
@@ -133,9 +127,10 @@
 
 ## L
 
-- Linting
+- <b>Linting</b>
 
-	Need info
+	Automatic checking of source code for errors and style problems. While there are a lot of tests that can be 
+    automated, at the same time there are limitations to these automated checks.
 
 ## M
 
@@ -147,22 +142,17 @@
 ## N
 
 ## O
-
-- OMOP Observational Medical Outcomes Partnership
-
-	A public-private partnership established to inform the appropriate use of observational healthcare databases for studying the effects of medical products.
-- OpenEMR
-
-	An open source electronic health records and medical practice management solution.
-
+	
 - <b>OMOP</b>
   
-	[Observational Medical Outcomes Partnership](https://www.ohdsi.org/omop/) was a public-private partnership to inform
-    the appropriate use of healthcare databases. Is now superseeded by 
+	[Observational Medical Outcomes Partnership](https://www.ohdsi.org/omop/) was A public-private partnership 
+    established to inform the appropriate use of observational healthcare databases for studying the effects of medical 
+    products. Is now superseeded by 
     [Observational Health Data Science and Informatics](https://www.ohdsi.org/data-standardization/the-common-data-model/).
 - <b>OpenEMR</b>
 	
-	[OpenEMR](https://github.com/openemr/openemr) is an open source medical management software.
+	[OpenEMR](https://github.com/openemr/openemr) is an open source electronic health records and medical practice 
+    management solution.
 	
 ## P
 
@@ -185,11 +175,11 @@
 
 ## S
 
-- setter
+- <b>setter</b>
 
 	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Opposite of getter.
 
-- Sharding
+- <b>Sharding</b>
 
 	need info
 
@@ -222,9 +212,8 @@
 	[UCL Hospitals NHS Foundation Trust](https://www.uclh.nhs.uk/about-us/who-we-are) oversees a number of different 
     hospitals in London, providing acute and specialist care.
 
-	
-
-- Unit tests
+- <b>Unit tests</b>
+  
 - <a id="uds" style="pointer-events: none"><span style="color:black"><b>UDS</b></span></a>
 	
 	This is the storage space for the  [Star database](#star).
