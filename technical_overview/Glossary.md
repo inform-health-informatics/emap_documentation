@@ -42,16 +42,19 @@
     continuous integration, the several copies of code are merged several times a day.
   
 - <b>CRIU</b>
-
+  
+	not sure what that is ? checkpoint storage for safe return after crash?
 ## D
 
-- <b>Debug</b>
+- <b>Debugging</b>
 
-	add info
+	Is a process to go through source code in detail to understand intricate, possible unanticipated behaviour, e.g. 
+    when errors occur.
 
 - <b>Docker container</b>
 
-	add info
+	Uses OS virtualisation to provide platform as a service products. Each package of software available through Docker
+    is referred to as a container.
 
 ## E
 
@@ -181,7 +184,8 @@
 
 - <b>Sharding</b>
 
-	need info
+	Is a process of splitting a single database into smaller pieces, e.g. to spread load and therefore increase the 
+    response time of the database.
 
 - <a id="shadowchron" style="pointer-events: none"><span style="color:black"><b>Shadow chronicles</b></span></a> 
   
@@ -197,12 +201,8 @@
   
 - <a id="star" style="pointer-events: none"><span style="color:black"><b>Star</b></span></a>
 
-  The EMAP database that contains the processed data and can be queried by users.
+  The [EMAP database](#emap) that contains the processed data and can be queried by users.
 
-	Refers to a schema and library applied to the [UDS](#uds) through which the almost real-time data of the hospital is
-    available. The schema allows a consistent representation of the data from the different hospital databases and live
-    streams and enables comparison.
-  
 ## T
 
 ## U
@@ -213,10 +213,12 @@
     hospitals in London, providing acute and specialist care.
 
 - <b>Unit tests</b>
+	
+	A method by which units of source code are individually tested for errors and corrected if necessary.
   
 - <a id="uds" style="pointer-events: none"><span style="color:black"><b>UDS</b></span></a>
 	
-	This is the storage space for the  [Star database](#star).
+	This is the storage space for the [Star database](#star).
 
 ## V
 
