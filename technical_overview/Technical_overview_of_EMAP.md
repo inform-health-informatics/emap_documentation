@@ -40,7 +40,7 @@ clinician to create an up-to-date view of derived metrics of each patient in a g
 
 Figure 2 illustrates how the EMAP pipeline integrates with the previously existing technical infrastructure for 
 hospital data (as illustrated in Figure 1). It further highlights all individual components of the pipeline, which are 
-further explained in the following.
+further explained in the following. The components indicated by laptops in the figure represent the 'microservices' created to process and direct data within the pipeline.   
 
 It is important to note here that the EMAP pipeline aims to record all the full history of events and not just the 
 "status quo" at one point in time. This means that the resulting data store will not only show how many beds are 
@@ -136,12 +136,8 @@ to the appropriate patient.
 
 The event processor receives messages in the interchange format from RabbitMQ. Each message is received and processed 
 individually before data is added into the ‘star schema’ of the UDS (User Data Store) (see Figure 3). We maintain two 
-instances of the star schema with views created for the current active instance. This allows us to update code, 
+instances of the star database (star_a & star_b) with views (star) created for the current active instance. This allows us to update code, 
 perform fixes and add additional feeds without requiring downtime and disruption to users.
-
-[//]: #12 (is this really instance of the schema as opposed to data stored in schema?)
-[//]: SK not sure I understand the distinction (in the wrong job clearly !??
-
 
 ![Schema for the EMAP ‘star’ database stored on the UDS](./images/Figure_3.png)
 
@@ -178,13 +174,14 @@ confirms it is faster and more intuitive than the generic approach.
 
 ## Technologies used 
 
-The code written for the EMAP pipeline consists of a number of Java packages denoted by the laptop icon in Figure 2. 
-We have used the following technologies and frameworks.
+The EMAP pipeline infrastructure makes use of RabbitMQ scheduling, Java Spring and Hibernate frameworks, PostGres databases, Glowroot monitoring and Docker containers.Further details of the use of each framework follow below. Using these technologies we have created a number of microservices (Hoover, HL7Reader & EventProcessor indicated by laptops in Figure 2) which link together to form the data pipeline. 
 
 [//]: #17 (I personally would probably add a summary of what is all there first before going into detail of each. At the 
 moment the transitions happen quite abruptly and I wonder whether someone less familiar with technology would take well
 to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
 now proceed to explain these technologies further.")
+
+As mentioned above, the pipeline receives messages from the live HL7 stream and data from databases using the Hoover. Messages arrive in the databases in large dumps but EMAP priority is our live data. This means we make use of a queuing system that allows the live stream to have priority and processes messages from the Hoover in between processing live messages. It is also worth noting that whilst we might expect messages to arrive in the live feed in a sensible order (admit-transfer-discharge) experience has shown that this is not the case and the EMAP pipeline does considerable processing to reconcile out of order messages.
 
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
@@ -195,13 +192,11 @@ suitable.
 [//]: #18 (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
 Couldn't I just make records as they appear in one long list? why would a message be processed more than once?)
 
-Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client, and flagging it. 
-It isn't marked as delivered until it is ‘acked’ by the client application, which only happens when processing is 
-complete. Failing to receive an ack means that the message is resent, ensuring each message is received. In the event 
-of a failure between finishing processing and the ack being sent, the message would be sent again allowing for 
-redundancy in the presence of failures, which may cause duplicate processing. Using this configuration option required 
+Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client (the EventProcessor microservice receiving the message and applying to database), and flagging it. 
+It isn't marked as delivered or removed from the queue until it is ‘acked’, that is, the client returns a message back to RabbitMQ acknowledging that it has received and processed the message. In the event 
+of a failure at any point in processing or before the ack is sent, RabbitMQ resends the message. This ensures there is no loss of messages at this point in the pipeline but may cause duplicate processing. Using this configuration option required 
 investing time in making sure that such duplicate messages don't lead to duplicated data in the UDS. Conveniently for 
-us, this handling of duplicate messages is needed not just to account for possible failure scenarios within our own 
+us, this handling of duplicate messages is needed, not just to account for possible failure scenarios within our own 
 RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
 recovery.
 
@@ -209,8 +204,8 @@ recovery.
 of ordering, I'd probably move this paragraph before the one before so that there is an explanation of how the hospital 
 system operates in itself and how EMAP complements it with RabbitMQ)
 
-Our RabbitMQ is also configured to backup running queues to disk. This avoids data loss in the case of a RabbitMQ 
-failure. This does have some minor performance implications but these were deemed small enough to be negligible in our 
+Messages are sent to the RabbitMQ in batches. As it is also configured to backup running queues to disk, this avoids data loss in the case of a RabbitMQ 
+failure. The current batch is backed up, and following messages are still retained by the sending microservice. This does have some minor performance implications but these were deemed small enough to be negligible in our 
 case. Since we know the general size of messages being sent we mitigated the use of disk space by configuring length 
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
@@ -262,7 +257,7 @@ is peer reviewed and must be approved by a non-author before it can be fully mer
 
 [//]: #25 (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
 
-As each element of our pipeline is written as a separate microservice, dummy input tests are also written for each 
+As each element of our pipeline is written as a separate microservice, dummy input tests, i.e. fake messages are also written for each 
 element to test that the output from each is as expected. 
 
 [//]: #26 (Do we expect that every reader knows what "dummy input tests" are?)
@@ -288,6 +283,7 @@ their particular purpose.
 
 [//]: #28 (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
 the UDS that we are talking about here?)
+[//] SK: We are talking about data that is in star which is only a small bit of data stored by various people on the UDS
 
 Besides automated testing and data comparison, we do manually check random entries in the star database with official 
 hospital records to verify that the data in star is an accurate representation of the records.
@@ -297,15 +293,15 @@ hospital records to verify that the data in star is an accurate representation o
 ## Storage and Access control 
 
 The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7 streams and other forms of live data 
-export to the IDS are turned on the amount of data will obviously increase. Current prognosis is that we have enough 
+export to the IDS are turned on the amount of data will obviously increase. Data in the IDS is persistent, allowing the star database to be recreated at any point if necessary. Current prognosis is that we have enough 
 space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
 
 [//]: #29 (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
 record between IDS and UDS?)
 
-The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star schema and a number of 
-development/test schemas used by the development team are not the only databases hosted on the UDS. Users can create 
-their own schemas. Ultimately the star schema will need to have priority in the space as more and more data is added 
+The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star database and a number of 
+development/test databases used by the development team are not the only databases hosted on the UDS. Users can create 
+their own databases with their own schemas. Ultimately the star database will need to have priority in the space as more and more data is added 
 and options such as sharding will need to be considered.
 
 [//]: #30 (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential

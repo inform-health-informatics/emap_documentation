@@ -5,8 +5,17 @@
 - <b>ATOS</b>
   
 	Hospital IT Contractor
+
+- Audit classes
+
+	Code used to keep track of hospital data that been corrected/deleted to allow for a complete trail of changes in an item of data to be preserved.
   
 ## B
+
+- Boilerplate code
+
+	In computer programming, boilerplate code or just boilerplate are sections of code that are repeated in multiple places with little to no variation. 
+	
 
 ## C
 
@@ -26,8 +35,20 @@
 
 	Contact Serial Number, assigned to patients arriving in the hospital. Note though that not every patient is assigned
     a CSN. All the information relevant to a patient is available through the CSN or [MRN](#mrn) of a patient.
-  
+
+- Continuous integration  
+	need info
+- CRIU
+
 ## D
+
+- Debug
+
+	add info
+
+- Docker container
+
+	add info
 
 ## E
 
@@ -38,6 +59,9 @@
     have the value 56. 
 - <b>ED</b>    
 
+- ED  
+  
+	Emergency Department
 - <a id="emap" style="pointer-events: none"><span style="color:black"><b>EMAP</b></span></a> 
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (see Caboodle and 
@@ -51,8 +75,20 @@
 
 ## G
 
+- getter
+
+	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to retrieve the 'name' piece of data. Opposite of setter. 
+
 ## H
 
+- HL7 Health Level 7
+
+	A standard for exchanging information between medical applications.
+
+	
+- Hoover (in EMAP pipeline)
+
+- HSL Health Service Laboratories
 - <a id="hl7" style="pointer-events: none"><span style="color:black"><b>HL7</b></span></a>
 
 	Health Level 7 International is a set of standards for sharing, intergrating, and exchanging electronic healthcare 
@@ -97,6 +133,10 @@
 
 ## L
 
+- Linting
+
+	Need info
+
 ## M
 
 - <a id="mrn" style="pointer-events: none"><span style="color:black"><b>MRN</b></span></a>
@@ -107,6 +147,13 @@
 ## N
 
 ## O
+
+- OMOP Observational Medical Outcomes Partnership
+
+	A public-private partnership established to inform the appropriate use of observational healthcare databases for studying the effects of medical products.
+- OpenEMR
+
+	An open source electronic health records and medical practice management solution.
 
 - <b>OMOP</b>
   
@@ -134,7 +181,17 @@
     data from both the historic databases ([Caboodle](#caboodle) and [Clarity](#clarity)) and the 
     [HL7 message streams](#hl7) to propagate the data correctly chronicled to the [UDS](#uds).
   
+- Relationships (database)
+
 ## S
+
+- setter
+
+	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Opposite of getter.
+
+- Sharding
+
+	need info
 
 - <a id="shadowchron" style="pointer-events: none"><span style="color:black"><b>Shadow chronicles</b></span></a> 
   
@@ -150,6 +207,8 @@
   
 - <a id="star" style="pointer-events: none"><span style="color:black"><b>Star</b></span></a>
 
+  The EMAP database that contains the processed data and can be queried by users.
+
 	Refers to a schema and library applied to the [UDS](#uds) through which the almost real-time data of the hospital is
     available. The schema allows a consistent representation of the data from the different hospital databases and live
     streams and enables comparison.
@@ -163,9 +222,12 @@
 	[UCL Hospitals NHS Foundation Trust](https://www.uclh.nhs.uk/about-us/who-we-are) oversees a number of different 
     hospitals in London, providing acute and specialist care.
 
+	
+
+- Unit tests
 - <a id="uds" style="pointer-events: none"><span style="color:black"><b>UDS</b></span></a>
 	
-	The User Data Store is the database produced by the [EMAP pipeline](#emap), which follows the [Star schema](#star).
+	This is the storage space for the  [Star database](#star).
 
 ## V
 
