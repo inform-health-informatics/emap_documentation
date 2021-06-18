@@ -61,7 +61,7 @@ Each pubisher writes to a queue which is published to the core processor and sen
 
  
 
-As the EMAP pipeline is all run within a docker container we take the latest RabbitMQ management image from dockerhub and configure it as required. This involves setting ports, authentication and details such as maximum queue size and waiting times. As the RabbitMQ component sits in the middle of the pipeline it is necessary to spin up a version of RabbitMQ even if only testing part of the full pipeline. We configure to allow approximately 1 GB to be queued at any point to avoid loss of disk space when a large amount of messages are being processed. In general this is only likely to apply when we are starting off a run from scratch. The normal day to day running of EMAP should not encounter memory problems. 
+EMAP is run as a collection of docker containers, each providing a single service such as RabbitMQ. We take the latest RabbitMQ management image from dockerhub and configure it as required. This involves setting ports, authentication and details such as maximum queue size and waiting times. As the RabbitMQ component sits in the middle of the pipeline it is necessary to spin up a version of RabbitMQ even if only testing part of the full pipeline. We configure to 1M hl7 messages and 100K hoover messages to be queued at any point to avoid loss of disk space when a large amount of messages are being processed. In general this is only likely to apply when we are starting off a run from scratch. The normal day to day running of EMAP should not encounter memory problems. 
 
  
 
