@@ -76,14 +76,6 @@ Our code is written to facilitate creating and submitting batches of messages. M
 **There is something here about timestamps and updating progress that I'm not sure I understand possibly**
 
 
-### Progress 
-
- 
-
-We use a table in the database to keep of progress. When a batch is published we create an entry in the progress table that considers all the batch processed. When all acknowledgements have been successfully received we persist this data in the progress table with a last processed date reflecting the current time. We have two progress tables; one reflects the hl7 stream and only contains one entry which reflects the last updated message. The progress table for the hoover keeps entries for each type of data being processed. 
-
- 
-
 ### Filtering 
 
  
