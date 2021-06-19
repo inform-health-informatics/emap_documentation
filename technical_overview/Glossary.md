@@ -66,6 +66,11 @@
 - <b>ED</b>  
   
 	Emergency Department of a hospital.
+
+- <b>EHRS</b>
+
+	Definition
+	
 - <a id="emap" style="pointer-events: none"><span style="color:black"><b>EMAP</b></span></a> 
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (see Caboodle and 
