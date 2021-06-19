@@ -41,7 +41,7 @@ On occasion this process means that a message may be sent and received more than
 Our processing of messages into the database is written to handle this situation and remove duplicates. 
 This strategy does however ensure that we receive all messages. 
 Considering the trade-off between needing to catch duplicates and losing messages resulted in the deliberate decision to configure RabbitMQ in this way to ensure all messages are received. 
-This decision proved fortuitous as it transpires that we do receive duplicate messages as pat of our normal data flow and thus this processing step was needed. 
+This decision proved fortuitous as it transpires that we do receive duplicate messages as part of our normal data flow and thus this processing step was needed. 
 
  
 
@@ -69,11 +69,13 @@ EMAP is run as a collection of docker containers, each providing a single servic
 
  
 
-Our code is written to facilitate creating and submitting batches of messages. Messages are batched by data type until there are three batches ready to be sent to the publisher. Processing is then paused until one batch has been fully acknowledged by the RabbitMQ. Each message is paired with a unique id – unique within the whole RabbitMQ instance to allow precise tracking of messages. Messages are published individually to RabbitMQ.  As each message is published and acknowledged by RabbitMQ it is removed from the batch. This handled by the RabbitMQ callback which is used to determine whether a message has been acknowledged or not and to either remove or resend the message. A second callback  checks for whether a batch is empty and processing of a new batch can begin. 
+Our code is written to facilitate creating and submitting batches of messages. 
 
- 
+In the hoover code messages are batched by data type until there are three batches ready to be sent to the publisher. Each message is paired with a unique id – unique within the whole RabbitMQ instance to allow precise tracking of messages. Messages are published individually to RabbitMQ.  As each message is published and acknowledged by RabbitMQ it is removed from the batch. This handled by the RabbitMQ callback which is used to determine whether a message has been acknowledged or not and to either remove or resend the message. Processing in the hoover is then paused until one batch has been fully acknowledged by the RabbitMQ. A second callback  checks for whether a batch is empty and processing of a new batch can begin. 
 
-**There is something here about timestamps and updating progress that I'm not sure I understand possibly**
+The hl7processor sends only one batch containing a single message to the publisher. This ensures live messages are handled in the order in which they are received, allowing us to reproduce the stream of messages if necessary.
+
+All our applications use callbacks to write a progress update to the database. This allows us to restart from the exact moment should a failure occur.
 
 
 ### Filtering 
@@ -81,3 +83,4 @@ Our code is written to facilitate creating and submitting batches of messages. M
  
 
 The RabbitMQ can accept a message from the receiver that states that it could not process the message for some reason, usually it has missing information or is known that we cannot process it. At this point RabbitMQ does not resend the message.   
+**Roma and Stef disagree on this. Stef thinks we do send a NACK but Roma thinks we send an ACK which also avoids requeueing**
