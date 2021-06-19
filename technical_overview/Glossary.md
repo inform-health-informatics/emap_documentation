@@ -70,7 +70,7 @@
 - <b>EHRS</b>
 
 	Definition
-	
+
 - <a id="emap" style="pointer-events: none"><span style="color:black"><b>EMAP</b></span></a> 
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (see Caboodle and 
@@ -81,6 +81,10 @@
     applications which can cater to all sections of the hospital and can be customised for a particular institute.
 
 ## F
+
+-<b>Foreign Key</b>
+
+	Definition
 
 ## G
 
