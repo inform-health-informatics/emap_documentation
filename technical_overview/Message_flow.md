@@ -17,7 +17,7 @@ information in the exchange format, please take a look [here](./Interchange_form
 As not everyone might be familiar with the nature of the data in a hospital setting, additional information on the 
 nature of the available data in a hospital can be found [here](./Background_information.md)
 
-## Two different data flows
+## Different sources of data
 To illustrate the process of how data is merged as part of the EMAP pipeline, we have split this section into two parts,
 corresponding to historic data and data from messages streams as the both are handled through different parts of the 
 EMAP pipeline components before being merged.
