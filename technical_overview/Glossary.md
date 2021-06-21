@@ -22,28 +22,34 @@
 
 - <a id="caboodle" style="pointer-events: none"><span style="color:black"><b>Caboodle</b></span></a>
   
-	Database within the hospital, which is used for reporting purposes. Updated every 24 hours with the data available
-    through live streams. More recent than [Clarity](#clarity), another reporting database.
+	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
+    through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
+
 - <a id="Chronicles" style="pointer-events: none"><span style="color:black"><b>Chronicles</b></span></a>
   
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
-    using Epic. Backup data of the live data is available through [Shadow-Chronicles](#shadowchron).
+    using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
 - <a id="clarity" style="pointer-events: none"><span style="color:black"><b> Clarity </b></span></a>
   	
-	One of the databases accumulating hospital information for the purpose of reporting. Updated every 24 hours. Holds 
+	
+	Database used by [EPIC](#epic) the purpose of reporting. Updated every 24 hours. Holds 
     data that is otherwise not available through any of the other databases, e.g. [Caboodle](#caboodle).
 - <a id="csn" style="pointer-events: none"><span style="color:black"><b> CSN </b></span></a> 
 
-	Contact Serial Number, assigned to patients arriving in the hospital. Note though that not every patient is assigned
-    a CSN. All the information relevant to a patient is available through the CSN or [MRN](#mrn) of a patient.
+	The Contact Serial Number, assigned to a patient on arrival at the hospital, is related to a particular visit. Within [EPIC}(#epic) many interactons are related to the patient via the CSN. Note though that not every patient is assigned
+    a CSN. Information relevant to a patient is available through the CSN or [MRN](#mrn) of a patient.
 
-- <b>Continuous integration</b>  
-	When working as a team of software developers, each developer works on their own copy of the code. However, with 
-    continuous integration, the several copies of code are merged several times a day.
-  
+- <b>Continuous integration</b> 
+	
+	An automated test pipeline that runs test code utoatically when code is committed to a
+	repository.
+
 - <b>CRIU</b>
   
-	not sure what that is ? checkpoint storage for safe return after crash?
+	Clinical Research Informatics Unit.
+
+	A group within the Trust who work on trying to develop the research capability of the hospital.
+	
 ## D
 
 - <b>Debugging</b>
