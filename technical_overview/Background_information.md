@@ -20,13 +20,13 @@ treatment typically lies with a doctor. So for the patient with the painful ankl
 talking to a doctor, who may refer them for an X-ray to be taken on a very specific ward. So for that purpose the 
 patient is taken, either by medical staff or by making their own way to a different location in the hospital to take 
 the X-ray. Once that has finished, the patient is then sent back to the doctor they talked to before and based on the 
-image taken, the doctor decides what is best in the case of the patient, e.g. whether a plaster is appropriate because 
+image taken, the doctor decides how best the patient can eb aided, e.g. whether a plaster is appropriate because 
 the bone is fractured or pain killers suffice as it was more of a shock than any damage taken to the physical structure 
 of the patient. 
 
 It is important to note that this is a very simple example for illustration purposes and depending on the complications
 experienced by a patient, they may be admitted into hospital for a period of time, being operated on to stabilise 
-their conditions, or they might come back after having been released with potentially new conditions. 
+their conditions, or they might come back after having been released from hospital with potential new conditions. 
 
 Nonetheless, we see some important concepts emerge from this simplistic example that are important for understanding 
 what data needs to be governed in a hospital at real-time: 
@@ -34,10 +34,12 @@ what data needs to be governed in a hospital at real-time:
 * information about people in the hospital such as patients, doctors and nurses
 * key information about the patient, e.g. demographics (age, ethnicity, etc.), but also their past medical history, 
   medication they are regularly taking, allergies, advanced care decisions and so on
-* diagnostic instruments and people being able to operate this equipment
+* diagnostic instruments and the output thereof, such as laboratory information or imaging results
 * locations where either diagnostics or treatments are happening (e.g. wards, operation theatres or special units)
 * important time points on a patient journey, e.g. admission and duration of a hospital stay, number of hospital visit 
   for a condition and
-* medication/treatments administered to patients in the hospital
+* medication/treatments administered to patients while in the hospital
 
-Any data pipeline employed in a hospital setting must be able to handle these different concepts adequately.
+Any data pipeline employed in a hospital setting must be able to handle these different concepts adequately. In order to
+understand how the EMAP pipeline is handling these concepts, it is best to start reading the [technical overview of the
+pipeline](./Technical_overview_of_EMAP.md).
