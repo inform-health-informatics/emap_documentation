@@ -30,7 +30,7 @@
 	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
     through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
 
-- [**Chronicles**](#chronicles)
+- **Chronicles**
   
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
     using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
