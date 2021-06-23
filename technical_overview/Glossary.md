@@ -92,7 +92,7 @@
 
 ## F
 
--**Foreign Key**
+- **Foreign Key**
 
 	A foreign key is a column or group of columns in a [relational database](NEED LINK) table that provides a link between data in two tables. 
 	It acts as a cross-reference between tables because it references the [primary key](NEED LINK) of another table, thereby establishing a link between them.
