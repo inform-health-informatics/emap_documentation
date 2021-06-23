@@ -25,7 +25,7 @@
 
 ## C
 
-- <a id="caboodle" style="pointer-events: none; color:black">**Caboodle**</a>
+- [**Caboodle**](#caboodle)
   
 	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
     through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
