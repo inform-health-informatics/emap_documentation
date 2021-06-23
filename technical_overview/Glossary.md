@@ -81,7 +81,7 @@
 
 - <a id="ehrs">**EHRS**</a>
 
-	TODO: Definition
+	Electronic Health Record System
 
 - <a id="emap">**EMAP**</a>
   
@@ -122,7 +122,7 @@
 
 - <a id="hos_num">**Hospital number**</a>
 
-	TODO Definition. Also known as [MRN](#mrn).
+	A unique identifier for an individual within a hospital. Also known as [MRN](#mrn).
 
 - <a id="hsl">**HSL**</a>
 
@@ -172,6 +172,10 @@
     can be retrieved by either the MRN or [CSN](#csn).
 
 ## N
+
+-  <a id="nhs">**NHS**</a>
+
+	National Health Service
 
 - <a id="nhs_num">**NHS Number**</a>
 
@@ -251,11 +255,13 @@
 
 - <a id="tdl">**TDL**</a>
 
-	TODO
+	The Doctors Laboratory provide the biochemistry and microbiology analysis for the hospital.
+	Made up of a number of partners [HSL](#hsl) , [UCLH](#uclh) and the Royal Free London Trust.
+
 
 - <a id="trust">**Trust**</a>
   
-	TODO 
+	NHS trusts are public sector bodies established by parliamentary order by the secretary of state for health to provide healthcare services to the [NHS](#nhs).
 
 ## U
 
