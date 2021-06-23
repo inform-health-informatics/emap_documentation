@@ -25,12 +25,12 @@
 
 ## C
 
-- <a id="caboodle" style="pointer-events: none"><span style="color:black">**Caboodle**</span></a>
+- <a id="caboodle" style="pointer-events: none; color:black">**Caboodle**</a>
   
 	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
     through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
 
-- <a id="Chronicles" style="pointer-events: none"><span style="color:black">**Chronicles**</span></a>
+- [**Chronicles**](#chronicles)
   
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
     using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
