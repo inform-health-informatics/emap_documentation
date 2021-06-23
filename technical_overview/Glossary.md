@@ -5,7 +5,7 @@
 
 - <a id="a_e">**A & E**</a>
 
-	Accident and Emergency department in a hospital. Also know as [ED](NEED LINK)
+	Accident and Emergency department in a hospital. Also know as [ED](#ed)
 
 - <a id="atos">**ATOS**</a>
   
@@ -48,7 +48,7 @@
 
 - <a id="ci">**Continuous integration**</a> 
 	
-	An automated test pipeline that runs test code utoatically when code is committed to a
+	An automated test pipeline that runs test code automatically when code is committed to a
 	repository.
 
 - <a id="criu">**CRIU**</a>
@@ -77,7 +77,7 @@
 
 - <a id="ed">**ED**</a>  
   
-	Emergency Department of a hospital. Also known as [A & E](NEED LINK).
+	Emergency Department of a hospital. Also known as [A & E](#a_e).
 
 - <a id="ehrs">**EHRS**</a>
 
@@ -97,8 +97,8 @@
 
 - <a id="fk">**Foreign Key**</a>
 
-	A foreign key is a column or group of columns in a [relational database](NEED LINK) table that provides a link between data in two tables. 
-	It acts as a cross-reference between tables because it references the [primary key](NEED LINK) of another table, thereby establishing a link between them.
+	A foreign key is a column or group of columns in a [relational database](#db) table that provides a link between data in two tables. 
+	It acts as a cross-reference between tables because it references the [primary key](#pk) of another table, thereby establishing a link between them.
 
 ## G
 
@@ -122,12 +122,12 @@
 
 - <a id="hos_num">**Hospital number**</a>
 
-	TODO Definition. Also known as [MRN}(NEED LINK)]
+	TODO Definition. Also known as [MRN](#mrn).
 
 - <a id="hsl">**HSL**</a>
 
 	Health Service Laboratories provide the biochemistry and microbiology analysis for the hospital.
-	Made up of a number of partners [TDL](NEED LINK) , [UCLH](NEED LINK) and the Royal Free London Trust.
+	Made up of a number of partners [TDL](#tdl) , [UCLH](#uclh) and the Royal Free London Trust.
 
 ## I
 
@@ -168,7 +168,7 @@
 
 - <a id="mrn">**MRN**</a>
 
-	Medical Record Number assigned to a patient arriving in the hospital. Also referred to as [Hospital number](NEED LINK). These are the canonical internal representation of identity (as opposed to [NHS Number](NEED LINK) which is an external identifier). MRNs try to be mapped 1:1 to real people. This is practically difficult, so while a single person may have many MRNs over the course of their life, they should most of the time only have 1 active MRN within a given Trust. Much of the information relating to a patient
+	Medical Record Number assigned to a patient arriving in the hospital. Also referred to as [Hospital number](#hos_num). These are the canonical internal representation of identity (as opposed to [NHS Number](#nhs_num)) which is an external identifier). MRNs try to be mapped 1:1 to real people. This is practically difficult, so while a single person may have many MRNs over the course of their life, they should most of the time only have 1 active MRN within a given Trust. Much of the information relating to a patient
     can be retrieved by either the MRN or [CSN](#csn).
 
 ## N
@@ -203,7 +203,7 @@
 
 - <a id="pk">**Primary Key**</a>
 
-	A primary key is a special [relational database](NEED LINK) table column (or combination of columns) designated to uniquely identify each table record.
+	A primary key is a special [relational database](#db) table column (or combination of columns) designated to uniquely identify each table record.
 
 ## Q
 
@@ -218,13 +218,13 @@
 
 	A relational database is a collection of data items with pre-defined relationships between them. 
 	These items are organized as a set of tables with columns and rows.
-	Each row in a table could be marked with a unique identifier called a [primary key](NEED LINK), and rows among multiple tables can be made related using [foreign keys](NEED LINK).
+	Each row in a table could be marked with a unique identifier called a [primary key](#pk), and rows among multiple tables can be made related using [foreign keys](#fk).
 
 ## S
 
 - <a id="set">**setter**</a>
 
-	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Counterpart of [getter](NEED LINK).
+	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Counterpart of [getter](#get).
 
 - <a id="shard">**Sharding**</a>
 
