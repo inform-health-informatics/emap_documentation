@@ -34,7 +34,8 @@
   
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
     using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
-- <a id="clarity" style="pointer-events: none"><span style="color:black">**Clarity**</span></a>
+
+- <a id="clarity" style="pointer-events: none; color:black">**Clarity**</a>
   	
 	
 	Database used by [EPIC](#epic) the purpose of reporting. Updated every 24 hours. Holds 
