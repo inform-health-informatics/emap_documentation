@@ -2,6 +2,11 @@
 
 ## A
 
+
+- **A & E**
+
+	Accident and Emergency department in a hospital. Also know as [ED](NEED LINK)
+
 - **ATOS**
   
 	Hospital IT Contractor
@@ -58,7 +63,7 @@
 
 - **Docker container**
 
-	A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application.
+	A [Docker](https://www.docker.com/) container image is a lightweight, standalone, executable package of software that includes everything needed to run an application.
 
 ## E
 
@@ -69,16 +74,17 @@
     have the value 56. 
 - **ED**  
   
-	Emergency Department of a hospital.
+	Emergency Department of a hospital. Also known as [A & E](NEED LINK).
 
 - **EHRS**
 
-	Definition
+	TODO: Definition
 
 - <a id="emap" style="pointer-events: none"><span style="color:black">**EMAP**</span></a> 
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (including [Caboodle](caboodle) and 
     [Clarity](clarity)) and live data streams
+	
 - <a id="epic" style="pointer-events: none"><span style="color:black">**EPIC**</span></a>
 
 	Epic systems is one of the largest providers of health information technology. Epic is a complete suite of 
@@ -88,11 +94,12 @@
 
 -**Foreign Key**
 
-	Definition
+	A foreign key is a column or group of columns in a [relational database](NEED LINK) table that provides a link between data in two tables. 
+	It acts as a cross-reference between tables because it references the [primary key](NEED LINK) of another table, thereby establishing a link between them.
 
 ## G
 
-- **getter **
+- **getter**
 
 	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to 
     retrieve the 'name' piece of data. Counterpart of setter. 
@@ -107,19 +114,25 @@
   
 - **Hoover** 
 
-	Is the component of the [EMAP pipeline](#emap) that collects relevant data from both reporting databases 
+	Is the component of the [EMAP pipeline](#emap) that collects relevant data from reporting databases including 
     [Clarity](#clarity) and [Caboodle](#clarity).
+
+- **Hospital number**
+
+	TODO Definition. Also known as [MRN}(NEED LINK)]
 
 - <a id="hsl" style="pointer-events: none"><span style="color:black">**HSL**</span></a> 
   
 	Health Service Laboratories provide the biochemistry and microbiology analysis for the hospital.
+	Made up of a number of partners [TDL](NEED LINK) , [UCLH](NEED LINK) and the Royal Free London Trust.
 
 ## I
 
 - **IDS** 
   
-	Immutable Data Store is the database that receives all live [HL7](#hl7) messages being sent by the Epic system. This 
-    database is never changed or deleted, and thus holds a record of all live HL7 messages sent since the time point at 
+	Immutable Data Store is the database that receives all live [HL7](#hl7) messages being sent by the systems within the hospital
+	e.g. Epic, WinPath, CoPath, glucose monitors etc. This 
+    database is currently never deleted, and thus holds a record of all live HL7 messages sent since the time point at 
     which [Epic](#epic) was turned on.
   
 - **Indexing**
@@ -152,10 +165,14 @@
 
 - <a id="mrn" style="pointer-events: none"><span style="color:black">**MRN**</span></a>
 
-	Medical Record Number assigned to a patient arriving in the hospital. Much of the information relating to a patient
+	Medical Record Number assigned to a patient arriving in the hospital. Also referred to as [Hospital number](NEED LINK). These are the canonical internal representation of identity (as opposed to [NHS Number](NEED LINK) which is an external identifier). MRNs try to be mapped 1:1 to real people. This is practically difficult, so while a single person may have many MRNs over the course of their life, they should most of the time only have 1 active MRN within a given Trust. Much of the information relating to a patient
     can be retrieved by either the MRN or [CSN](#csn).
 
 ## N
+
+- **NHS Number**
+
+	Number assigned to each individual to provide a unique reference number t the inividual within the NHS. If you are born in the UK this number is assigned at birth.
 
 ## O
 	
@@ -165,6 +182,10 @@
     established to inform the appropriate use of observational healthcare databases for studying the effects of medical 
     products. Is now superseeded by 
     [Observational Health Data Science and Informatics](https://www.ohdsi.org/data-standardization/the-common-data-model/).
+
+- **openEHR**
+	[openEHR](https://www.openehr.org/) is the name of a technology for e-health, consisting of open specifications, clinical models and software that can be used to create standards, and build information and interoperability solutions for healthcare.
+
 - **OpenEMR**
 	
 	[OpenEMR](https://github.com/openemr/openemr) is an open source electronic health records and medical practice 
@@ -175,7 +196,11 @@
 - <a id="poc" style="pointer-events: none"><span style="color:black">**POC**</span></a> 
   
 	Point Of Care testing; these are tests that can done with results generated at bedside in situ. Examples include 
-    basic urin analysis and glucose level monitoring. 
+    basic urine analysis and glucose level monitoring. 
+
+- **Primary Key**
+
+	A primary key is a special [relational database](NEED LINK) table column (or combination of columns) designated to uniquely identify each table record.
 
 ## Q
 
@@ -183,17 +208,20 @@
 
 - **RabbitMQ**
 	
-	[RabbitMQ](https://www.rabbitmq.com/) is a message-brokering software used in the [EMAP pipeline](#emap) to record 
-    data from both the historic databases ([Caboodle](#caboodle) and [Clarity](#clarity)) and the 
-    [HL7 message streams](#hl7) to propagate the data correctly chronicled to the [UDS](#uds).
+	[RabbitMQ](https://www.rabbitmq.com/) is a message-brokering software used in the [EMAP pipeline](#emap) to buffer communications between the different services.
+	(See further documentation on use of RabbitMQ in EMAP(NEED LINK))
   
-- Relationships (database)
+- **Relational database**
+
+	A relational database is a collection of data items with pre-defined relationships between them. 
+	These items are organized as a set of tables with columns and rows.
+	Each row in a table could be marked with a unique identifier called a [primary key](NEED LINK), and rows among multiple tables can be made related using [foreign keys](NEED LINK).
 
 ## S
 
 - **setter**
 
-	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Opposite of getter.
+	Term used to refer to computer code used to set the value of data e.g. a function setName('my name') would be used to set the 'name' piece of data to the value 'my name'. Counterpart of [getter](NEED LINK).
 
 - **Sharding**
 
@@ -202,14 +230,14 @@
 
 - <a id="shadowchron" style="pointer-events: none"><span style="color:black">**Shadow chronicles**</span></a> 
   
-	Shadow chronicles is a second copy (~1-5 seconds behind) which is used to generate reports. Strictly speaking, 
+	Shadow chronicles is a copy (~1-5 seconds behind) which is used to generate reports. Strictly speaking, 
     chronicles is the name of the application used to access this data, but the data itself is also referred to by the 
     name.
   
 - <a id="sip" style="pointer-events: none"><span style="color:black">**SIP**</span></a> 
   
 	Strategic Integration Platform acts as a central controller for all electronic messages sent within the 
-    hospital. It routes messages from various sources ([POC](#poc), [HSL](#hsl), Imaging) to be recorded in the 
+    Trust. It routes messages from various sources ([POC](#poc), [HSL](#hsl), Imaging) to be recorded in the 
     appropriate databases.
   
 - <a id="star" style="pointer-events: none"><span style="color:black">**Star**</span></a>
@@ -217,6 +245,14 @@
   The [EMAP database](#emap) that contains the processed data and can be queried by users.
 
 ## T
+
+- **TDL**
+
+	TODO
+
+- **Trust**
+  
+	TODO 
 
 ## U
 
