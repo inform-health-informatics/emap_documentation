@@ -36,6 +36,5 @@ keeping track of everything.
       has been populated with end time
 - [ ] Let Aasiyah know about the completed validation and give her information on the changes and where to start 
       with the validation
-- [ ] Check validation report and give any feedback to aasiyah if there are any changes needed on her side, 
+- [ ] Check validation report and give any feedback to Aasiyah if there are any changes needed on her side, 
       iterate on getting the validation to match at least 99% (validation and emap code).
-
