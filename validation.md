@@ -23,7 +23,7 @@ source scripts/validation/run_validation.sh # may want to give custom start and 
 Suggested checklist for any pull requests for inform components, you can copy the text into your PR to help
 keeping track of everything.
 
-- [ ] From the UCLH data science desktop, a [validation run](#Setting off a validation run) has been set off
+- [ ] From the UCLH data science desktop, a [validation run](#setting-off-a-validation-run) has been set off
 - [ ] [load times](https://teams.microsoft.com/l/channel/19%3Ad3a19685d37241fdbfceb9d30303ea1b%40thread.tacv2/tab%3A%3A20f76f5b-b0d0-45ad-a0a8-3777aa82628d?groupId=03f64fac-1f4f-447c-8a74-6fe0054cf06a&tenantId=1faf88fe-a998-4c5b-93c9-210a11d9a5c2) 
       in NHS teams has been populated with the run information 
 - [ ] During the run, glowroot has been checked for any queries which are taking a substantial proportion of the
