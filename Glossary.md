@@ -90,7 +90,7 @@
 - <a id="emap">**EMAP**</a>
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (including [Caboodle](#caboodle) and 
-    [Clarity](#clarity)) and live data streams. See [Technical Overview](.\technical_overview\Technical_overview_of_EMAP.md)
+    [Clarity](#clarity)) and live data streams. See [Technical Overview](./technical_overview/Technical_overview_of_EMAP.md)
 	
 - <a id="epic">**EPIC**</a>
 
@@ -228,7 +228,7 @@
 - <a id="rabbit">**RabbitMQ**</a>
 	
 	[RabbitMQ](https://www.rabbitmq.com/) is a message-brokering software used in the [EMAP pipeline](#emap) to buffer communications between the different services.
-	(See further documentation on use of [RabbitMQ in EMAP](.\technical_overview\technologies_used\RabbitMQ.md))
+	(See further documentation on use of [RabbitMQ in EMAP](./technical_overview/technologies_used/RabbitMQ.md))
   
 - <a id="db">**Relational database**</a>
 
