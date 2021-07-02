@@ -1,40 +1,61 @@
-# Validation 
+# Validation
 
-When creating any substantial change to the EMAP processes, we should ensure that the changes produce the 
-expected final state in the star database. We have unit and integration tests during development but this allows 
-us to test that we understand the real data flows. 
+|                  |Internal          |External|
+|---               | :---:            | :---: |
+|**Communication** |Linting           | Validation % |
+|                  |Documentation     | Statistics page|
+|------------------|------------------|-----------------|
+|                  |Unit tests        | Validation % |
+|**Correctness**   |Integration tests | |
+|                  |Validation report | |
+|------------------|------------------|-----------------|
+|**Performance**   |Timing log        | |
 
-## Setting off a validation run
+---
+When creating any substantial change to the EMAP processes, we ensure that the changes produce the 
+expected final state in the star database. 
+We have unit and integration tests during development but we run an additional validation step that allows us to check
 
-- Using DbForge drop all tables and sequences from existing schema that you will use (e.g. `star_validation`),
-  the drop.sql file on the shared drive can be used for this :
-  `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\drop.sql`
-- On the GAE checkout up to date versions of all branches in the repository that uses the correct schema 
-  (e.g. star_validation is in `/gae/star-validation`). Use tmux or screen if you don't hate yourself.
-- in emap core directory run: 
+1. the data is not inferior to previous data
+2. we meet a predetermined metric, usually 99%, compliance with other existing sources of data  
 
-```shell script
-./emap-live.sh build # build all services
-source scripts/validation/run_validation.sh # may want to give custom start and end run time 
-```
+## Code validation
 
-## PR checklist
+Unit tests are written to confirm the correct functionality of individual functions within the code. 
+We also apply linting tests to check that code written conforms to particular standards involving naming conventions, whitespace used etc.
+We use a continuous integration platform (Circle CI) to ensure that any code pushed to the repository passes these tests.  
 
-Suggested checklist for any pull requests for inform components, you can copy the text into your PR to help
-keeping track of everything.
+## Integration tests
 
-- [ ] From the UCLH data science desktop, a [validation run](#setting-off-a-validation-run) has been set off
-- [ ] [load times](https://teams.microsoft.com/l/channel/19%3Ad3a19685d37241fdbfceb9d30303ea1b%40thread.tacv2/tab%3A%3A20f76f5b-b0d0-45ad-a0a8-3777aa82628d?groupId=03f64fac-1f4f-447c-8a74-6fe0054cf06a&tenantId=1faf88fe-a998-4c5b-93c9-210a11d9a5c2) 
-      in NHS teams has been populated with the run information 
-- [ ] During the run, glowroot has been checked for any queries which are taking a substantial proportion of the
-      total processing time. This can be useful to identify indexes that are required.
-- [ ] After the run, look for any unexpected errors in the `etl_per_message_logging table`, the error_search.sql file
-      on the shared drive can be used for this `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\error_search.sql`.
-      Create an issue if an unexpected exception is found and is not related to the changed you've made, otherwise
-      fix them!
-- [ ] After the run, [load times](https://teams.microsoft.com/l/channel/19%3Ad3a19685d37241fdbfceb9d30303ea1b%40thread.tacv2/tab%3A%3A20f76f5b-b0d0-45ad-a0a8-3777aa82628d?groupId=03f64fac-1f4f-447c-8a74-6fe0054cf06a&tenantId=1faf88fe-a998-4c5b-93c9-210a11d9a5c2) 
-      has been populated with end time
-- [ ] Let Aasiyah know about the completed validation and give her information on the changes and where to start 
-      with the validation
-- [ ] Check validation report and give any feedback to Aasiyah if there are any changes needed on her side, 
-      iterate on getting the validation to match at least 99% (validation and emap code).
+We write fake HL7 messages to allow the system to be tested as a pipeline. 
+These tests mimic the exact format of HL7 messages but with entirely synthetic data.
+We manually curate the expected results of these messages as they traverse the pipeline.
+
+Additionally the progress of every message is logged to allow the history of messages pertaining to an individul to be tracked and anomalies in the processing identified.
+
+## Validation of data
+
+### Validation schema
+
+We maintain a non-public instance of the star schema 'star_validation' which we use for running parts or all of the pipeline with the express purpose of producing data that we can use for validation purposes. 
+
+### Validation run
+
+Since validation run is designed for testing purposes it can be by giving a specified set of dates on which to run the hl7 processor and/or the Hoover.
+This means we can look at as little as a days worth of data, or more usually a week or month and in some cases may be a year depending on the feature we are explicitly looking to validate.
+
+Typically a validation run involves starting off the hl7 processor, processing all the data for the time period specified.
+Once the hl7 is processed the Hoover is started for the same time period. 
+Obviously in production both run concurrently, however as this is a test environment it is useful to have them running separately so that we can identify any particular point of failure.
+
+We record processing data for each run: start, end times, amount processed etc. as well as information on which code branches were used.
+The number of days worth of data processed per day of the time taken to complete the validation run is calculated.
+This allows us to monitor how long data is taking to process and provides data for comparison with code optimisations that we may undertake.
+
+### Data comparison ##
+
+We use Caboodle and Clarity as a reference data set.
+We have developed an R package that queries the star_validation database and either Caboodle/Clarity for particular data, compares the resulting data and produces reports that identify matching and non-matching data. 
+In some cases we apply a degree of tolerance, for example if a time comparison is within minutes, and have established a number of cases where data will not match (described in separate document).
+If data does not match we review and potentially correct code or investigate that data to establish a potentially acceptable difference.
+We aim to match data, with noted exceptions, to 99% accuracy or above.  
