@@ -12,17 +12,20 @@ There may be a mismatch on white space.
 For example, Clarity stores results on separate lines, whilst EMAP puts them on one line.
 
 Thus, to exactly match text it is necessary to adjust case and whitespace in the text messages.
+We also string replace text where necessary to get categorical variables to match, for example, sex 'I' in star maps to 'N' in caboodle.
 
 ## Timestamps
 
-Using Caboodle, it is possible to edit data without the LastUpdatedTime field associated with this ata being changed.
+Using Caboodle, it is possible to edit data without the LastUpdatedTime field associated with this data being changed.
 This presents an immediate problem, since the actual time the data was last updated is not recorded as the LastUpdatedTime, making matching impossible.
 
 ## Location information
 
-EMAP does not have mortuary information.
+EMAP has no non-census locations, for example, there is no mortuary information.
 The patient appears to be staying where they were previously admitted.
 Caboodle leaves a gap between visits when the patient is in the mortuary.
+
+Other missing non-census locations involve trips to imaging.
 
 Some EMAP locations don’t match with caboodle ones. These don’t show up in covid_staging.locations.
 
@@ -35,9 +38,11 @@ Caboodle and EMAP don’t agree on a when a patient is in a chemotherapy dischar
 Some HL7 messages are extremely delayed, and so don’t end up in EMAP at the time we expect.
 This can result in EMAP having an old MRN, while caboodle has the new one. The CSNs stay the same.
 
+---
+
 # Validation Exceptions
 
-1. We allow a time difference of less than 15 minutes to match.
+1. We allow a time difference of less than one hour to match.
 
 2. Exclude leave of absence, hotel, home, and ambulatory patients.
 

@@ -5,19 +5,12 @@
   `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\drop.sql`
 - On the GAE checkout up to date versions of all branches in the repository that uses the correct schema 
   (e.g. star_validation is in `/gae/star-validation`). Use tmux or screen if you don't hate yourself.
-- in emap core directory run: 
+- in emap core directory run:
 
-
-
-```
-shell script
+```shell script
 
 ./emap-live.sh build # build all services
 
-source 
-
-scripts/validation/run_validation.sh # may want to give custom start and end run time 
+source scripts/validation/run_validation.sh # may want to give custom start and end run time 
 
 ```
-
-

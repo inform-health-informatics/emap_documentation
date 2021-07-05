@@ -37,12 +37,12 @@ Additionally the progress of every message is logged to allow the history of mes
 
 ### Validation schema
 
-We maintain a non-public instance of the star schema 'star_validation' which we use for running parts or all of the pipeline with the express purpose of producing data that we can use for validation purposes. 
+We maintain a non-public instance of the star schema 'star_validation' which we use for running parts or all of the pipeline with the express purpose of producing data that we can use for validation purposes.
 
 ### Validation run
 
-Since validation run is designed for testing purposes it can be by giving a specified set of dates on which to run the hl7 processor and/or the Hoover.
-This means we can look at as little as a days worth of data, or more usually a week or month and in some cases may be a year depending on the feature we are explicitly looking to validate.
+Since a validation run is purely designed for testing purposes, we specify a time window to run the hl7 processor and/or the Hoover.
+This means we can look at a week, a month and in some cases years depending on the feature we are explicitly looking to validate.
 
 Typically a validation run involves starting off the hl7 processor, processing all the data for the time period specified.
 Once the hl7 is processed the Hoover is started for the same time period. 
@@ -50,9 +50,9 @@ Obviously in production both run concurrently, however as this is a test environ
 
 We record processing data for each run: start, end times, amount processed etc. as well as information on which code branches were used.
 The number of days worth of data processed per day of the time taken to complete the validation run is calculated.
-This allows us to monitor how long data is taking to process and provides data for comparison with code optimisations that we may undertake.
+This allows us to have a consistent measure of processing speed for the hl7 processor and provides data for comparison with code optimisations that we may undertake.
 
-### Data comparison ##
+### Data comparison
 
 We use Caboodle and Clarity as a reference data set.
 We have developed an R package that queries the star_validation database and either Caboodle/Clarity for particular data, compares the resulting data and produces reports that identify matching and non-matching data. 
