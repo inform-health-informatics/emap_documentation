@@ -35,6 +35,10 @@
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
     using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
 
+- <a id="ci">**Continuous Integration**</a>
+    
+	The practice of automating the integration of code changes from multiple contributors into a software project.
+
 - <a id="clarity">**Clarity**</a>
   	
 	
@@ -86,7 +90,7 @@
 - <a id="emap">**EMAP**</a>
   
 	Experimental Medicine Application Platform; collects data from several reporting databases (including [Caboodle](#caboodle) and 
-    [Clarity](#clarity)) and live data streams
+    [Clarity](#clarity)) and live data streams. See [Technical Overview](./technical_overview/Technical_overview_of_EMAP.md)
 	
 - <a id="epic">**EPIC**</a>
 
@@ -142,6 +146,10 @@
 
 	A database index allows a query to efficiently retrieve data from a database. Indexes are related to specific 
     tables and consist of one or more keys.
+
+- <a id="inttest">**Integration testing**</a>
+
+	Testing that different modules of software are working together.
 
 ## J
 
@@ -213,10 +221,14 @@
 
 ## R
 
+- <a id="r">**R**</a>
+
+	[R](https://www.r-project.org/) is a free software environment for statistical computing and graphics.
+
 - <a id="rabbit">**RabbitMQ**</a>
 	
 	[RabbitMQ](https://www.rabbitmq.com/) is a message-brokering software used in the [EMAP pipeline](#emap) to buffer communications between the different services.
-	(See further documentation on use of RabbitMQ in EMAP(NEED LINK))
+	(See further documentation on use of [RabbitMQ in EMAP](./technical_overview/technologies_used/RabbitMQ.md))
   
 - <a id="db">**Relational database**</a>
 
