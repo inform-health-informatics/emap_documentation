@@ -17,5 +17,6 @@ When we add data or fix issues we can change the instance pouinted to by star an
    5. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to develop. 
 
    6. Update the star redirect using script ...
-    7. Detail any changes in the ChangeLog.
+   
+   7. Detail any changes in the ChangeLog.
 
