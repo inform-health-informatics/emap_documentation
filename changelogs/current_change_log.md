@@ -1,60 +1,47 @@
-# Formatting ChangeLog
+# EMAP Release
 
-The text shown here should be copied into the ChangeLog document with the appropriate information added.
-It should also be copied to the Release Announcements document after appropriate information has been added, with the exception of the Repositories Version section.
+**Date: YYYY-MM-DD  Current non published changes**
 
----
-
-## EMAP Release
-
-**Date: YYYY-MM-DD**
-
-### Tables changed
+## Tables changed
 
 | Table           | Attributes added | Attributes removed |
 | :-              |:-                |:-                  |
-| hospital_visit  | new_att          |                    |
-| location        |                  | old_att            |
+| ***table_a***   | ***att1***       | ***att2***         |
 
-#### Explanation
 
-hospital_visit.new_att was added to ...
+### Explanation
 
-location.old_att was removed because ...
+***table_a.att1*** was added to ...
 
-### Additional tables
+***table_a.att2*** was removed because ...
 
-#### table_xyz
+## Additional tables
 
-- add image ?
-
-This captures information about ...
-
-#### another_new_table
+### table_xyz
 
 - add image ?
 
 This captures information about ...
 
-### Deprecated tables
+## Deprecated tables
 
-#### table_gone1
+### table_gone1
 
 This table is gone because ...
 
-### Changes/fixes
+## Changes/fixes
 
 Error resolved in birth datetime ...
 
-### Data sources
+## Data sources
 
-hospital_visit.new att comes from the live HL7 feed.
+***table_a.att1*** from the live HL7 feed.
 
 table_xyz coms from the SDE interface that is updated every 15 minutes.
 
 another_new_table comes from caboodle that is updated every 24 hours.
 
-### Repository Versions
+## Repository Versions
 
 | Repository            | Version |
 | :-                    | :-:     |
