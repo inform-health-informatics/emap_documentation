@@ -42,6 +42,10 @@ This captures information about ...
 
 This table is gone because ...
 
+### Changes/fixes
+
+Error resolved in birth datetime ...
+
 ### Data sources
 
 hospital_visit.new att comes from the live HL7 feed.
