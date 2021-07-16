@@ -48,7 +48,7 @@ hospital_visit.new att comes from the live HL7 feed.
 
 table_xyz coms from the SDE interface that is updated every 15 minutes.
 
-another_new_table comes from aboodle that is updated evry 24 hours.
+another_new_table comes from caboodle that is updated every 24 hours.
 
 ### Repository Versions
 
