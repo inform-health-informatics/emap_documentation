@@ -14,7 +14,7 @@ When we add data or fix issues we can change the instance pointed to by star and
 
    1. Validate the run when finished.
 
-   1. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to develop. 
+   1. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to main.
 
    1. Update the star redirect using script ...
 
