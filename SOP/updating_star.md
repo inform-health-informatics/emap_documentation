@@ -8,14 +8,14 @@ When we add data or fix issues we can change the instance pointed to by star and
 
    1. Delete all data in the instance to be repopulated using script ....
 
-   2. Taking note of which branches of each repository are being used.
+   1. Taking note of which branches of each repository are being used.
 
-   3. Start off a run into the empty db.
+   1. Start off a run into the empty db.
 
-   4. Validate the run when finished.
+   1. Validate the run when finished.
 
-   5. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to develop. 
+   1. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to develop. 
 
-   6. Update the star redirect using script ...
+   1. Update the star redirect using script ...
 
-   7. Detail any changes in the ChangeLog.
+   1. Detail any changes in the ChangeLog.
