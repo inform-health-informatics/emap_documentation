@@ -1,6 +1,6 @@
 # Updating public facing star instance
 
-We have two versions of the public facing star database, star_live_a and star_live_b.
+We have two versions of the public facing star database, star_a and star_b.
 Views are created so that users need only query star.
 When we add data or fix issues we can change the instance pointed to by star and thus avoid outages as the old version continues to run while the new version loads in data.
 
