@@ -19,4 +19,7 @@ Since we are not aiming for any sort of backwards compatibility this should not 
 The latest version of all repos will work together e.g. after **Update A & C** above A v2.2, B v2.0 and C v2.2 will work together.
 
 There should never be the case where non-compatible versions have the same number – which would happen if in the table above the Update to A & C incremented A to v2.2 and C to v2.1.
-A v 2.1 would not be compatible with C v 2.1. 
+A v2.1 would not be compatible with C v2.1.
+
+Moreover, a version of any codebase will always work with the largest version from all other code bases less than or equal to itself.
+So B v2.3 will work with A v2.2 & C v2.2 because these are the largest verions of A & C <= 2.3.
