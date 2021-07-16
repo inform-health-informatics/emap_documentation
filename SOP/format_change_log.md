@@ -1,7 +1,7 @@
 # Formatting ChangeLog
 
 The text shown here should be copied into the ChangeLog document with the appropriate information added.
-It should also be copied to the Release Announements document after appropriate information has been added, with thee exception of the Repositories Version scetion.
+It should also be copied to the Release Announcements document after appropriate information has been added, with the exception of the Repositories Version section.
 
 ---
 
