@@ -7,7 +7,7 @@ It should also be copied to the Release Announcements document after appropriate
 
 ## EMAP Release
 
-**Date: XX-XX-XXXX**
+**Date: YYYY-MM-DD**
 
 ### Tables changed
 
