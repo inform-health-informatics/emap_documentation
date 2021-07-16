@@ -1,13 +1,13 @@
 # Formatting ChangeLog
 
 The text shown here should be copied into the ChangeLog document with the appropriate information added.
-It should also be copied to the Release Announements document after appropriate information has been added, with thee exception of the Repositories Version scetion.
+It should also be copied to the Release Announcements document after appropriate information has been added, with the exception of the Repositories Version section.
 
 ---
 
 ## EMAP Release
 
-**Date: XX-XX-XXXX**
+**Date: YYYY-MM-DD**
 
 ### Tables changed
 
@@ -48,7 +48,7 @@ hospital_visit.new att comes from the live HL7 feed.
 
 table_xyz coms from the SDE interface that is updated every 15 minutes.
 
-another_new_table comes from aboodle that is updated evry 24 hours.
+another_new_table comes from caboodle that is updated every 24 hours.
 
 ### Repository Versions
 
