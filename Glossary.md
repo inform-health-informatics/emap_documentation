@@ -187,7 +187,7 @@
 
 - <a id="nhs_num">**NHS Number**</a>
 
-	Number assigned to each individual to provide a unique reference number t the inividual within the NHS. If you are born in the UK this number is assigned at birth.
+	Number assigned to each individual to provide a unique reference number to the individual within the NHS. If you are born in the UK this number is assigned at birth.
 
 ## O
 	
