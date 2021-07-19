@@ -9,7 +9,13 @@
 
 | Table           | Attributes added | Attributes removed |
 | :-              |:-                |:-                  |
-| ***visit_observation***   | ***att1***       | ***att2***         |
+| ***visit_observation_type***   | ***visit_observation_type_id***       | ***visit_observation_type***         |
+| ***visit_observation_type***   | ***source_observation_type***       | ***source_application***         |
+| ***visit_observation_type***   |  | ***creation_time*** |
+| ***visit_observation_type***   |  | ***description*** |
+| ***visit_observation_type***   |  | ***display_name*** |
+| ***visit_observation_type***   |  | ***name*** |
+| ***visit_observation_type***   |  | ***primary_data_type*** |
 
 ### Explanation
 
