@@ -5,8 +5,6 @@
 ---
 ## Tables changed
 
-====>>> SK Note: I couldnt see where this has changed
-
 | Table           | Attributes added | Attributes removed |
 | :-              |:-                |:-                  |
 | ***visit_observation_type***   | ***visit_observation_type_id***       | ***visit_observation_type***         |
@@ -23,15 +21,12 @@
 
 ***visit_observation_type.source_application*** was renamed to ***source_observation_type*** to be more explicit that it is storing the type of observation (e.g. `flowsheet`)
 
-=====>>> SK Note: I couldnt work out where location and flowsheet metadata is
-
+SK ===>> Why were attributes removed 
 ---
 
 ## Additional tables
 
 Infection is recorded in the condition_type, patient_condition and question tables.
-
-====>>> SK Note: I will start on a data dictionary for EMAP and then these could just be links
 
 ### condition_type
 
@@ -65,67 +60,18 @@ Infection is recorded in the condition_type, patient_condition and question tabl
 * hospital_visit_id
 * mrn_id
 
-### question
-
-**Attributes**
-
-* question_id
-* question
-
-Consult orders are recorded in the consultation_request, consultation_request_answer and consultation_type tables.
-
-### consultation_request
-
-**Attributes**
-
-* consultation_request_id
-* stored_from
-* valid_from
-* cancelled
-* closed_due_to_discharge
-* comments
-* consult_id
-* requested_date_time
-* status_change_time
-* consultation_type_id
-* hospital_visit_id
-
-### consultation_request_answer
-
-**Attributes**
-
-* consultation_request_question_id
-* stored_from
-* valid_from
-* answer
-* consultation_request_id
-* question_id
-
-### consultation_type
-
-**Attributes**
-
-* consultation_type_id
-* stored_from
-* valid_from
-* code
-* name
+SK ===>> Need to add visit_observation _type_audit table as new table
 
 ---
 
----
 
 ## Changes/fixes
-
-* Location metadata has been added
 
 * Flowsheet metadata has been added
 
 * Indexes have been added to lab sample question, lab recent orders and lab results
 
 * Birth datetime recorded by ADT messages has been corrected.
-
-* Consult orders have been added
 
 * Patient infections have been added
 
@@ -139,9 +85,7 @@ Consult orders are recorded in the consultation_request, consultation_request_an
 
 ## Data sources
 
-Infections come from ....
-
-Consult orders come from live HL7 feed.
+SK ===>> Infections come from ....
 
 ## Repository Versions
 
