@@ -13,9 +13,9 @@
 
 ### Explanation
 
-***table_a.att1*** was added to ...
+***visit_observation_type.visit_observation_type*** was renamed to ***visit_observation_type_id*** to maintain consistency in primary key names
 
-***table_a.att2*** was removed because ...
+***visit_observation_type.source_application*** was renamed to ***source_observation_type*** to be more explicit that it is storing the type of observation (e.g. `flowsheet`)
 
 =====>>> SK Note: I couldnt work out where location and flowsheet metadata is
 
