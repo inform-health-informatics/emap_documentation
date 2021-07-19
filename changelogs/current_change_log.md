@@ -107,12 +107,6 @@ Consult orders are recorded in the consultation_request, consultation_request_an
 
 ---
 
-## Deprecated tables
-
-### table_gone1
-
-This table is gone because ...
-
 ---
 
 ## Changes/fixes
