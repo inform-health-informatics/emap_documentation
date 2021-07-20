@@ -21,7 +21,6 @@
 
 ***visit_observation_type.source_application*** was renamed to ***source_observation_type*** to be more explicit that it is storing the type of observation (e.g. `flowsheet`)
 
-SK ===>> Why were attributes removed 
 ---
 
 ## Additional tables
