@@ -26,7 +26,7 @@ SK ===>> Why were attributes removed
 
 ## Additional tables
 
-Infection is recorded in the condition_type, patient_condition and question tables.
+Infection is recorded in the condition_type and patient_condition tables.
 
 ### condition_type
 
