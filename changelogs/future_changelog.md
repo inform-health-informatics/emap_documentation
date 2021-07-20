@@ -1,7 +1,7 @@
 
 ## Additional tables
 
-Consult orders are recorded in the consultation_request, consultation_request_answer and consultation_type tables.
+Consult orders are recorded in the consultation_request, consultation_request_answer (and question) and consultation_type tables.
 
 ### consultation_request
 
