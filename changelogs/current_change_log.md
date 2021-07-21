@@ -84,14 +84,14 @@ SK ===>> Need to add visit_observation _type_audit table as new table
 
 ## Data sources
 
-SK ===>> Infections come from ....
+Minimal infection data (with no internal ID) comes from hl7, these are overridden by the full extract from Clarity.
 
 ## Repository Versions
 
 | Repository            | Version |
 | :-                    | :-:     |
-|Hl7-processor          | 2.0     |
-|Emap_interchange       | 2.0     |
-|Emap-Core              | 2.0     |
-|Inform-DB              | 2.0     |
-|Hoover                 | 2.0     |
+|Hl7-processor          | 2.1     |
+|Emap_interchange       | 2.1     |
+|Emap-Core              | 2.1     |
+|Inform-DB              | 2.1     |
+|Hoover                 | 2.1     |
