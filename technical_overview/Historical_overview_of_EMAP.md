@@ -12,7 +12,7 @@ Recognising the value of having data in a research format, a number of ICU consu
 
 At this time (2018 - early 2019) the hospital had hundreds of systems and so the goal was to build a research database that took data from all of these systems.
 During the first year of the project a system was created that did an [ETL](../Glossary.md#E) of ICIP, the EHRS (Electronic Health Record System) for the ICU.
-Since the ETL happened every 15-minutes this allowed us to read ISIP and create a pipeline that powered a dashboard on top that was essentially real time.
+ICIP moved data to a reporting database that we could access every 15-minutes. This allowed us to create an ETL from the ICIP reporting database to create a pipeline that powered a dashboard on top that was essentially real time.
 
 ## and then came EPIC
 
