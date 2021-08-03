@@ -11,7 +11,7 @@ The UCL Research Software Development Group [(RSDG)](https://www.ucl.ac.uk/isd/s
 Recognising the value of having data in a research format, a number of ICU consultants acquired funding to develop a pipeline that would produce data in a format that would facilitate research and dashboards that could be accessed in real time and continued to collaborate with RSDG to accomplish this.
 
 At this time (2018 - early 2019) the hospital had hundreds of systems and so the goal was to build a research database that took data from all of these systems.
-During the first year of the project a system was created that did an [ETL](../Glossary.md#E) of ISIP, the EHRS (Electronic Health Record System) for the ICU.
+During the first year of the project a system was created that did an [ETL](../Glossary.md#E) of ICIP, the EHRS (Electronic Health Record System) for the ICU.
 Since the ETL happened every 15-minutes this allowed us to read ISIP and create a pipeline that powered a dashboard on top that was essentially real time.
 
 ## and then came EPIC
