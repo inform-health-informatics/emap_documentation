@@ -16,7 +16,7 @@ ICIP moved data to a reporting database that we could access every 15-minutes. T
 
 ## and then came EPIC
 
-In April 2019, many of the hospital systems were replaced by [EPIC](../Glossary.md##E), a centralised system that started to make the entry and storage of data more consistent and produced a small number of centralised databases to replace the large variety of inconsistent systems and databases being used within the Trust at that time.
+In April 2019, many of the hospital systems were replaced by [EPIC](../Glossary.md##E), a centralised system that combined their functions. This significantly reduced the number of databases and systems which were now involved in ongoing patient care (though for historical data the full gamut of systems is required).
 
 ISIP was turned off and the focus of the INFORM project moved to reading the [hl7 stream](../Glossary.md#H), the commnication format used by the EPIC infrastructure, and formatting the data into a standard database representation.
 Initially this focused on [OMOP](../Glossary.md##O) as this was an existing standard.
