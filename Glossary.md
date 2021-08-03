@@ -9,7 +9,7 @@
 
 - <a id="adt">**ADT**</a>
 
-	Admission, Discharge and Transport Data.
+	Admission, Discharge and Transfer Data.
  
 - <a id="atos">**ATOS**</a>
   
@@ -328,4 +328,3 @@
 ## Y
 
 ## Z
-
