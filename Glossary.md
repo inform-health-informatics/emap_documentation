@@ -153,7 +153,7 @@
 
 - <a id="icu">**ICU**</a> 
 
-	Intensive Care Unit, a specialist hospital ward that provide treatment and monitoring for people who are very ill.
+	Intensive Care Unit, a specialist hospital ward that provide treatment and monitoring for people who require life support. 
 
 
 - <a id="ids">**IDS**</a> 
