@@ -19,7 +19,7 @@ ICIP moved data to a reporting database that we could access every 15-minutes. T
 In April 2019, many of the hospital systems were replaced by [EPIC](../Glossary.md##E), a centralised system that combined their functions. This significantly reduced the number of databases and systems which were now involved in ongoing patient care (though for historical data the full gamut of systems is required).
 
 ICIP was one of the systems that was merged into EPIC, and as such it was turned off. At this point the focus of the INFORM project moved to reading the [hl7 stream](../Glossary.md#H), as Epic only wrote to its reporting databases overnight, which was not frequent enough for real-time dashboards.
-Initially this focused on [OMOP](../Glossary.md##O) as this was an existing standard.
+The initial EMAP development used the [OMOP](../Glossary.md##O) schema to store the data as this was an existing standard.
 However, we quickly realised that since OMOP is specifically non-live, anonymised data, it woud not serve the intended purpose.
 So we created our own schema emap star and a pipeline that would process live HL7 data into star and from there process the data into OMOP.
 
