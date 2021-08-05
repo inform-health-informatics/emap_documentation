@@ -27,7 +27,16 @@ The columns and their data types are detailed below.
 
   The system that produced the message from which this information was retrieved.
   
-  Possible values are 'Not in Message', 'EPIC', 'caboodle', 'ABL90 FLEX Plus', 'WinPath', 'CoPath', 'COPATHPLUS', 'BIO-CONNECT' or a blank entry.
+  Possible values are
+  'Not in Message',
+  'EPIC',
+  'caboodle',
+  'ABL90 FLEX Plus',
+  'WinPath',
+  'CoPath',
+  'COPATHPLUS',
+  'BIO-CONNECT'
+  or a blank entry.
 
 * stored_from
   * timestamp with timezone
@@ -50,6 +59,8 @@ When this is discovered the records are merged into a single record with one mrn
 
 * stored_from
   * timestamp with timezone
+
+  The exact time at which this data was recorded in star.
 
 * valid_from
   * timestamp with timezone
@@ -74,29 +85,53 @@ When this is discovered the records are merged into a single record with one mrn
 * stored_from
   * timestamp with timezone
 
+  The exact time at which this data was recorded in star.
+
 * valid_from
   * timestamp with timezone
 
+  The exact time at which the message recording this observation was sent.
+
 * comment
   * varchar (255)
+  
+  Text recording any omment that was noted with the observation.
 
 * observation_datetime
+
+  The exact time at which this observation was recorded.
 
 * unit
   * varchar (255)
 
+  The units associated with a numerical value for an observation.
+
 * value_as_date
+  * date
+
+  Value of the observation where the observation is recorded as a date.
 
 * value_as_real
+  * double precision
+
+  Value of the observation where the observaion is recorded as a numerical value.
 
 * value_as_text
   * varchar (255)
 
-* hospital_visit_id
+  Value of observation where the observaion is recorded as a text string.
+
+* hospital_visit_id - link in progress
   * varchar (255)
+  * Foreign Key
+
+  Identifier of the hospital visit assocated with ths observation.
 
 * [visit_observation_type_id](#vot_att)
   * varchar (255)
+  * Foreign Key
+
+  Identifier of the visit_observation_type for this visit_observation.
 
 ---
 
@@ -111,37 +146,93 @@ When this is discovered the records are merged into a single record with one mrn
 * stored_from
   * timestamp with timezone
 
+  The exact time at which this data was recorded in star.
+
 * valid_from
   * timestamp with timezone
+
+  The exact time at which the message recording this observation was sent.
 
 * creation_time
   * timestamp without timezone
 
+@Stef: Might this be the time when this v_o_t was created as a 'thing'
+
 * description
   * varchar (255)
+
+  A description of the observation type. It should be noted that in some cases this field has been used for comments about the observation type.
 
 * display_name
   * varchar (255)
 
+  A short humanly readable name for the observation type.
+
 * id_in_application
   * varchar (255)
+
+  The identifier used by the application retrun an on obsevation type for this particular instance of a type.
+  For example, caboodle uses id = 10 for a pulse oxygen observation type.
 
 * name
   * varchar (255)
 
+  A more medically focussed name for the observation type.
+  For example, name = 'R OB PIH VISUAL DISTURBANCE' corresponds to display_name = 'Visual Disturbance'.
+
 * primary_data_type
   * varchar (255)
+
+  The type of the data that this observation type records.
+
+  Possible values are:
+  'Dosing Parameter',
+  'MAR Action',
+  'String Type',
+  'Height',
+  'Blood Pressure',
+  'Networked',
+  'Custom List',
+  'Line/Drain/Airway Link',
+  'Dose',
+  'Category Type',
+  'Patient Height',
+  '*Unspecified',
+  'Rate',
+  'Time',
+  'Date',
+  'Numeric Type',
+  'Concentration',
+  'Patient Weight',
+  'Weight',
+  'Temperature',
+  'Image'
 
 * source_observation_type
   * varchar (255)
 
+@Stef not sure how to phrase this.
+
+  Possible values are:
+  'flowshee'
+
 * source_system
   * varchar (255)
+
+  The system from which the record was derived.
+
+  Possible values are:
+  'EPIC',
+  'caboodle'
 
 * standardised_code
   * varchar (255)
 
+  Not yet populated. We hope in future to link observation types to stand onotolgies.
+
 * standardised_vocabulary
   * varchar (255)
+
+  Not yet populated. We hope in future to link observation types to stand onotolgies.
 
 ---
