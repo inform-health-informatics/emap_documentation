@@ -7,6 +7,10 @@
 
 	Accident and Emergency department in a hospital. Also know as [ED](#ed)
 
+- <a id="adt">**ADT**</a>
+
+	Admission, Discharge and Transfer Data.
+ 
 - <a id="atos">**ATOS**</a>
   
 	Hospital IT Contractor
@@ -25,7 +29,7 @@
 
 ## C
 
-- <a id="caboodle">**Caboodle**</a><
+- <a id="caboodle">**Caboodle**</a>
   
 	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
     through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
@@ -97,7 +101,15 @@
 	Epic systems is one of the largest providers of health information technology. Epic is a complete suite of 
     applications which can cater to all sections of the hospital and can be customised for a particular institute.
 
+- <a id="etl">**ETL**</a>
+
+	ETL, which stands for extract, transform and load, is a data integration process that combines data from multiple data sources into a single, consistent data store that is loaded into a data warehouse or other target system.
+
 ## F
+
+- <a id="fk">**Flowsheets**</a>
+	
+	Flowsheets within hospital data refer to data taken as a measurements over a period of time.
 
 - <a id="fk">**Foreign Key**</a>
 
@@ -112,6 +124,10 @@
     retrieve the 'name' piece of data. Counterpart of setter. 
 
 ## H
+
+- <a id="hic">**HIC**</a>
+
+	Health Informatics Collaborative. The [NIHR](#nihr) HIC is a collaboration between NHS trusts, each of which has a strong relationship with a partner university. 
 
 - <a id="hl7">**HL7**</a>
 
@@ -134,6 +150,11 @@
 	Made up of a number of partners [TDL](#tdl) , [UCLH](#uclh) and the Royal Free London Trust.
 
 ## I
+
+- <a id="icu">**ICU**</a> 
+
+	Intensive Care Unit, a specialist hospital ward that provide treatment and monitoring for people who require life support. 
+
 
 - <a id="ids">**IDS**</a> 
   
@@ -187,7 +208,11 @@
 
 - <a id="nhs_num">**NHS Number**</a>
 
-	Number assigned to each individual to provide a unique reference number to the individual within the NHS. If you are born in the UK this number is assigned at birth.
+	Number assigned to each individual to provide a unique reference number to the inividual within the NHS. If you are born in the UK this number is assigned at birth.
+
+-  <a id="nihr">**NIHR**</a>
+
+	[National Insistute for Health Research](https://www.nihr.ac.uk/) funds, enables and delivers world-leading health and social care research that improves people's health and wellbeing and promotes economic growth.
 
 ## O
 	
@@ -235,6 +260,10 @@
 	A relational database is a collection of data items with pre-defined relationships between them. 
 	These items are organized as a set of tables with columns and rows.
 	Each row in a table could be marked with a unique identifier called a [primary key](#pk), and rows among multiple tables can be made related using [foreign keys](#fk).
+
+- <a id="db">**RSDG**</a>
+  
+	The UCL [Research Software Development Group](https://www.ucl.ac.uk/isd/services/research-it/research-software-development) are professional software developers with particular expertise in creating software for academic research.
 
 ## S
 
@@ -299,4 +328,3 @@
 ## Y
 
 ## Z
-
