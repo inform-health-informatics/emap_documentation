@@ -8,7 +8,7 @@ The UCL Research Software Development Group [(RSDG)](https://www.ucl.ac.uk/isd/s
 
 ## Starting INFORM
 
-Recognising the value of having data in a research format, a number of ICU consultants acquired funding to develop a pipeline that would produce data in a format that would facilitate research and dashboards that could be accessed in real time and continued to collaborate with RSDG to accomplish this.
+Recognising the value of having data in a research format, a number of ICU consultants and UCLH Digital Services acquired funding to develop a pipeline that would produce data in a format that would facilitate research and dashboards that could be accessed in real time and continued to collaborate with RSDG to accomplish this.
 
 At this time (2018 - early 2019) the hospital had hundreds of systems and so the goal was to build a research database that took data from all of these systems.
 During the first year of the project a system was created that did an [ETL](../Glossary.md#E) of ICIP, the EHRS (Electronic Health Record System) for the ICU.

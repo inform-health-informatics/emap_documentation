@@ -109,7 +109,7 @@
 
 - <a id="fk">**Flowsheets**</a>
 	
-	Flowsheets within hospital data refer to data taken as a result of a measurement, or record of an observation.
+	Flowsheets within hospital data refer to data taken as a measurements over a period of time.
 
 - <a id="fk">**Foreign Key**</a>
 
