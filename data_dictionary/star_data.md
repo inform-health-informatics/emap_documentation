@@ -117,7 +117,7 @@ When this is discovered the records are merged into a single record with one mrn
   Value of the observation where the observaion is recorded as a numerical value.
 
 * value_as_text
-  * varchar (255)
+  * text
 
   Value of observation where the observaion is recorded as a text string.
 
