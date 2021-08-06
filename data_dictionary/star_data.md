@@ -27,7 +27,7 @@ The columns and their data types are detailed below.
 
   The system that produced the message from which this information was retrieved.
   
-  Possible values are
+  Example possible values are
   'Not in Message',
   'EPIC',
   'caboodle',
@@ -123,7 +123,7 @@ When this is discovered the records are merged into a single record with one mrn
   Value of the observation where the observaion is recorded as a numerical value.
 
 * value_as_text
-  * varchar (255)
+  * text
 
   Value of observation where the observaion is recorded as a text string.
 
@@ -217,10 +217,10 @@ When this is discovered the records are merged into a single record with one mrn
 * source_observation_type
   * varchar (255)
 
-@Stef not sure how to phrase this.
+    The type of observation that has been made for a visit. Currently this is just flowsheets but allows use with other observation types. 
 
   Possible values are:
-  'flowshee'
+  'flowsheet'
 
 * source_system
   * varchar (255)
