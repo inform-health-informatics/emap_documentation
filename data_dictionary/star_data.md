@@ -214,7 +214,7 @@ When this is discovered the records are merged into a single record with one mrn
 @Stef not sure how to phrase this.
 
   Possible values are:
-  'flowshee'
+  'flowsheet'
 
 * source_system
   * varchar (255)
