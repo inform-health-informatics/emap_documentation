@@ -1,6 +1,12 @@
 # EMAP Release
 
-**Date: YYYY-MM-DD  Current non published changes**
+**Date: 2021-08-10  Changes in this release**
+
+---
+
+## Data Dictionary
+
+We have started to create a data dictionary with details of the star database. Preliminary version is available [here](../data_dictionary/star_data.md).
 
 ---
 ## Tables changed
@@ -59,10 +65,11 @@ Infection is recorded in the condition_type and patient_condition tables.
 * hospital_visit_id
 * mrn_id
 
-SK ===>> Need to add visit_observation _type_audit table as new table
+### visit_observation_type_audit
+
+An audit table to track changes in visit_observtion_type records has been included.
 
 ---
-
 
 ## Changes/fixes
 
@@ -86,6 +93,7 @@ SK ===>> Need to add visit_observation _type_audit table as new table
 
 Minimal infection data (with no internal ID) comes from hl7, these are overridden by the full extract from Clarity.
 
+<!-- for Internal record>
 ## Repository Versions
 
 | Repository            | Version |
@@ -95,3 +103,4 @@ Minimal infection data (with no internal ID) comes from hl7, these are overridde
 |Emap-Core              | 2.1     |
 |Inform-DB              | 2.1     |
 |Hoover                 | 2.1     |
+-->
