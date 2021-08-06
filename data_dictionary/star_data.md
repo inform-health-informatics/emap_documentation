@@ -211,7 +211,7 @@ When this is discovered the records are merged into a single record with one mrn
 * source_observation_type
   * varchar (255)
 
-@Stef not sure how to phrase this.
+    The type of observation that has been made for a visit. Currently this is just flowsheets but allows use with other observation types. 
 
   Possible values are:
   'flowsheet'
