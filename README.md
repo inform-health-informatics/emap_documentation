@@ -28,7 +28,7 @@ This is a work in progress.
 ### Technical Overview
 
 * [Historical overview of EMAP development](technical_overview/Historical_overview_of_EMAP.md)
-* [Technical ovrview of current EMAP](technical_overview/Technical_overview_of_EMAP.md)
+* [Technical overview of current EMAP](technical_overview/Technical_overview_of_EMAP.md)
 
     Technologies used in more detail
     
