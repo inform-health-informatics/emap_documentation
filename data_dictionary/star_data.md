@@ -27,7 +27,7 @@ The columns and their data types are detailed below.
 
   The system that produced the message from which this information was retrieved.
   
-  Possible values are
+  Example possible values are
   'Not in Message',
   'EPIC',
   'caboodle',
