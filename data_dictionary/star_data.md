@@ -65,16 +65,22 @@ When this is discovered the records are merged into a single record with one mrn
 * valid_from
   * timestamp with timezone
 
+  The exact time at which the message recording this observation was sent.
+
 * live_mrn_id
   * varchar (255)
 
+  Orignal MRN from data source.
+
 * [mrn_id](#mrn_att)
   * varchar (255)
+  * Foreign Key
+
+  Identifier for this live_mrn_id in mrn table.
 
 ---
 
 ## visit_observation
-
 
 * <a id="vo_att">visit_observation_id</a>
   * bigint
@@ -95,7 +101,7 @@ When this is discovered the records are merged into a single record with one mrn
 * comment
   * varchar (255)
   
-  Text recording any omment that was noted with the observation.
+  Text recording any comment that was noted with the observation.
 
 * observation_datetime
 
@@ -156,7 +162,7 @@ When this is discovered the records are merged into a single record with one mrn
 * creation_time
   * timestamp without timezone
 
-@Stef: Might this be the time when this v_o_t was created as a 'thing'
+   The exact time at which this visit_observation_type was created in a source system.
 
 * description
   * varchar (255)
@@ -185,7 +191,7 @@ When this is discovered the records are merged into a single record with one mrn
 
   The type of the data that this observation type records.
 
-  Possible values are:
+  As of August 2021 possible values are:
   'Dosing Parameter',
   'MAR Action',
   'String Type',
