@@ -18,7 +18,7 @@ We have started to create a data dictionary with details of the star database. P
 | ***visit_observation_type***   | ***creation_time*** |  |
 | ***visit_observation_type***   | ***description*** |  |
 | ***visit_observation_type***   | ***display_name*** |  |
-| ***visit_observation_type***   | ***name*** | *** name_in_application*** |
+| ***visit_observation_type***   | ***name*** | ***name_in_application*** |
 
 ### Explanation
 
@@ -26,7 +26,7 @@ We have started to create a data dictionary with details of the star database. P
 
 ***visit_observation_type.source_application*** was renamed to ***source_observation_type*** to be more explicit that it is storing the type of observation (e.g. `flowsheet`)
 
-*** visit_observation_type.name_in_application *** was renamed to ***name*** 
+***visit_observation_type.name_in_application*** was renamed to ***name*** 
 
 ---
 
