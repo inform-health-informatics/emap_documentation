@@ -3,7 +3,7 @@
 
 ## mrn
 
-The mrn table stores the unique hospital identifier and NHS numer for a patient, recording the system from which the information was derived and the date from which star stored the data.
+The mrn table stores the unique hospital identifier and NHS number for a patient, recording the system from which the information was derived and the date from which star stored the data.
 The columns and their data types are detailed below.
 
 * <a id="mrn_att">mrn_id</a>

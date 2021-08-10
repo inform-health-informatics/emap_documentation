@@ -18,14 +18,15 @@ We have started to create a data dictionary with details of the star database. P
 | ***visit_observation_type***   | ***creation_time*** |  |
 | ***visit_observation_type***   | ***description*** |  |
 | ***visit_observation_type***   | ***display_name*** |  |
-| ***visit_observation_type***   | ***name*** |  |
-| ***visit_observation_type***   | ***primary_data_type*** |  |
+| ***visit_observation_type***   | ***name*** | *** name_in_application*** |
 
 ### Explanation
 
 ***visit_observation_type.visit_observation_type*** was renamed to ***visit_observation_type_id*** to maintain consistency in primary key names
 
 ***visit_observation_type.source_application*** was renamed to ***source_observation_type*** to be more explicit that it is storing the type of observation (e.g. `flowsheet`)
+
+*** visit_observation_type.name_in_application *** was renamed to ***name*** 
 
 ---
 
@@ -73,19 +74,15 @@ An audit table to track changes in visit_observtion_type records has been includ
 
 ## Changes/fixes
 
-* Flowsheet metadata has been added
+* Flowsheet metadata has been added 🆕
 
-* Indexes have been added to lab sample question, lab recent orders and lab results
+* Indexes have been added to lab sample question, lab orders and lab results
 
 * Birth datetime recorded by ADT messages has been corrected.
 
-* Patient infections have been added
+* Patient infections have been added 🆕
 
 * Copath multiple collection methods have been incoporated
-
-* Bank Manager Profiles are being processed as labs
-
-* WinPath specimen order numbers have been corrected
 
 ---
 

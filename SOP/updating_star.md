@@ -1,12 +1,13 @@
 # Updating public facing star instance
 
-We have two versions of the public facing star database, star_a and star_b.
-Views are created so that users need only query star.
-When we add data or fix issues we can change the instance pointed to by star and thus avoid outages as the old version continues to run while the new version loads in data.
+We have two versions of the public facing star database, `star_a` and `star_b`.
+Views are created so that users need only query `star`.
+When we add data or fix issues we can change the instance pointed to by `star` and thus avoid outages as the old version continues to run while the new version loads in data.
 
 ## Procedure
 
-   1. Delete all data in the instance to be repopulated using script ....
+   1. Delete all data in the instance to be repopulated using script 
+      `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\drop.sql`
 
    1. Taking note of which branches of each repository are being used.
 
@@ -16,6 +17,6 @@ When we add data or fix issues we can change the instance pointed to by star and
 
    1. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to main.
 
-   1. Update the star redirect using script ...
+   1. Update the star redirect using function in UDS , e.g. `SELECT star.make_views('star_a', 'star');`
 
    1. Detail any changes in the ChangeLog.
