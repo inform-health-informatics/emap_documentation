@@ -82,7 +82,7 @@ An audit table to track changes in visit_observtion_type records has been includ
 
 * Patient infections have been added 🆕
 
-* Copath multiple collection methods have been incoporated
+* Copath multiple collection methods have been incorporated
 
 ---
 
