@@ -37,7 +37,7 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 
 **Attributes**
 
-* consultation_request_question_id
+* request_answer_id
 * stored_from
 * valid_from
 * answer
