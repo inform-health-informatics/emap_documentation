@@ -41,7 +41,8 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 * stored_from
 * valid_from
 * answer
-* consultation_request_id
+* parent_id
+* parent_table
 * question_id
 
 ### consultation_type
