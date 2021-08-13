@@ -33,7 +33,7 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 * consultation_type_id
 * hospital_visit_id
 
-### consultation_request_answer
+### request_answer
 
 **Attributes**
 
