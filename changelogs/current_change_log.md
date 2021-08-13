@@ -57,7 +57,9 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 
 ### Deprecated tables
 
-#### table_gone1
+#### lab_sample_question
+
+#### lab_sample_question_audit
 
 
 ### Changes/fixes
