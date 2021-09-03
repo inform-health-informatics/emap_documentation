@@ -31,7 +31,7 @@ At this point we create a list in the planner with vital things to be completed 
 
    1. Arrange date for demo.
 
-   1. Write release announcement and
+   1. Write release announcement [(- see template)](./tmp_release_announce.md)
       1. Send to EMAP Users list (ask Richard Clarke).
 
       2. Post on NHS Teams -> Data Science Community -> EMAP users channel
