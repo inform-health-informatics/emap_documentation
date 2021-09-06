@@ -13,7 +13,8 @@ At this point we create a list in the planner with vital things to be completed 
 
 ## Procedure
 
-   1. Delete all data in the instance to be repopulated using script {@stef is this script in a repo somewhere and can it be named if not linked from here}
+   1. Delete all data in the instance to be repopulated using script 
+      `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\drop.sql`
 
    1. Taking note of which branches of each repository are being used.
 
@@ -23,7 +24,7 @@ At this point we create a list in the planner with vital things to be completed 
 
    1. If all is good, update the version number as detailed [here](repo-versioning.md) and push the branches used to main.
 
-   1. Update the star redirect using script {@stef is this script in a repo somewhere and can it be named if not linked from here}
+   1. Update the star redirect using function in UDS , e.g. `SELECT star.make_views('star_a', 'star');`
 
    1. Detail any changes in the ChangeLog.
 
