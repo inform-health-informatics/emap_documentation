@@ -28,7 +28,7 @@ At this point we create a list in the planner with vital things to be completed 
 
    1. Detail any changes in the ChangeLog.
 
-   1. Create any queries to deemonstrate new features and add to DBCookbook.
+   1. Create any queries to demonstrate new features and add to DBCookbook, add a link to these in the changelog. 
 
    1. Arrange date for demo.
 
