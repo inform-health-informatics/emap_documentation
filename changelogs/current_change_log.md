@@ -78,8 +78,8 @@ Consult orders come from live HL7 feed.
 
 | Repository            | Version |
 | :-                    | :-:     |
-|Hl7-processor          | 2.1     |
-|Emap_interchange       | 2.1     |
-|Emap-Core              | 2.1     |
-|Inform-DB              | 2.1     |
-|Hoover                 | 2.1     |
+|Hl7-processor          | 2.2     |
+|Emap_interchange       | 2.2     |
+|Emap-Core              | 2.2     |
+|Inform-DB              | 2.2     |
+|Hoover                 | 2.2     |
