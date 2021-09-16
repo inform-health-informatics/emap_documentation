@@ -17,7 +17,19 @@
 
 Consult orders are recorded in the consultation_request, consultation_type, request_answer tables.
 
-### consultation_request
+#### request_answer
+
+**Attributes**
+
+* request_answer_id
+* stored_from
+* valid_from
+* answer
+* parent_id
+* parent_table
+* question_id
+
+#### consultation_request
 
 **Attributes**
 
@@ -33,19 +45,7 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 * consultation_type_id
 * hospital_visit_id
 
-### request_answer
-
-**Attributes**
-
-* request_answer_id
-* stored_from
-* valid_from
-* answer
-* parent_id
-* parent_table
-* question_id
-
-### consultation_type
+#### consultation_type
 
 **Attributes**
 
@@ -67,6 +67,8 @@ Consult orders are recorded in the consultation_request, consultation_type, requ
 * Location metadata has been added
 
 * Consult orders have been added
+
+* Fewer ghosts: Hospital Visits and Location Visits won't be created from a message which updates patient details.
 
 ---
 
