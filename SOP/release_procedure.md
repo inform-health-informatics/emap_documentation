@@ -7,7 +7,7 @@ When we add data or fix issues we can change the instance pointed to by star and
 
 ## Decision to release
 
-When we have finisghed a new data item or added some requested features we decide on a target date.
+When we have finished a new data item or added some requested features we decide on a target date.
 At this point we create a list in the planner with vital things to be completed before release and a release task which lists the following subtasks
 
 
