@@ -1,11 +1,13 @@
 # Technical Overview EMAP
 
+Note a Glossary of terms used is provided as a separate document.
+
 ## Introduction
 
-Data and metadata are an integral part of any hospital’s electronic information systems. In hospital systems, data is 
-recorded in a variety of locations depending on the needs of the administrative and clinical staff. Data can also come 
-in many forms, it may be plain text, images and even on occasions PDFs. Metadata relates the data being recorded to 
-internal mappings or external ontology records. At UCLH, all data messages are recorded within the system but not in a 
+Data and metadata are an integral part of any Hospital Trust’s electronic information systems. In hospital systems, data is 
+recorded in a variety of locations depending on the needs of the staff. Data can also come 
+in many forms, it may be plain text, images, PDFs or even waveform data. Metadata relates the data being recorded to 
+internal mappings or external ontology records, as well provenance of the data. At UCLH, all data messages are recorded within the system but not in a 
 systematic, formatted way that is easy to work with. Front end databases that are tailored to reporting 
 (Caboodle/Clarity in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. 
 While this data can be used for research, the nightly consolidation process means that the 
@@ -15,10 +17,6 @@ any real-time application of the data.
 
 ![Data flow in the hospital](./images/Figure_1.png)
 
-[//]: #3 (If I were to polish this figure, I would probably aim to have the labels not run over arrows if possible. What 
-is Chronicles, POC, SIP and HSL? Could that perhaps be added in the label? I notice that a clinician might know these 
-acronyms and some are mentioned in the text going forward, but I guess if the reader is already directed here it might
-help adding the information to the label?)
 
 In order to provide live data suitable for research and clinical applications we have created the Experimental Medicine 
 Application Platform (EMAP), an infrastructure that includes both the gathering of data in real-time and 
@@ -40,10 +38,10 @@ clinician to create an up-to-date view of derived metrics of each patient in a g
 
 Figure 2 illustrates how the EMAP pipeline integrates with the previously existing technical infrastructure for 
 hospital data (as illustrated in Figure 1). It further highlights all individual components of the pipeline, which are 
-further explained in the following.
+further explained in the following. The components indicated by laptops in the figure represent the 'microservices' created to process and direct data within the pipeline.   
 
 It is important to note here that the EMAP pipeline aims to record all the full history of events and not just the 
-"status quo" at one point in time. This means that the resulting data store will not only show how many beds are 
+'status quo' at one point in time. This means that the resulting data store will not only show how many beds are 
 occupied at the moment, but also allows tracing of this information over time. This is also true for the assessment of
 lab results and were information has been found incorrect.
 
@@ -52,10 +50,10 @@ lab results and were information has been found incorrect.
 
 ### Immutable Data Store (IDS)
 
-Streams of messages recording details of every aspect of 'life' within the hospital are published to the SIP (Strategic 
+Streams of messages recording some details of some aspects of 'life' within the hospital are published to the SIP (Strategic 
 Integration Platform) which routes these to one or more consumers. These messages contain data ranging from a patient's 
 name to lab results, medications and admission/discharge times. The SIP maintains a bi-directional interface to the 
-Chronicles data store, continually updating information within the hospital. 
+Chronicles data store, continually updating information within the hospital. However, not all information is available to these stores.
 
 For the purposes of EMAP, a subset of messages from a subset of these streams, i.e. messages sent using the
 Health Level 7 (HL7) format, are copied to a dedicated PostgreSQL database that assigns a unique ID to each message 
@@ -63,9 +61,9 @@ and creates a copy of the message as-is in the database. It also creates columns
 PatientName. This dedicated PostgreSQL database is referred to as Immutable Data Store (IDS, cf. Figure 2) and 
 provides a backup of all live messages that have been transmitted to it from the point when any given feed went live. 
 This has proved invaluable to development of the pipeline and resulting database as it provides an increasing set of 
-est data with which to optimize the workflow and resulting database schema. 
+data with which to optimize the workflow and resulting database schema. 
 
-As researchers identify data needs they can request these be added to EMAP. We work closely with the EPIC Team to 
+As researchers identify data needs they can request these be added to EMAP. We work closely with the Interfaces and EHRS teams to 
 design the format of new HL7 messages to best capture this information from existing interfaces or new input forms 
 designed to capture the relevant data from the operational system. As more live message streams have been added, we 
 have been able to identify and fix issues that may occur with out-of-order, duplicate or indeed missing messages. 
@@ -75,7 +73,7 @@ relationship for resolving issues that arise.
 
 ### Hoover
 
-The Hoover code is written to allow incremental loading from any of the static databases within the hospital system, 
+The Hoover code is written to allow incremental loading from any of the reporting databases within the hospital system, 
 running different queries against different databases as required. This enables us to capture data that pre-dates 
 the live message stream for a particular data item. Since the instance and type of database being queried by the 
 Hoover may vary, the service has been designed to abstract the processing of data, only requiring classes that 
@@ -86,8 +84,8 @@ subsequent parts of the pipeline to be consistent regardless of where the data o
 Message types within the hospital go ‘live’ at different points depending on when that interface was configured to send 
 to EMAP. Thus, in order to provide access to all data for a particular feed, we also use the Hoover instances to 
 provide data that pre-dates the live status or complements these with types of data that are not yet live. For example, 
-'infection status' was added to the live message stream in early 2021. Using the Hoover allows us to populate 
-'infection status' for all records in EMAP which dates from May 2019.
+'ventilation flowsheets' were added to the live message stream in early 2021. Using the Hoover allows us to populate 
+'ventilation flowsheets' for all records in EMAP which dates from May 2019.
 
 
 ### HL7 Reader 
@@ -113,7 +111,7 @@ involving data sources or destinations.
 ### RabbitMQ server
 
 While there is more information on RabbitMQ in section "Technologies used", it should be mentioned here that once 
-messages have been converted into the interchange format, they are batched batched and sent to the appropriate queue 
+messages have been converted into the interchange format, they are batched and sent to the appropriate queue 
 managed by the RabbitMQ server. Each queue has a maximum number of messages that are allowed, and the services 
 publishing to the queues implement an exponential backoff policy to limit the amount of disk 
 space used by the queues. 
@@ -136,12 +134,9 @@ to the appropriate patient.
 
 The event processor receives messages in the interchange format from RabbitMQ. Each message is received and processed 
 individually before data is added into the ‘star schema’ of the UDS (User Data Store) (see Figure 3). We maintain two 
-instances of the star schema with views created for the current active instance. This allows us to update code, 
-perform fixes and add additional feeds without requiring downtime and disruption to users.
-
-[//]: #12 (is this really instance of the schema as opposed to data stored in schema?)
-[//]: SK not sure I understand the distinction (in the wrong job clearly !??
-
+instances of the star database (star_a & star_b) with views (star) created for the current active instance. We use 
+these instances alternately as our production database, whilst the othr instance is being repopulated following cahnges, fixes and 
+additions. This allows us to update the production database without requiring downtime and disruption to users.
 
 ![Schema for the EMAP ‘star’ database stored on the UDS](./images/Figure_3.png)
 
@@ -168,23 +163,21 @@ The OMOP format provides an anonymous, fixed version of patient record data. How
 included demographics and time 'aware' information which could not be provided by using the OMOP standard without 
 significant changes. OMOP is also not suited to live data. We concluded that we would need to devise our own schema.
 
-Initially we looked at an entity-attribute-value approach (EAV) for maximum flexibility. While an EAV would allow the 
-easy addition of different types of data, it would also cause major usability issues for alpha users, e.g .through 
-slow indexing and complex joins. Technical evaluation and the learning process involved in EMAP creating the pipeline 
-showed that the flexibility provided by EVA was unnecessary, and thus we undertook a redesign that separated the data 
+Initially we looked at an entity-attribute-value approach (EAV) for maximum flexibility and implemented our database in this fashion. 
+Observation showed that while an EAV did allow the 
+easy addition of different types of data, it also caused major usability issues for alpha users, e.g .through 
+slow indexing and complex joins. Technical evaluation and the learning process involved creating the EMAP pipeline 
+showed that the flexibility provided by EAV was unnecessary, and thus we undertook a redesign that separated the data 
 into clearly distinct individual tables as shown in Figure 3. This has proved popular with our users and feedback 
 confirms it is faster and more intuitive than the generic approach.
 
 
 ## Technologies used 
 
-The code written for the EMAP pipeline consists of a number of Java packages denoted by the laptop icon in Figure 2. 
-We have used the following technologies and frameworks.
+The EMAP pipeline infrastructure makes use of RabbitMQ, Java Spring and Hibernate frameworks, PostGres databases, Glowroot monitoring and Docker containers. Further details of the use of each framework follow below. Using these technologies we have created a number of microservices (Hoover, HL7Reader & EventProcessor indicated by laptops in Figure 2) which link together to form the data pipeline. 
 
-[//]: #17 (I personally would probably add a summary of what is all there first before going into detail of each. At the 
-moment the transitions happen quite abruptly and I wonder whether someone less familiar with technology would take well
-to "jumping". Something like "The EMAP infrastructure includes, RabbitMQ scheduling, PostGres databases, ... and we'll 
-now proceed to explain these technologies further.")
+
+As mentioned above, the pipeline receives messages from the live HL7 stream and data from databases using the Hoover. Messages arrive in the databases in large dumps but EMAP priority is our live data. This means we make use of a queuing system that allows the live stream to have priority and processes messages from the Hoover in between processing live messages. It is also worth noting that whilst we might expect messages to arrive in the live feed in a sensible order (admit-transfer-discharge) experience has shown that this is not the case and the EMAP pipeline does considerable processing to reconcile out of order messages. Also system failures and data replays are not uncommon occurrences and reconciling out off order messages is vital to preventing these from corrupting the data store. 
 
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
@@ -192,33 +185,22 @@ configuration also allows us to determine whether a message is processed “at l
 priority is that we capture all data and so the potential data loss of the “at most once” approach would not be 
 suitable.
 
-[//]: #18 (Reading up to this point, I'm still a little unsure why a queuing system is needed in the first place. 
-Couldn't I just make records as they appear in one long list? why would a message be processed more than once?)
 
-Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client, and flagging it. 
-It isn't marked as delivered until it is ‘acked’ by the client application, which only happens when processing is 
-complete. Failing to receive an ack means that the message is resent, ensuring each message is received. In the event 
-of a failure between finishing processing and the ack being sent, the message would be sent again allowing for 
-redundancy in the presence of failures, which may cause duplicate processing. Using this configuration option required 
+Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client (the EventProcessor microservice receiving the message and applying to database), and flagging it. 
+It isn't marked as delivered or removed from the queue until it is ‘acked’, that is, the client returns a message back to RabbitMQ acknowledging that it has received and processed the message. In the event 
+of a failure at any point in processing or before the ack is sent, RabbitMQ resends the message. This ensures there is no loss of messages at this point in the pipeline but may cause duplicate processing. Using this configuration option required 
 investing time in making sure that such duplicate messages don't lead to duplicated data in the UDS. Conveniently for 
-us, this handling of duplicate messages is needed not just to account for possible failure scenarios within our own 
+us, this handling of duplicate messages is needed, not just to account for possible failure scenarios within our own 
 RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
 recovery.
 
-[//]: #19 (can we safely assume that every reader knows what a "client" is? "acked" I assume is acknowledged? In terms 
-of ordering, I'd probably move this paragraph before the one before so that there is an explanation of how the hospital 
-system operates in itself and how EMAP complements it with RabbitMQ)
 
-Our RabbitMQ is also configured to backup running queues to disk. This avoids data loss in the case of a RabbitMQ 
-failure. This does have some minor performance implications but these were deemed small enough to be negligible in our 
+Messages are sent to the RabbitMQ in batches. As it is also configured to backup running queues to disk, this avoids data loss in the case of a RabbitMQ 
+failure. The current batch is backed up, and following messages are still retained by the sending microservice. This does have some minor performance implications but these were deemed small enough to be negligible in our 
 case. Since we know the general size of messages being sent we mitigated the use of disk space by configuring length 
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
 
-[//]: #20 (The above paragraph is slightly confusing to me, but this may be due to my limited of RabbitMQ. While RabbitMQ
-is running, it's generating back-ups of it active queues, that I follow. However, when it has a failure does it still 
-continue to record occurring message and backing them up -- I would have expected it to stop recording and therefore 
-incur a loss of messages that would have needed to be written to the queues while there was a failure.)
 
 Libraries and frameworks generally reduce code by virtue of providing specialist functionality. The Spring framework 
 has components for databases, RabbitMQ (AMQP) and scheduling and so fitted our use of standard enterprise software. 
@@ -226,8 +208,6 @@ Hibernate provides the perfect partner for Spring with database interaction. Lom
 classes, reducing the amount of boilerplate code required to create getters, setters and equals methods, although we 
 did write our own bespoke annotation processor to generate audit classes for the database.
 
-[//]: #21 (do we expect that intended readers of this document know what data classes, boilerplate code, getters, setters,
-equals methods, annotations and audit classes are?)
 
 We used PostgreSQL as it is a widely used relational database implementation which is a good match for the UDS. It 
 could be argued that Cassandra, which has first class sharding to handle the ever growing volume, would be a better 
@@ -235,23 +215,17 @@ fit for the IDS, since it is a stream database with no relationships. However, w
 could be supported via the hospital IT and contractors so it was deemed more pragmatic that both databases use 
 PostgreSQL initially.
 
-[//]: #22 (Do all the intended readers know what "relationships" in a database sense are? Some may equate this to foreign
-keys ... )
 
 Internally we use Glowroot, an Open source Java Application Performance Monitor that allows us to monitor the 
 performance of the pipeline. It allows tracing slow requests, errors and transaction times as well as supporting 
 monitoring of SQL capture and aggregation. Each microservice has a Glowroot instance attached, allowing precise 
 monitoring of each aspect individually.
 
-[//]: #23 (Microservice was not used before and I wonder it is easy to make the connection that these are the parts of 
-the pipeline. I guess I would aim for consistency and if this is a term that should be included already start 
-introducing it very early on and use it throughout the entire document)
 
 We use Docker containers to build and deploy the services that constitute the pipeline. This greatly facilitates 
 development, as we can deploy containers based on different branches of code to test new features or debug specific 
 issues. 
 
-[//]: #24 (Do all intended readers know what "Docker containers" are and what is meant by "debugging issues"?)
 
 ## Testing and validating data
 
@@ -260,12 +234,11 @@ our code has low-level unit testing employing the JUnit testing framework. Code 
 which are set up to run both linting and the suite of unit tests as part of the continuous integration cycle. All code 
 is peer reviewed and must be approved by a non-author before it can be fully merged into the relevant code base. 
 
-[//]: #25 (Do we expect that every reader knows what linting, unit tests and continuous integration are?)
 
-As each element of our pipeline is written as a separate microservice, dummy input tests are also written for each 
+
+As each element of our pipeline is written as a separate microservice, synthetic test, i.e. fake messages are also written for each 
 element to test that the output from each is as expected. 
 
-[//]: #26 (Do we expect that every reader knows what "dummy input tests" are?)
 
 As part of our testing we also create a set of permutation tests of fake messages that allow us to test the pipeline 
 for the random receipt of messages.  It is not unknown for us to receive a cancel message before we receive the actual 
@@ -273,9 +246,7 @@ message from the live feed, and running all possible permutations of batches of 
 with defined final states in the database allows us to ensure that the service is robust to duplicate and out-of-order 
 messages.
 
-[//]: #27 (Reading this paragraph makes me think that instead of specific messages that are relevant to the information 
-we are after, we're instead waiting for a specific sequence of messages. If this is the case, I personally would add
-this earlier on; then the notion of a queuing system would make also more sense)
+
 
 In order to establish the validity of the data being stored in the EMAP star database we have created an R package to 
 query data from both star and hospital databases and perform comparisons. These comparisons allow us to quickly identify 
@@ -286,30 +257,25 @@ prevent data in star, derived using only information provided by the live feed, 
 databases. These mis-matches can be made available to users, enabling them to determine which data is most suitable for 
 their particular purpose.
 
-[//]: #28 (What is the EMAP star database? In my mind schema and database are not the same. I had the feeling that it is
-the UDS that we are talking about here?)
 
 Besides automated testing and data comparison, we do manually check random entries in the star database with official 
 hospital records to verify that the data in star is an accurate representation of the records.
 
-[//]: # (See previous comment)
  
 ## Storage and Access control 
 
 The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7 streams and other forms of live data 
-export to the IDS are turned on the amount of data will obviously increase. Current prognosis is that we have enough 
+export to the IDS are turned on the amount of data will obviously increase. Data in the IDS is persistent, allowing the star database to be recreated at any point if necessary. Current prognosis is that we have enough 
 space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
 
-[//]: #29 (This triggered the thought whether IDS is cleared as things arrive in USD or is there basically a duplicate 
-record between IDS and UDS?)
 
-The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star schema and a number of 
-development/test schemas used by the development team are not the only databases hosted on the UDS. Users can create 
-their own schemas. Ultimately the star schema will need to have priority in the space as more and more data is added 
+
+The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star database and a number of 
+development/test databases used by the development team are not the only databases hosted on the UDS. Users can create 
+their own databases with their own schemas. Ultimately the star database will need to have priority in the space as more and more data is added 
 and options such as sharding will need to be considered.
 
-[//]: #30 (In my mind a schema is not the same as a database rather a database adhering to a schema; does every potential
-reader know what "sharding" is?)
+
 
 At present potential users must apply for access to any individual schema on UDS.  Schemas can be set up specifically 
 for projects and users can add their own data, but can also be provided access to either the general research database 
