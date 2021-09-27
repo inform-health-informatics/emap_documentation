@@ -5,7 +5,7 @@ As detailed in the illustration of the data flow, the EMAP pipeline has the pote
 sources and more can be added over time as and when is necessary. For the moment, the data is provided through two 
 different sources: 
     
-1. incremental load from databases and
+1. incremental load from databases (also referred to as hoovering) and
 1. HL7 message streams
 
 Due to the different sources, the data provided to the EMAP pipeline differs in the way it is formatted and it is 
@@ -13,8 +13,9 @@ necessary to define a common a structure for the purpose of consolidation. While
 [HL7 standard](https://www.hl7.org/implement/standards/) and the [FHIR standard](https://www.hl7.org/fhir/overview.html)
 were considered for this purpose, the aim behind both of these standards is that a digital conversation between the 
 different technologies used in the hospital can be enabled, but not so much the integration of all the different data 
-sources. Therefore it was decided to introduce the Interchange format that is less variable and more conducive to data
+sources. Therefore, it was decided to introduce the Interchange format that is less variable and more conducive to data
 integration. 
+
 
 ## Key differences between HL7 and Interchange format
 
@@ -30,6 +31,7 @@ The third key difference is that because HL7 is focussed on digital communicatio
 messages relating to a conversation are needed to determine in which the relevant information has changed. The 
 Interchange format, however, is context insensitive, i.e. messages can be handled independent of others and the data
 in the user data storage (UDS) updated accordingly.
+
 
 ## Format decisions
 
