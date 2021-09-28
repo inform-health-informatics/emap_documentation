@@ -4,7 +4,7 @@ Application Platform (EMAP) is to offer real-time clinical data suitable to anal
 bed occupancy based on current workloads and planned surgeries. This requires the pipeline to consolidate historical
 data with live information available through message streams. 
 
-Messages on these message streams hold varying kinds of data, including patient details such as name and medication 
+Messages on these message streams contain diverse data, including patient details such as name and medication 
 given, but also doctors treating the patient and which ward and bed this patient has been in. 
 It should be noted here, that the HL7 Reader in its current version supports different versions of the HL7 messaging 
 standard through HAPI. 
