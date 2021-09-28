@@ -5,7 +5,7 @@ bed occupancy based on current workloads and planned surgeries. This requires th
 data with live information available through message streams. 
 
 Messages on these message streams contain diverse data, including patient details such as name and medication 
-given, but also doctors treating the patient and which ward and bed this patient has been in. 
+given, but also doctors treating the patient and where the patient is. 
 It should be noted here, that the HL7 Reader in its current version supports different versions of the HL7 messaging 
 standard through HAPI. 
 
