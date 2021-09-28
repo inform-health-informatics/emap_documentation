@@ -25,7 +25,7 @@ we can track the origin of Interchange messages. This information can also be he
 occur during message processing and the information needs to be searched for in the Immutable Data Store (IDS).
 
 The second key difference is that HL7 accumulate multiple changes in one message whereas the Interchange format would
-have several messages for the same purpose. For example ...
+have several messages for the same purpose. For example an HL7 message could have several flowsheet observations in one message. An interchange message is created for each flowsheet on parsing the hl7.
 
 The third key difference is that because HL7 is focussed on digital communication, it is context sensitive, i.e. all 
 messages relating to a conversation are needed to determine in which the relevant information has changed. The 
