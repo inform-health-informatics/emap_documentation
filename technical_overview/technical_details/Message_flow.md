@@ -26,7 +26,7 @@ EMAP pipeline components before being merged. Once all the data is accumulated i
 [RabbitMQ](../technologies_used/RabbitMQ.md), all the data is handled in the same way, independent of the source it 
 originally came from.
 
-### From historic database to RabbitMQ
+### From hospital databases to RabbitMQ
 
 The Hoover (cf. Figure 2 in [Technical Overview](../Technical_overview_of_EMAP.md)) runs  queries to extract data from hospital databases.
 This can be historic data, or non-live data that is updated in a daily dump. 
