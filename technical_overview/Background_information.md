@@ -14,8 +14,7 @@ because all GPs are closed, they are attending the A&E unit of a hospital to see
 
 Upon arrival, each patient is registered and receives a priority based on the condition they are in. While the first 
 registration is typically conducted through a nurse, the decision on what needs to happen in terms of diagnostics and 
-treatment typically lies with a doctor. So for the patient with the painful ankle, in the next step they would be 
-talking to a doctor, who may refer them for an X-ray to be taken on a very specific ward. So for that purpose the 
+treatment typically lies with a doctor. So for the patient with the painful ankle, they would talk to a doctor, who may refer them for an X-ray to be taken on a specific ward. The 
 patient is taken, either by medical staff or by making their own way to a different location in the hospital to take 
 the X-ray. Once that has finished, the patient is then sent back to the doctor they talked to before and based on the 
 image taken, the doctor decides how best the patient can eb aided, e.g. whether a plaster is appropriate because 
