@@ -43,7 +43,7 @@ structure and text instead of being easily recallable for comparison. See the bo
 [here](https://www.lyniate.com/knowledge-hub/hl7-oru-message/) for an example of an HL7 message that could be parsed by
 the EMAP HL7 reader.
 
-Once the message has been parsed through the hapi library, the format of it is changed to the interchange format of the 
+Once the message has been parsed through the hapi library, the HL7 reader convers this to the interchange format for the
 specific data type of the data. This means that perhaps not all the data is retained from the HL7 message, only those 
 parts that have been identified as reliable and needed for integration. Once the data has been parsed into the correct
 format, it is then written to the RabbitMQ handling queue for consolidation into one data source together with all the
