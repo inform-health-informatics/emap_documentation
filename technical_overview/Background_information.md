@@ -31,7 +31,7 @@ what data needs to be governed in a hospital at real-time:
 * key information about the patient, e.g. demographics (age, ethnicity, etc.), but also their past medical history, 
   medication they are regularly taking, allergies, advanced care decisions and so on
 * diagnostic instruments and the output thereof, such as laboratory results or imaging
-* locations where either diagnostics or treatments are happening (e.g. wards, operation theatres or special units)
+* locations of events (e.g. wards, operation theatres or special units)
 * important time points on a patient journey, e.g. admission and duration of a hospital stay, number of hospital visit 
   for a condition and
 * medication/treatments administered to patients while in the hospital
