@@ -21,7 +21,7 @@ nature of the available data in a hospital can be found [here](../Background_inf
 ## Data from different sources 
 
 To illustrate the process of how data is merged as part of the EMAP pipeline, we have split this section into two parts,
-corresponding to historic data and data from messages streams as both are handled through different parts of the 
+corresponding to daily-dump and live data from messages streams as both are handled through different parts of the 
 EMAP pipeline components before being merged. Once all the data is accumulated in 
 [RabbitMQ](../technologies_used/RabbitMQ.md), all the data is handled in the same way, independent of the source it 
 originally came from.
