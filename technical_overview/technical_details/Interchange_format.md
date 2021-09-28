@@ -22,7 +22,8 @@ integration.
 The first key difference between both the formats is that all Interchange messages have consistent  use of fields for the 
 source of the data. Each of the sources is defined by source system and a source identifier. Using this information, 
 we can track the origin of Interchange messages. This information can also be helpful if problems 
-occur during message processing and the information needs to be searched for in the Immutable Data Store (IDS).
+occur during message processing and the information needs to be searched for in the 
+[Immutable Data Store (IDS)](../../Glossary.md).
 
 The second key difference is that HL7 accumulate multiple changes in one message whereas the Interchange format would
 have several messages for the same purpose. For example an HL7 message could have several flowsheet observations in one message. An interchange message is created for each flowsheet on parsing the hl7.

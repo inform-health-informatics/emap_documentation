@@ -7,7 +7,7 @@ data with live information available through message streams.
 Messages on these message streams contain diverse data, including patient details such as name and medication 
 given, but also doctors treating the patient and where the patient is. 
 It should be noted here, that the HL7 Reader in its current version supports different versions of the HL7 messaging 
-standard through HAPI. 
+standard through [HAPI](https://hapifhir.github.io/hapi-hl7v2/). 
 
 The complexity of consolidating data originating from historic database and live streams is amplified by the fact that 
 the format of data differs depending on where it originates from. To overcome this limitation, an EMAP interchange data
