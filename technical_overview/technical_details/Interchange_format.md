@@ -13,7 +13,7 @@ necessary to define a common a structure for the purpose of consolidation. While
 [HL7 standard](https://www.hl7.org/implement/standards/) and the [FHIR standard](https://www.hl7.org/fhir/overview.html)
 were considered for this purpose, the aim behind both of these standards is that a digital conversation between the 
 different technologies used in the hospital can be enabled, but not the integration different data sources 
-sources. Therefore, it was decided to introduce the Interchange format that is less variable and more conducive to data
+sources. A custom Interchange format was designed to be less variable and more conducive to data
 integration. 
 
 
