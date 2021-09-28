@@ -44,10 +44,8 @@ structure and text instead of being easily recallable for comparison. See the bo
 the EMAP HL7 reader.
 
 Once the message has been parsed through the hapi library, the HL7 reader convers this to the interchange format for the
-specific data type of the data. This means that perhaps not all the data is retained from the HL7 message, only those 
-parts that have been identified as reliable and needed for integration. Once the data has been parsed into the correct
-format, it is then written to the RabbitMQ handling queue for consolidation into one data source together with all the
-other data sources that data is retrieved from.
+specific data type of the data. Only data identified as useful, reliable and required is parsed. Once the data has been parsed into the correct
+format, it is published to the HL7 RabbitMQ queue.
 
 ### Other data sources
 
