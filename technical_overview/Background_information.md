@@ -1,11 +1,9 @@
 # Background for EMAP
 
 While the focus of the Experimental Medicine Application Platform (EMAP) is the integration of different kinds of data
-from trusted sources, it is important to acknowledge common concepts for all the different types of data. The data that
-is collected through EMAP is to provide a real-time view on the current situation of a hospital and as such provide 
-information such as how many beds are occupied on a ward or which patients need short supply, perishable medication at 
-any point in time. This creates a variety of information that needs to be coordinated and the different actors are to be
-outlined here.
+from trusted sources, it is important to acknowledge common concepts for all the different types of data. 
+EMAP aims to provide a real-time view on the current situation of a hospital; e.g. how many beds are occupied on a ward or which patients need short supply, perishable medication at 
+any point in time. This involves variety of hospital and data-flows that are outlined here.
 
 
 ## Patient journey when coming to the hospital
