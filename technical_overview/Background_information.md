@@ -18,8 +18,7 @@ treatment typically lies with a doctor. So for the patient with the painful ankl
 patient is taken, either by medical staff or by making their own way to a different location in the hospital to take 
 the X-ray. Once that has finished, the patient is then sent back to their consulting doctor and based on the 
 image taken, the doctor decides how best the patient can eb aided, e.g. whether a plaster is appropriate because 
-the bone is fractured or pain killers suffice as it was more of a shock than any damage taken to the physical structure 
-of the patient. 
+the bone is fractured or pain killers suffice as it was simple sprain. 
 
 It is important to note that this is a very simple example for illustration purposes and depending on the complications
 experienced by a patient, they may be admitted into hospital for a period of time, being operated on to stabilise 
