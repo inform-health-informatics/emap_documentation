@@ -55,4 +55,17 @@ It may require some adaptations in the existing pipeline though to ensure data c
 
 
 ## Message streams currently available
-
+- Admission, Discharge, Transfer (ADT)
+    - ADT edits
+    - pending/scheduled ADT
+- Lab orders and Results
+    - Winpath (numerical and short-text labs)
+    - CoPath (cellular pathology, text reports)
+    - Bank Manager profiles (blood type tests)
+- Patient infection banners
+- Problem lists
+- Consultation requests
+- Advanced care decisions (DNA, CPR)
+- Bank manager transfusions
+- Patient notes
+- Allergies
