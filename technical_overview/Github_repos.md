@@ -2,7 +2,7 @@
  
 While the "Inform Health Informatics" Github organisation holds a much larger number of Github repositories, currently 
 relevant to any developer wanting to contribute to the project are the following. Note that special permissions may be 
-required to access those.
+required.
 
 | Github repo | Short description | maintainer |
 | ----- | ---- | ----|
