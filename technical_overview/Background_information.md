@@ -16,7 +16,7 @@ Upon arrival, each patient is registered and receives a priority based on the co
 registration is typically conducted through a nurse, the decision on what needs to happen in terms of diagnostics and 
 treatment typically lies with a doctor. So for the patient with the painful ankle, they would talk to a doctor, who may refer them for an X-ray to be taken on a specific ward. The 
 patient is taken, either by medical staff or by making their own way to a different location in the hospital to take 
-the X-ray. Once that has finished, the patient is then sent back to the doctor they talked to before and based on the 
+the X-ray. Once that has finished, the patient is then sent back to their consulting doctor and based on the 
 image taken, the doctor decides how best the patient can eb aided, e.g. whether a plaster is appropriate because 
 the bone is fractured or pain killers suffice as it was more of a shock than any damage taken to the physical structure 
 of the patient. 
