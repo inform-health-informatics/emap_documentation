@@ -2,7 +2,7 @@
 
 ## Background
 As detailed in the illustration of the data flow, the EMAP pipeline has the potential to consolidates data from several
-sources and more can be added over time as and when is necessary. For the moment, the data is provided through two 
+sources and more can be added over time as and when necessary. For the moment, the data is provided through two 
 different sources: 
     
 1. incremental load from databases (also referred to as hoovering) and
