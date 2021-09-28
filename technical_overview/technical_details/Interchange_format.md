@@ -19,7 +19,7 @@ integration.
 
 ## Key differences between HL7 and Interchange format
 
-The first key difference between both the formats is that all Interchange messages have detailed information about the 
+The first key difference between both the formats is that all Interchange messages have consistent  use of fields for the 
 source of the data. Each of the sources is defined by source system and a source identifier. Using this information, 
 Interchange messages can be tracked to where they originated from. This information can also be helpful if problems 
 occur during message processing and the information needs to be searched for in the Immutable Data Store (IDS).
