@@ -12,7 +12,7 @@ Due to the different sources, the data provided to the EMAP pipeline differs in 
 necessary to define a common a structure for the purpose of consolidation. While both the  
 [HL7 standard](https://www.hl7.org/implement/standards/) and the [FHIR standard](https://www.hl7.org/fhir/overview.html)
 were considered for this purpose, the aim behind both of these standards is that a digital conversation between the 
-different technologies used in the hospital can be enabled, but not so much the integration of all the different data 
+different technologies used in the hospital can be enabled, but not the integration different data sources 
 sources. Therefore, it was decided to introduce the Interchange format that is less variable and more conducive to data
 integration. 
 
