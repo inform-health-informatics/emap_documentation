@@ -35,10 +35,12 @@ This information is parsed into the interchange data format and published to the
 
 ### From message stream to RabbitMQ
 
-Each message stream available to the project writes messages in a sequential order to an HL7 file. The HL7 Reader (cf. 
-Figure 2 in [Technical Overview](../Technical_overview_of_EMAP.md)) reads the messages from the HL7 file, assigns a 
-unique identifier to it and stores the messages "as is" in the Immutable Data Store (IDS). This means that all relevant 
-information, such as patient identifier or blood cell counts for that patient, are still buried inside a message 
+Each message stream available to the project writes messages to the Immutable Data Store (IDS), populating already some
+of the metadata and also providing the entire message text in addition to that. The data orignates from EPIC and is 
+served by a technical infrastructure built and maintained by ATOS
+
+As only metadata for the message is provided, all relevant information, such as patient identifier or blood cell 
+counts for that patient, are still buried inside a message 
 structure and text instead of being easily recallable for comparison. See the bottom of the page 
 [here](https://www.lyniate.com/knowledge-hub/hl7-oru-message/) for an example of an HL7 message that could be parsed by
 the EMAP HL7 reader.
