@@ -28,10 +28,10 @@ originally came from.
 
 ### From historic database to RabbitMQ
 
-The Hoover (cf. Figure 2 in [Technical Overview](../Technical_overview_of_EMAP.md)) runs detailed queries to receive data 
-held in historic database of the hospital wrt. the information about a patient that is relevant, e.g. historic encouters of 
-patients with medical staff. This information is then parsed into the interchange data format and written to the
-[RabbitMQ](../technologies_used/RabbitMQ.md) handling queue.
+The Hoover (cf. Figure 2 in [Technical Overview](../Technical_overview_of_EMAP.md)) runs  queries to extract data from hospital databases.
+This can be historic data, or non-live data that is updated in a daily dump. 
+This information is parsed into the interchange data format and published to the 
+[RabbitMQ](../technologies_used/RabbitMQ.md) databaseExtracts queue.
 
 ### From message stream to RabbitMQ
 
