@@ -22,6 +22,10 @@ Allows mapping of Hl7 location strings to real-world locations at the department
 Location metadata tables: `location`, `department`, `department_state`, 
 `room`, `room_state`, `bed`, `bed_state`, `bed_facility`.
 
+#### Diagram:
+
+![locations](https://user-images.githubusercontent.com/8124189/135068365-d22bd215-9737-446e-823f-c147a7055082.png)
+
 
 #### department
 
