@@ -20,7 +20,7 @@ Consult order tables: `consultation_request`, `consultation_type`, `request_answ
 
 Answers to Lab Order questions now stored in the `request_answer` table.
 
-####request_answer
+#### **request_answer**
 
 **Attributes**
 
@@ -30,29 +30,34 @@ Answers to Lab Order questions now stored in the `request_answer` table.
 * answer
 * parent_id
 * parent_table
-question_id
-consultation_request
-Attributes
+* question_id
+  
+#### **consultation_request**
 
-consultation_request_id
-stored_from
-valid_from
-cancelled
-closed_due_to_discharge
-comments
-consult_id
-requested_date_time
-status_change_time
-consultation_type_id
-hospital_visit_id
-consultation_type
-Attributes
+**Attributes**
 
-consultation_type_id
-stored_from
-valid_from
-code
-name
+* consultation_request_id
+* stored_from
+* valid_from
+* cancelled
+* closed_due_to_discharge
+* comments
+* consult_id
+* requested_date_time
+* status_change_time
+* consultation_type_id
+* hospital_visit_id
+  
+
+#### **consultation_type**
+
+**Attributes**
+
+* consultation_type_id
+* stored_from
+* valid_from
+* code
+* name
 
 
 ### Deprecated tables
