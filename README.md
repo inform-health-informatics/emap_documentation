@@ -8,7 +8,8 @@ This is a work in progress.
 
 ### Change Logs
 
-* [2021-08-10](changelogs/change_log_Aug2021.md)
+* [2021-08-10](changelogs/2021-08-change_log.md)
+* [2021-09-27](changelogs/2021-09-change_log.md)
 
 ### Data and Validation
 
