@@ -1,4 +1,11 @@
 # PR checklist
+<!--
+    This checklist will be copied by a github actions bot as a comment on every PR
+    for an emap repository. 
+    So that there is only one checklist across all PRs for a set of changes,
+    delete all of the automatically added comments on all but one of the PRs 
+    (usually Emap-Core, but if Emap-Core is not involved then use your best judgement)
+ -->
 
 Default guide for a PR
 
