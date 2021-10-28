@@ -16,7 +16,7 @@ in UCL teams has been populated with the run information
 total processing time. This can be useful to identify indexes that are required.
 - [ ] After the run, look for any unexpected errors in the `etl_per_message_logging table`, the error_search.sql file
 on the shared drive can be used for this `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\error_search.sql`.
-Create an issue if an unexpected exception is found and is not related to the changed you've made, otherwise
+Create an issue if an unexpected exception is found and is not related to the changes you've made, otherwise
 fix them!
 - [ ] After the run, [load times](https://teams.microsoft.com/l/channel/19%3Ad3a19685d37241fdbfceb9d30303ea1b%40thread.tacv2/tab%3A%3A20f76f5b-b0d0-45ad-a0a8-3777aa82628d?groupId=03f64fac-1f4f-447c-8a74-6fe0054cf06a&tenantId=1faf88fe-a998-4c5b-93c9-210a11d9a5c2)
 has been populated with end time
