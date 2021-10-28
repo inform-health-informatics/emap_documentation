@@ -16,13 +16,15 @@ At this point we create a list in the planner with vital things to be completed 
    1. Delete all data in the instance to be repopulated using script 
       `\\sharefs6\UCLH6\EMAP\Shared\EmapSqlScripts\devops\drop.sql`
 
-   1. Taking note of which branches of each repository are being used.
+   1. Taking note of the branches of each repository.
 
    1. Start off a run into the empty db.
 
    1. Validate the run when finished.
 
    1. If all is good, copy the zip file for the validation to UCLH Teams: [(UCLH) EMAP Team > General > validation_runs/](https://teams.microsoft.com/_#/files/General?threadId=19%3Aff1802fc10694e648652c0c93a54882f%40thread.tacv2&ctx=channel&context=validation_runs&rootfolder=%252Fsites%252Fmsteams_7131aa%252FShared%2520Documents%252FGeneral%252Fvalidation_runs)
+   
+   1. If there are any breaking changes, reach out to users and consult them about the changes ahead of time.
    
    1. Update the version number as detailed [here](repo-versioning.md) and push the branches used to main.
 
