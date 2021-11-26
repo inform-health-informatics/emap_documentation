@@ -7,7 +7,7 @@
 
 
 
-<h2 id="ConditionType">ConditionType</h2>
+## ConditionType
 
 Type of condition that a patient can have.
 
@@ -26,7 +26,7 @@ Type of condition that a patient can have.
 
 
 
-<h2 id="PatientCondition">PatientCondition</h2>
+## PatientCondition
 
 Represents patient conditions that start and can end.
 
@@ -51,7 +51,7 @@ Represents patient conditions that start and can end.
 
 
 
-<h2 id="ConsultationRequest">ConsultationRequest</h2>
+## ConsultationRequest
 
 Holds information relevant to consultation requests for patients.
 
@@ -73,7 +73,7 @@ Holds information relevant to consultation requests for patients.
 
 
 
-<h2 id="ConsultationType">ConsultationType</h2>
+## ConsultationType
 
 Type of a ConsultationRequest made for a patient.
 
@@ -89,7 +89,7 @@ Type of a ConsultationRequest made for a patient.
 
 
 
-<h2 id="AdvanceDecision">AdvanceDecision</h2>
+## AdvanceDecision
 
 Holds information relevant to advance decisions taken by patients.
 
@@ -111,7 +111,7 @@ Holds information relevant to advance decisions taken by patients.
 
 
 
-<h2 id="AdvanceDecisionType">AdvanceDecisionType</h2>
+## AdvanceDecisionType
 
 Types of AdvancedDecision that can be recorded.
 
@@ -127,7 +127,7 @@ Types of AdvancedDecision that can be recorded.
 
 
 
-<h2 id="CoreDemographic">CoreDemographic</h2>
+## CoreDemographic
 
 A core demographic represents the main demographics stored around patients.
 
@@ -153,7 +153,7 @@ A core demographic represents the main demographics stored around patients.
 
 
 
-<h2 id="HospitalVisit">HospitalVisit</h2>
+## HospitalVisit
 
 This a single visit to the hospital.
 
@@ -178,7 +178,7 @@ This a single visit to the hospital.
 
 
 
-<h2 id="Mrn">Mrn</h2>
+## Mrn
 
 This represents the association of Medical Resource Number (MRN) to an individual patient.
 
@@ -197,7 +197,7 @@ This represents the association of Medical Resource Number (MRN) to an individua
 
 
 
-<h2 id="MrnToLive">MrnToLive</h2>
+## MrnToLive
 
 This table stores a mapping from every MRN known to the system, to its currently live (in use) MRN.
 
@@ -213,7 +213,7 @@ This table stores a mapping from every MRN known to the system, to its currently
 
 
 
-<h2 id="LabBattery">LabBattery</h2>
+## LabBattery
 
 This represents all the different batteries of test that can be ordered.
 
@@ -231,7 +231,7 @@ This represents all the different batteries of test that can be ordered.
 
 
 
-<h2 id="LabBatteryElement">LabBatteryElement</h2>
+## LabBatteryElement
 
 This represents all the different batteries of test that can be ordered.
 
@@ -247,7 +247,7 @@ This represents all the different batteries of test that can be ordered.
 
 
 
-<h2 id="LabIsolate">LabIsolate</h2>
+## LabIsolate
 
 Isolates identified from culture.
 
@@ -268,7 +268,7 @@ Isolates identified from culture.
 
 
 
-<h2 id="LabOrder">LabOrder</h2>
+## LabOrder
 
 A LabOrder contains the details of the request to perform a lab investigation.
 
@@ -290,7 +290,7 @@ A LabOrder contains the details of the request to perform a lab investigation.
 
 
 
-<h2 id="LabResult">LabResult</h2>
+## LabResult
 
 A LabResult is a single component result of a lab. A single order or sample is likely to produce several results.
 
@@ -318,7 +318,7 @@ A LabResult is a single component result of a lab. A single order or sample is l
 
 
 
-<h2 id="LabSample">LabSample</h2>
+## LabSample
 
 A LabSample details the external lab's view of a sample being analysed and its receipt by the lab system.
 
@@ -339,7 +339,7 @@ A LabSample details the external lab's view of a sample being analysed and its r
 
 
 
-<h2 id="LabSensitivity">LabSensitivity</h2>
+## LabSensitivity
 
 Sensitivities show the affect of specific agents on isolates from cultures.
 
@@ -357,7 +357,7 @@ Sensitivities show the affect of specific agents on isolates from cultures.
 
 
 
-<h2 id="LabTestDefinition">LabTestDefinition</h2>
+## LabTestDefinition
 
 This represents the definition of a single lab test by a single provider.
 
@@ -376,7 +376,7 @@ This represents the definition of a single lab test by a single provider.
 
 
 
-<h2 id="Bed">Bed</h2>
+## Bed
 
 Represents a bed in the hospital.
 
@@ -392,7 +392,7 @@ Represents a bed in the hospital.
 
 
 
-<h2 id="BedFacility">BedFacility</h2>
+## BedFacility
 
 Represents a facility available at a Bed.
 
@@ -408,7 +408,7 @@ Represents a facility available at a Bed.
 
 
 
-<h2 id="BedState">BedState</h2>
+## BedState
 
 Represents the state of a given Bed.
 
@@ -428,7 +428,7 @@ Represents the state of a given Bed.
 
 
 
-<h2 id="Department">Department</h2>
+## Department
 
 Represents a department in the hospital.
 
@@ -445,7 +445,7 @@ Represents a department in the hospital.
 
 
 
-<h2 id="DepartmentState">DepartmentState</h2>
+## DepartmentState
 
 Represents the state of a given Department.
 
@@ -461,7 +461,7 @@ Represents the state of a given Department.
 
 
 
-<h2 id="Location">Location</h2>
+## Location
 
 \breif Known locations within the hospital.
 
@@ -479,7 +479,7 @@ Represents the state of a given Department.
 
 
 
-<h2 id="LocationVisit">LocationVisit</h2>
+## LocationVisit
 
 This represents a patient being in a location for an amount of time.
 
@@ -500,7 +500,7 @@ This represents a patient being in a location for an amount of time.
 
 
 
-<h2 id="Room">Room</h2>
+## Room
 
 Represents a room in the hospital.
 
@@ -517,7 +517,7 @@ Represents a room in the hospital.
 
 
 
-<h2 id="RoomState">RoomState</h2>
+## RoomState
 
 Represents the state of a given Room.
 
@@ -535,7 +535,7 @@ Represents the state of a given Room.
 
 
 
-<h2 id="Question">Question</h2>
+## Question
 
 Questions that can be attached to several data types, such as lab samples or consultation requests.
 
@@ -552,7 +552,7 @@ Questions that can be attached to several data types, such as lab samples or con
 
 
 
-<h2 id="RequestAnswer">RequestAnswer</h2>
+## RequestAnswer
 
 Answers to questions listed in Question table.
 
@@ -570,7 +570,7 @@ Answers to questions listed in Question table.
 
 
 
-<h2 id="VisitObservation">VisitObservation</h2>
+## VisitObservation
 
 An observation recorded about patient.
 
@@ -592,7 +592,7 @@ An observation recorded about patient.
 
 
 
-<h2 id="VisitObservationType">VisitObservationType</h2>
+## VisitObservationType
 
 VisitObservationType describes the meaning behind a specific observation.
 

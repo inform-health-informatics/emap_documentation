@@ -1,66 +1,66 @@
 # Index
 
-[AdvanceDecision](./tables.md##AdvanceDecision)
+[AdvanceDecision](./tables.md#advancedecision)
 
-[AdvanceDecisionType](./tables.md##AdvanceDecisionType)
+[AdvanceDecisionType](./tables.md#advancedecisiontype)
 
-[Bed](./tables.md##Bed)
+[Bed](./tables.md#bed)
 
-[BedFacility](./tables.md##BedFacility)
+[BedFacility](./tables.md#bedfacility)
 
-[BedState](./tables.md##BedState)
+[BedState](./tables.md#bedstate)
 
-[ConditionType](./tables.md##ConditionType)
+[ConditionType](./tables.md#conditiontype)
 
-[ConsultationRequest](./tables.md##ConsultationRequest)
+[ConsultationRequest](./tables.md#consultationrequest)
 
-[ConsultationType](./tables.md##ConsultationType)
+[ConsultationType](./tables.md#consultationtype)
 
-[CoreDemographic](./tables.md##CoreDemographic)
+[CoreDemographic](./tables.md#coredemographic)
 
-[Department](./tables.md##Department)
+[Department](./tables.md#department)
 
-[DepartmentState](./tables.md##DepartmentState)
+[DepartmentState](./tables.md#departmentstate)
 
-[HospitalVisit](./tables.md##HospitalVisit)
+[HospitalVisit](./tables.md#hospitalvisit)
 
-[LabBattery](./tables.md##LabBattery)
+[LabBattery](./tables.md#labbattery)
 
-[LabBatteryElement](./tables.md##LabBatteryElement)
+[LabBatteryElement](./tables.md#labbatteryelement)
 
-[LabIsolate](./tables.md##LabIsolate)
+[LabIsolate](./tables.md#labisolate)
 
-[LabOrder](./tables.md##LabOrder)
+[LabOrder](./tables.md#laborder)
 
-[LabResult](./tables.md##LabResult)
+[LabResult](./tables.md#labresult)
 
-[LabSample](./tables.md##LabSample)
+[LabSample](./tables.md#labsample)
 
-[LabSensitivity](./tables.md##LabSensitivity)
+[LabSensitivity](./tables.md#labsensitivity)
 
-[LabTestDefinition](./tables.md##LabTestDefinition)
+[LabTestDefinition](./tables.md#labtestdefinition)
 
-[Location](./tables.md##Location)
+[Location](./tables.md#location)
 
-[LocationVisit](./tables.md##LocationVisit)
+[LocationVisit](./tables.md#locationvisit)
 
-[Mrn](./tables.md##Mrn)
+[Mrn](./tables.md#mrn)
 
-[MrnToLive](./tables.md##MrnToLive)
+[MrnToLive](./tables.md#mrntolive)
 
-[PatientCondition](./tables.md##PatientCondition)
+[PatientCondition](./tables.md#patientcondition)
 
-[Question](./tables.md##Question)
+[Question](./tables.md#question)
 
-[RequestAnswer](./tables.md##RequestAnswer)
+[RequestAnswer](./tables.md#requestanswer)
 
-[Room](./tables.md##Room)
+[Room](./tables.md#room)
 
-[RoomState](./tables.md##RoomState)
+[RoomState](./tables.md#roomstate)
 
-[TemporalFrom](./tables.md##TemporalFrom)
+[TemporalFrom](./tables.md#temporalfrom)
 
-[VisitObservation](./tables.md##VisitObservation)
+[VisitObservation](./tables.md#visitobservation)
 
-[VisitObservationType](./tables.md##VisitObservationType)
+[VisitObservationType](./tables.md#visitobservationtype)
 
