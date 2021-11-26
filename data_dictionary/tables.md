@@ -7,7 +7,7 @@
 
 
 
-<h2 id="ConditionType">ConditionType</h2>
+<h2><a name="ConditionType"/>ConditionType</h2>
 
 Type of condition that a patient can have.
 
