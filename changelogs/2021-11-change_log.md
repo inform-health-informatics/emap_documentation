@@ -71,6 +71,7 @@ DNACPR: `advanced_decision` & `advanced_decision_type`
 
 * Location metadata will be populated for locations that only have a department_id.
 * Temporal columns in questions table are now stored with timezone information
+* Patient Infections (patient_condition table) from hoover will now have the source system `clarity` instead of `hoover`
 
 ---
 <!--
