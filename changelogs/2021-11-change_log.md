@@ -6,15 +6,15 @@
 
 ### Additional tables
 
-Consultation request: `consultation_request` & `consultation_type`
-DNACPR: `advanced_decision` & `advanced_decision_type`
+- Consultation request: `consultation_request` & `consultation_type`
+- DNACPR: `advanced_decision` & `advanced_decision_type`
 
 #### Diagram:
 
 ![advance decision and consultation request](diagrams/advance-decision_consult-request.png)
 
 
-#### consultation_request
+#### [consultation_request](../data_dictionary/tables.md#ConsultationRequest)
 
 **Attributes**
 
@@ -31,7 +31,7 @@ DNACPR: `advanced_decision` & `advanced_decision_type`
 * hospital_visit_id
 
 
-#### consultation_type
+#### [consultation_type](../data_dictionary/tables.md#ConsultationType)
 
 **Attributes**
 
@@ -41,7 +41,7 @@ DNACPR: `advanced_decision` & `advanced_decision_type`
 * code
 * name
 
-#### advanced_decision
+#### [advanced_decision](../data_dictionary/tables.md#AdvanceDecision)
 
 **Attributes**
 
@@ -59,7 +59,7 @@ DNACPR: `advanced_decision` & `advanced_decision_type`
               added an issue in EmapCore
           -->
 
-#### advanced_decision_type
+#### [advanced_decision_type](../data_dictionary/tables.md#AdvanceDecisionType)
 
 **Attributes**
 
