@@ -1,6 +1,6 @@
 # Index
 
-[AdvanceDecision](./tables.md##advancedecision)
+[AdvanceDecision](./tables.md##advance-decision)
 
 [AdvanceDecisionType](./tables.md##AdvanceDecisionType)
 
