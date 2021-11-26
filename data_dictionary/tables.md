@@ -98,7 +98,7 @@ Holds information relevant to advance decisions taken by patients.
 | Name | Type | Description |
 |---| --- |---|
 | advanceDecisionId | bigint | Unique identifier in EMAP for this **AdvanceDecision** record. |
-| advanceDecisionTypeId | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#AdvanceDecisionType) associated with this record. |
+| advanceDecisionTypeId | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#advancedecisiontype) associated with this record. |
 | hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
 | mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | internalId | bigint | Identifier used in source system for this **AdvanceDecision**. |
