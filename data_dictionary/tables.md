@@ -89,7 +89,7 @@ Type of a ConsultationRequest made for a patient.
 
 
 
-##AdvanceDecision
+## AdvanceDecision
 
 Holds information relevant to advance decisions taken by patients.
 
