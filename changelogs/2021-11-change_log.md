@@ -1,6 +1,6 @@
 # EMAP Release
 
-**Date: 2021-11-30**
+**Date: 2021-11-30 Changes in this release**
 
 ---
 
@@ -55,9 +55,8 @@
 * status_change_datetime
 * advance_decision_type_id
 * hospital_visit_id
-* mrn_id <!-- Ooh I thought I had a comment on a PR to remove this as we can get it from hospital_visit,
-              added an issue in EmapCore
-          -->
+* mrn_id 
+
 
 #### [advanced_decision_type](../data_dictionary/tables.md#AdvanceDecisionType)
 
