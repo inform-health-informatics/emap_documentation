@@ -9,6 +9,7 @@
 
 * Temporal columns are now all timezone aware, this has been enforced with automated testing of any timezone field
 * Hl7 feed only parses new patient infections
+* Patient infections that are associated with an encounter have a hospital_visit_id
 * Improved speed of load times by updating caching
 * Fixes Log4j exploits
 
