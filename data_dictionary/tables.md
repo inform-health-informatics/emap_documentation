@@ -329,8 +329,8 @@ A LabSample details the external lab's view of a sample being analysed and its r
 | labSampleId | bigint | Unique identifier in EMAP for this **LabSample** record. |
 | mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | externalLabNumber | varchar(255) | Lab number for the system doing the lab test. |
-| Instant | Missing Type | Date and time at which this **LabSample** arrived at the lab. |
-| sampleCollectionTime | [Instant](#Instant) | Date and time at which this **LabSample** was take from the patient. |
+| receiptAtLab | timestamp without timezone | Date and time at which this **LabSample** arrived at the lab. |
+| sampleCollectionTime | timestamp without timezone | Date and time at which this **LabSample** was take from the patient. |
 | specimenType | varchar(255) | Type of specimen. |
 | sampleSite | varchar(255) | Site on body the sample was taken from. |
 | collectionMethod | varchar(255) | Method of collection. |
