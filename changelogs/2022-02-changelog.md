@@ -4,6 +4,23 @@
 
 ---
 
+### Tables changed
+
+Table           | Attributes added | Attributes removed 
+:-- |:-- |:--
+VisitObservation | [sourceSystem](../data_dictionary/tables.md#VisitObservation) |
+VisitObservationType | [interfaceId](../data_dictionary/tables.md#VisitObservationType) |sourceSystem
+
+
+### Explanation
+
+The **VisitObservation** table now includes the ***sourceSystem*** attribute which has been removed from **VisitObservationType** table as the former is a more logical place to locate this data.
+
+The **VisitObservationType** table now includes the ***interfaceId*** attribute as well as the ***idInApplication*** attribute. The original idInApplication attribute is the code used by the source system for the observation type, whereas the interfaceID is the ID used in the hl7 message to refer to this type.
+
+
+
+---
 
 ### Changes/fixes
 
