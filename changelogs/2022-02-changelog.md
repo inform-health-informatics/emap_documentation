@@ -16,7 +16,7 @@ VisitObservationType | [interfaceId](../data_dictionary/tables.md#VisitObservati
 
 The **VisitObservation** table now includes the ***sourceSystem*** attribute which has been removed from **VisitObservationType** table as the former is a more logical place to locate this data.
 
-The **VisitObservationType** table now includes the ***interfaceId*** attribute as well as the ***idInApplication*** attribute. The original idInApplication attribute is the code used by the source system for the observation type, whereas the interfaceID is the ID used in the hl7 message to refer to this type.
+The **VisitObservationType** table now includes the ***interfaceId*** attribute as well as the ***idInApplication*** attribute. The original idInApplication attribute is the code used by the source system for the observation type, whereas the interfaceID is the ID used in the hl7 message to refer to this type. Previously a flowsheet that had been added to the live hl7 feed would have two VisitObservationTypes (one from  the hl7 feed and one from caboodle), this change now ensures that the same VisitObservationType is used regardless of the source of the data.
 
 
 
