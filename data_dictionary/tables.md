@@ -98,7 +98,7 @@ Holds information relevant to advance decisions taken by patients.
 | Name | Type | Description |
 |---| --- |---|
 | advanceDecisionId | bigint | Unique identifier in EMAP for this **AdvanceDecision** record. |
-| advanceDecisionTypeId | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#advancedecisiontype) associated with this record. |
+| advanceDecisionTypeId | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#AdvanceDecisionType) associated with this record. |
 | hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
 | mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | internalId | bigint | Identifier used in source system for this **AdvanceDecision**. |
@@ -329,8 +329,8 @@ A LabSample details the external lab's view of a sample being analysed and its r
 | labSampleId | bigint | Unique identifier in EMAP for this **LabSample** record. |
 | mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | externalLabNumber | varchar(255) | Lab number for the system doing the lab test. |
-| Instant | Missing Type | Date and time at which this **LabSample** arrived at the lab. |
-| sampleCollectionTime | [Instant](#Instant) | Date and time at which this **LabSample** was take from the patient. |
+| receiptAtLab | timestamp without timezone | Date and time at which this **LabSample** arrived at the lab. |
+| sampleCollectionTime | timestamp without timezone | Date and time at which this **LabSample** was take from the patient. |
 | specimenType | varchar(255) | Type of specimen. |
 | sampleSite | varchar(255) | Site on body the sample was taken from. |
 | collectionMethod | varchar(255) | Method of collection. |
@@ -587,6 +587,7 @@ An observation recorded about patient.
 | valueAsDate | date | Value as a date. |
 | unit | varchar(255) | Units of the **VisitObservation**. |
 | comment | varchar(255) | Comments added by clinician. |
+| sourceSystem | varchar(255) | The hospital system that emap received the data from (caboodle or EPIC). |
 
 ---
 
@@ -601,7 +602,7 @@ VisitObservationType describes the meaning behind a specific observation.
 | Name | Type | Description |
 |---| --- |---|
 | visitObservationTypeId | bigint | Unique identifier in EMAP for this **VisitObservationType**Id record. |
-| sourceSystem | varchar(255) | The source system from which we learnt about this **VisitObservationType**. |
+| interfaceId | varchar(255) | The ID used in the HL7 messages for referring to this visit observation type. |
 | sourceObservationType | varchar(255) | The data type in the source system. |
 | idInApplication | varchar(255) | The code used by the source system to identify the observation type. |
 | name | varchar(255) | Readable name for the source system observation type. |
