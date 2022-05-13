@@ -57,17 +57,17 @@ Holds information relevant to consultation requests for patients.
 
 ### **Attributes/Column Headers**
 
-| Name | Type | Description |
-|---| --- |---|
+| Name                 | Type | Description |
+|----------------------| --- |---|
 | consultationRequestId | bigint | Unique identifier in EMAP for this **ConsultationRequest** record. |
-| consultationTypeId | [ConsultationType](#ConsultationType) | Identifier for the [ConsultationType](#ConsultationType) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| internalId | bigint | Identifier used in source system for this **ConsultationRequest**. |
+| consultationTypeId   | [ConsultationType](#ConsultationType) | Identifier for the [ConsultationType](#ConsultationType) associated with this record. |
+| hospitalVisitId      | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| internalId           | bigint | Identifier used in source system for this **ConsultationRequest**. |
 | closedDueToDischarge | boolean | Predicate determining whether this **ConsultationRequest** was closed on discharge. |
-| comments | varchar(255) | Notes added to the **ConsultationRequest** which are not tied to a Question. |
-| statusChangeTime | timestamp without timezone | Date and time at which this **ConsultationRequest** was last updated. |
-| scheduledDatetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was scheduled. |
-| cancelled | boolean | Predicate determining whether this **ConsultationRequest** has been cancelled by a user. |
+| comments             | varchar(255) | Notes added to the **ConsultationRequest** which are not tied to a Question. |
+| statusChangeDatetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was last updated. |
+| scheduledDatetime    | timestamp without timezone | Date and time at which this **ConsultationRequest** was scheduled. |
+| cancelled            | boolean | Predicate determining whether this **ConsultationRequest** has been cancelled by a user. |
 
 ---
 
