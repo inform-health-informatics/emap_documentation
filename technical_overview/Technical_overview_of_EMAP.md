@@ -5,14 +5,13 @@ Note a Glossary of terms used is provided as a separate document.
 ## Introduction
 
 Data and metadata are an integral part of any Hospital Trust’s electronic information systems. In hospital systems, data is 
-recorded in a variety of locations depending on the needs of the staff. Data can also come 
-in many forms, it may be plain text, images, PDFs or even waveform data. Metadata relates the data being recorded to 
-internal mappings or external ontology records, as well provenance of the data. At UCLH, all data messages are recorded within the system but not in a 
-systematic, formatted way that is easy to work with. Front end databases that are tailored to reporting 
-(Caboodle/Clarity in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. 
-While this data can be used for research, the nightly consolidation process means that the 
-databases are always behind what is currently happening and may not exactly match events as they occurred, preventing 
-any real-time application of the data. 
+recorded in a variety of locations depending on the needs of the staff. Data can also come in many forms, it may be 
+plain text, images, PDFs or even waveform data. Metadata relates the data being recorded to internal mappings or external
+ontology records, as well provenance of the data. At UCLH, all data messages are recorded within the system but not in a
+systematic, formatted way that is easy to work with. Front end databases that are tailored to reporting (Caboodle/Clarity
+in Figure 1) are loaded with consolidated data during a nightly process of automated batch loads. While this data can be
+used for research, the nightly consolidation process means that the databases are always behind what is currently 
+happening and may not exactly match events as they occurred, preventing any real-time application of the data. 
 
 
 ![Data flow in the hospital](./images/Figure_1.png)
@@ -38,7 +37,8 @@ clinician to create an up-to-date view of derived metrics of each patient in a g
 
 Figure 2 illustrates how the EMAP pipeline integrates with the previously existing technical infrastructure for 
 hospital data (as illustrated in Figure 1). It further highlights all individual components of the pipeline, which are 
-further explained in the following. The components indicated by laptops in the figure represent the 'microservices' created to process and direct data within the pipeline.   
+further explained in the following. The components indicated by laptops in the figure represent the 'microservices' 
+created to process and direct data within the pipeline.   
 
 It is important to note here that the EMAP pipeline aims to record all the full history of events and not just the 
 'status quo' at one point in time. This means that the resulting data store will not only show how many beds are 
@@ -135,8 +135,8 @@ to the appropriate patient.
 The event processor receives messages in the interchange format from RabbitMQ. Each message is received and processed 
 individually before data is added into the ‘star schema’ of the UDS (User Data Store) (see Figure 3). We maintain two 
 instances of the star database (star_a & star_b) with views (star) created for the current active instance. We use 
-these instances alternately as our production database, whilst the othr instance is being repopulated following cahnges, fixes and 
-additions. This allows us to update the production database without requiring downtime and disruption to users.
+these instances alternately as our production database, whilst the other instance is being repopulated following changes,
+fixes and additions. This allows us to update the production database without requiring downtime and disruption to users.
 
 ![Schema for the EMAP ‘star’ database stored on the UDS](./images/Figure_3.png)
 
@@ -163,8 +163,8 @@ The OMOP format provides an anonymous, fixed version of patient record data. How
 included demographics and time 'aware' information which could not be provided by using the OMOP standard without 
 significant changes. OMOP is also not suited to live data. We concluded that we would need to devise our own schema.
 
-Initially we looked at an entity-attribute-value approach (EAV) for maximum flexibility and implemented our database in this fashion. 
-Observation showed that while an EAV did allow the 
+Initially we looked at an entity-attribute-value approach (EAV) for maximum flexibility and implemented our database in 
+this fashion. Observation showed that while an EAV did allow the 
 easy addition of different types of data, it also caused major usability issues for alpha users, e.g .through 
 slow indexing and complex joins. Technical evaluation and the learning process involved creating the EMAP pipeline 
 showed that the flexibility provided by EAV was unnecessary, and thus we undertook a redesign that separated the data 
@@ -174,10 +174,19 @@ confirms it is faster and more intuitive than the generic approach.
 
 ## Technologies used 
 
-The EMAP pipeline infrastructure makes use of RabbitMQ, Java Spring and Hibernate frameworks, PostGres databases, Glowroot monitoring and Docker containers. Further details of the use of each framework follow below. Using these technologies we have created a number of microservices (Hoover, HL7Reader & EventProcessor indicated by laptops in Figure 2) which link together to form the data pipeline. 
+The EMAP pipeline infrastructure makes use of RabbitMQ, Java Spring and Hibernate frameworks, PostGres databases, 
+Glowroot monitoring and Docker containers. Further details of the use of each framework follow below. Using these 
+technologies we have created a number of microservices (Hoover, HL7Reader & EventProcessor indicated by laptops in 
+Figure 2) which link together to form the data pipeline. 
 
 
-As mentioned above, the pipeline receives messages from the live HL7 stream and data from databases using the Hoover. Messages arrive in the databases in large dumps but EMAP priority is our live data. This means we make use of a queuing system that allows the live stream to have priority and processes messages from the Hoover in between processing live messages. It is also worth noting that whilst we might expect messages to arrive in the live feed in a sensible order (admit-transfer-discharge) experience has shown that this is not the case and the EMAP pipeline does considerable processing to reconcile out of order messages. Also system failures and data replays are not uncommon occurrences and reconciling out off order messages is vital to preventing these from corrupting the data store. 
+As mentioned above, the pipeline receives messages from the live HL7 stream and data from databases using the Hoover. 
+Messages arrive in the databases in large dumps but EMAP priority is our live data. This means we make use of a queuing
+system that allows the live stream to have priority and processes messages from the Hoover in between processing live 
+messages. It is also worth noting that whilst we might expect messages to arrive in the live feed in a sensible order 
+(admit-transfer-discharge) experience has shown that this is not the case and the EMAP pipeline does considerable 
+processing to reconcile out of order messages. Also, system failures and data replays are not uncommon occurrences and
+reconciling out off order messages is vital to preventing these from corrupting the data store. 
 
 RabbitMQ was chosen for channeling messages as it provides robust hardiness against failure, which can be configured to 
 best suit the system. We have configured the message streams to be received as batches and processed individually. The 
@@ -186,17 +195,20 @@ priority is that we capture all data and so the potential data loss of the “at
 suitable.
 
 
-Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client (the EventProcessor microservice receiving the message and applying to database), and flagging it. 
-It isn't marked as delivered or removed from the queue until it is ‘acked’, that is, the client returns a message back to RabbitMQ acknowledging that it has received and processed the message. In the event 
-of a failure at any point in processing or before the ack is sent, RabbitMQ resends the message. This ensures there is no loss of messages at this point in the pipeline but may cause duplicate processing. Using this configuration option required 
-investing time in making sure that such duplicate messages don't lead to duplicated data in the UDS. Conveniently for 
-us, this handling of duplicate messages is needed, not just to account for possible failure scenarios within our own 
-RabbitMQ pipeline, but also to track duplicate "source" messages that we receive in cases of an upstream failure 
-recovery.
+Using the "at least once" option is implemented by RabbitMQ by delivering the message to the client (the EventProcessor 
+microservice receiving the message and applying to database), and flagging it. It isn't marked as delivered or removed 
+from the queue until it is ‘acked’, that is, the client returns a message back to RabbitMQ acknowledging that it has 
+received and processed the message. In the event of a failure at any point in processing or before the ack is sent, 
+RabbitMQ resends the message. This ensures there is no loss of messages at this point in the pipeline but may cause
+duplicate processing. Using this configuration option required investing time in making sure that such duplicate messages
+don't lead to duplicated data in the UDS. Conveniently for us, this handling of duplicate messages is needed, not just 
+to account for possible failure scenarios within our own RabbitMQ pipeline, but also to track duplicate "source" messages
+that we receive in cases of an upstream failure recovery.
 
 
-Messages are sent to the RabbitMQ in batches. As it is also configured to backup running queues to disk, this avoids data loss in the case of a RabbitMQ 
-failure. The current batch is backed up, and following messages are still retained by the sending microservice. This does have some minor performance implications but these were deemed small enough to be negligible in our 
+Messages are sent to the RabbitMQ in batches. As it is also configured to backup running queues to disk, this avoids data
+loss in the case of a RabbitMQ failure. The current batch is backed up, and following messages are still retained by the
+sending microservice. This does have some minor performance implications but these were deemed small enough to be negligible in our 
 case. Since we know the general size of messages being sent we mitigated the use of disk space by configuring length 
 limits on our queues. We have abstracted away the interaction with RabbitMQ in the code into a shared library that we 
 use to ensure that bug fixes in the interaction are propagated to all applications.
@@ -265,15 +277,16 @@ hospital records to verify that the data in star is an accurate representation o
 ## Storage and Access control 
 
 The IDS has 840 GB of storage of which 76 GB is currently used. As more live HL7 streams and other forms of live data 
-export to the IDS are turned on the amount of data will obviously increase. Data in the IDS is persistent, allowing the star database to be recreated at any point if necessary. Current prognosis is that we have enough 
-space for 22 years worth of data; although this is difficult to accurately project without more detailed analysis.
+export to the IDS are turned on the amount of data will obviously increase. Data in the IDS is persistent, allowing the
+star database to be recreated at any point if necessary. Current prognosis is that we have enough space for 22 years 
+worth of data; although this is difficult to accurately project without more detailed analysis.
 
 
 
 The UDS has 1.5 terabytes of storage of which 279 GB is currently used. At present the star database and a number of 
 development/test databases used by the development team are not the only databases hosted on the UDS. Users can create 
-their own databases with their own schemas. Ultimately the star database will need to have priority in the space as more and more data is added 
-and options such as sharding will need to be considered.
+their own databases with their own schemas. Ultimately the star database will need to have priority in the space as more
+and more data is added and options such as sharding will need to be considered.
 
 
 
@@ -283,7 +296,3 @@ for projects and users can add their own data, but can also be provided access t
 Users can further restrict access to their own data tables to only specific users if they so desire, but the default 
 behaviour is that all members of a schema can read all data in that schema. We anticipate creating a more formal 
 process in the future. 
-
-
-
-
