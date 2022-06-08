@@ -4,9 +4,13 @@
 
 ---
 
+### Tables changed
+
+Table           | Attributes added | Attributes removed | Renamed
+:-- |:-- |:--
+
 
 ### Changes/fixes
-
 
 ---
 <!--
@@ -18,9 +22,9 @@
 
 | Repository            | Version |
 | :-                    | :-:     |
-|Hl7-processor          | 2.4     |
-|Emap_interchange       | 2.4     |
-|Emap-Core              | 2.4     |
-|Inform-DB              | 2.4     |
-|Hoover                 | 2.4     |
+|Hl7-processor          | x.x     |
+|Emap_interchange       | x.x     |
+|Emap-Core              | x.x     |
+|Inform-DB              | x.x     |
+|Hoover                 | x.x     |
 >
