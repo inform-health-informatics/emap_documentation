@@ -4,8 +4,26 @@
 
 ---
 
+### Tables changed
+
+Table           | Attributes added | Attributes removed | Renamed
+:-- |:-- |:--
+PatientCondition | addedDatetime | addedDateTime | ✓
+PatientCondition | resolutionDateTime |resolutionDatetime | ✓
+ConsultationRequest | statusChangeTime |statusChangeDatetime | ✓
+HospitalVisit | presentationDatetime | presentationTime | ✓
+HospitalVisit | admissionDatetime | admissionTime | ✓
+HospitalVisit | dischargeDatetime | dischargeTime | ✓
+LabSample | receiptAtLabDatetime | receiptAtLab | ✓
+LabSample | sampleCollectionDatetime | sampleCollectionTime | ✓
+LocationVisit | admissionDatetime | admissionTime | ✓
+LocationVisit | dischargeDatetime | dischargeTime | ✓
+VisitObservationType | creationDatetime | creationTime | ✓
+
 
 ### Changes/fixes
+
+- Modifies column names with a data type that includes a data and a time to have a _datetime suffix
 
 
 ---
