@@ -15,12 +15,12 @@ Type of condition that a patient can have.
 
 | Name | Type | Description |
 |---| --- |---|
-| conditionTypeId | bigint | Unique identifier in EMAP for this **ConditionType** record. |
-| dataType | varchar(255) | Problem list or patient infection. |
-| internalCode | varchar(255) | Code used within source system for this **ConditionType**. |
+| condition_type_id | bigint | Unique identifier in EMAP for this **ConditionType** record. |
+| data_type | varchar(255) | Problem list or patient infection. |
+| internal_code | varchar(255) | Code used within source system for this **ConditionType**. |
 | name | varchar(255) | Human readable name for this **ConditionType**. |
-| standardisedCode | varchar(255) | Mapping code for the observation from the standardised vocabulary system. Not yet implemented. |
-| standardisedVocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
+| standardised_code | varchar(255) | Mapping code for the observation from the standardised vocabulary system. Not yet implemented. |
+| standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
 
 ---
 
@@ -34,14 +34,14 @@ Represents patient conditions that start and can end.
 
 | Name | Type | Description |
 |---| --- |---|
-| patientConditionId | bigint | Unique identifier in EMAP for this **PatientCondition** record. |
-| conditionTypeId | [ConditionType](#ConditionType) | Identifier for the [ConditionType](#ConditionType) associated with this record. |
-| internalId | bigint | Identifier used in source system for this **PatientCondition**. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| addedDateTime | timestamp without timezone | Date and time at which this **PatientCondition** was added to the record. |
-| resolutionDateTime | timestamp without timezone | Date and time at which this **PatientCondition** was resolved. |
-| onsetDate | date | Date at which the **PatientCondition** started (if known). |
+| patient_condition_id | bigint | Unique identifier in EMAP for this **PatientCondition** record. |
+| condition_type_id | [ConditionType](#ConditionType) | Identifier for the [ConditionType](#ConditionType) associated with this record. |
+| internal_id | bigint | Identifier used in source system for this **PatientCondition**. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| added_date_time | timestamp without timezone | Date and time at which this **PatientCondition** was added to the record. |
+| resolution_date_time | timestamp without timezone | Date and time at which this **PatientCondition** was resolved. |
+| onset_date | date | Date at which the **PatientCondition** started (if known). |
 | classification | varchar(255) | Problem List classification (e.g. Temporary). |
 | status | varchar(255) | Status of **PatientCondition**. |
 | priority | varchar(255) | Problem List priority. |
@@ -59,14 +59,14 @@ Holds information relevant to consultation requests for patients.
 
 | Name | Type | Description |
 |---| --- |---|
-| consultationRequestId | bigint | Unique identifier in EMAP for this **ConsultationRequest** record. |
-| consultationTypeId | [ConsultationType](#ConsultationType) | Identifier for the [ConsultationType](#ConsultationType) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| internalId | bigint | Identifier used in source system for this **ConsultationRequest**. |
-| closedDueToDischarge | boolean | Predicate determining whether this **ConsultationRequest** was closed on discharge. |
+| consultation_request_id | bigint | Unique identifier in EMAP for this **ConsultationRequest** record. |
+| consultation_type_id | [ConsultationType](#ConsultationType) | Identifier for the [ConsultationType](#ConsultationType) associated with this record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| internal_id | bigint | Identifier used in source system for this **ConsultationRequest**. |
+| closed_due_to_discharge | boolean | Predicate determining whether this **ConsultationRequest** was closed on discharge. |
 | comments | varchar(255) | Notes added to the **ConsultationRequest** which are not tied to a Question. |
-| statusChangeTime | timestamp without timezone | Date and time at which this **ConsultationRequest** was last updated. |
-| scheduledDatetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was scheduled. |
+| status_change_time | timestamp without timezone | Date and time at which this **ConsultationRequest** was last updated. |
+| scheduled_datetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was scheduled. |
 | cancelled | boolean | Predicate determining whether this **ConsultationRequest** has been cancelled by a user. |
 
 ---
@@ -81,7 +81,7 @@ Type of a ConsultationRequest made for a patient.
 
 | Name | Type | Description |
 |---| --- |---|
-| consultationTypeId | bigint | Unique identifier in EMAP for this **ConsultationType** record. |
+| consultation_type_id | bigint | Unique identifier in EMAP for this **ConsultationType** record. |
 | code | varchar(255) | Code used in source system for this **ConsultationType**. |
 | name | varchar(255) | Human readable name for this **ConsultationType**. |
 
@@ -97,14 +97,14 @@ Holds information relevant to advance decisions taken by patients.
 
 | Name | Type | Description |
 |---| --- |---|
-| advanceDecisionId | bigint | Unique identifier in EMAP for this **AdvanceDecision** record. |
-| advanceDecisionTypeId | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#AdvanceDecisionType) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
-| internalId | bigint | Identifier used in source system for this **AdvanceDecision**. |
-| closedDueToDischarge | boolean | Predicate determining whether this **AdvanceDecision** was closed on discharge. |
-| statusChangeDatetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was last updated. |
-| requestedDatetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was first recorded. |
+| advance_decision_id | bigint | Unique identifier in EMAP for this **AdvanceDecision** record. |
+| advance_decision_type_id | [AdvanceDecisionType](#AdvanceDecisionType) | Identifier for the [AdvanceDecisionType](#AdvanceDecisionType) associated with this record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| internal_id | bigint | Identifier used in source system for this **AdvanceDecision**. |
+| closed_due_to_discharge | boolean | Predicate determining whether this **AdvanceDecision** was closed on discharge. |
+| status_change_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was last updated. |
+| requested_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was first recorded. |
 | cancelled | boolean | Predicate determining whether this **AdvanceDecision** has been cancelled by a user. |
 
 ---
@@ -119,9 +119,9 @@ Types of AdvancedDecision that can be recorded.
 
 | Name | Type | Description |
 |---| --- |---|
-| advanceDecisionTypeId | bigint | Unique identifier in EMAP for this **AdvanceDecisionType** record. |
+| advance_decision_type_id | bigint | Unique identifier in EMAP for this **AdvanceDecisionType** record. |
 | name | varchar(255) | Name of the **AdvanceDecisionType**, e.g. DNACPR. |
-| careCode | varchar(255) | Code used within source system for **AdvanceDecisionType**, e.g COD4 for DNACPR. |
+| care_code | varchar(255) | Code used within source system for **AdvanceDecisionType**, e.g COD4 for DNACPR. |
 
 ---
 
@@ -135,17 +135,17 @@ A core demographic represents the main demographics stored around patients.
 
 | Name | Type | Description |
 |---| --- |---|
-| coreDemographicId | bigint | Unique identifier in EMAP for this **CoreDemographic** record. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| core_demographic_id | bigint | Unique identifier in EMAP for this **CoreDemographic** record. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | firstname | varchar(255) | First name of the patient. |
 | middlename | varchar(255) | Middle name of the patient. |
 | lastname | varchar(255) | Last name of the patient. |
-| dateOfBirth | date | Date of birth of the patient. |
-| dateOfDeath | date | Date of death of the patient. |
-| datetimeOfBirth | timestamp without timezone | Date and time of birth of the patient. |
-| datetimeOfDeath | timestamp without timezone | Date and time of death of the patient. |
+| date_of_birth | date | Date of birth of the patient. |
+| date_of_death | date | Date of death of the patient. |
+| datetime_of_birth | timestamp without timezone | Date and time of birth of the patient. |
+| datetime_of_death | timestamp without timezone | Date and time of death of the patient. |
 | alive | boolean | Predicate determining whether the patient is alive. |
-| homePostcode | varchar(255) | Postcode of the patient's home address. |
+| home_postcode | varchar(255) | Postcode of the patient's home address. |
 | sex | varchar(255) | Sex of the patient. |
 | ethnicity | varchar(255) | Ethnicity of the patient. |
 
@@ -161,18 +161,18 @@ This a single visit to the hospital.
 
 | Name | Type | Description |
 |---| --- |---|
-| hospitalVisitId | bigint | Unique identifier in EMAP for this **HospitalVisit** record. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
-| sourceSystem | varchar(255) | The source system from which we learnt about this hospital visit. |
-| presentationTime | timestamp without timezone | Date and time at which this **HospitalVisit** was first recorded. |
-| admissionTime | timestamp without timezone | Date and time at which this **HospitalVisit** formally began. |
-| dischargeTime | timestamp without timezone | Date and time at which this **HospitalVisit** formally ended. |
-| patientClass | varchar(255) | The patient class. E.g. Inpatient or Outpaitent. |
-| arrivalMethod | varchar(255) | The patient's arrival method at hospital. |
-| dischargeDestination | varchar(255) | Where the patient went after their departure. |
-| dischargeDisposition | varchar(255) | The patient's disposition on departure. |
+| hospital_visit_id | bigint | Unique identifier in EMAP for this **HospitalVisit** record. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| source_system | varchar(255) | The source system from which we learnt about this hospital visit. |
+| presentation_time | timestamp without timezone | Date and time at which this **HospitalVisit** was first recorded. |
+| admission_time | timestamp without timezone | Date and time at which this **HospitalVisit** formally began. |
+| discharge_time | timestamp without timezone | Date and time at which this **HospitalVisit** formally ended. |
+| patient_class | varchar(255) | The patient class. E.g. Inpatient or Outpaitent. |
+| arrival_method | varchar(255) | The patient's arrival method at hospital. |
+| discharge_destination | varchar(255) | Where the patient went after their departure. |
+| discharge_disposition | varchar(255) | The patient's disposition on departure. |
 | encounter | varchar(255) | The source system identifier of this hospital visit. |
-| visitObservations | Missing Type | Visit observations should be deleted if an encounter is deleted. |
+| visit_observations | Missing Type | Visit observations should be deleted if an encounter is deleted. |
 
 ---
 
@@ -186,12 +186,12 @@ This represents the association of Medical Resource Number (MRN) to an individua
 
 | Name | Type | Description |
 |---| --- |---|
-| mrnId | bigint | Unique identifier in EMAP for this **Mrn** record. |
-| hospitalVisits | Missing Type | None |
+| mrn_id | bigint | Unique identifier in EMAP for this **Mrn** record. |
+| hospital_visits | Missing Type | None |
 | mrn | varchar(255) | The value of the MRN identifier. |
-| nhsNumber | varchar(255) | NHS number. |
-| sourceSystem | varchar(255) | The system from which this MRN was initially discovered. |
-| storedFrom | timestamp without timezone | Date and time at which this **Mrn** was first recorded in EMAP. |
+| nhs_number | varchar(255) | NHS number. |
+| source_system | varchar(255) | The system from which this MRN was initially discovered. |
+| stored_from | timestamp without timezone | Date and time at which this **Mrn** was first recorded in EMAP. |
 
 ---
 
@@ -205,9 +205,9 @@ This table stores a mapping from every MRN known to the system, to its currently
 
 | Name | Type | Description |
 |---| --- |---|
-| mrnToLiveId | bigint | Unique identifier in EMAP for this **MrnToLive** record. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
-| liveMrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| mrn_to_live_id | bigint | Unique identifier in EMAP for this **MrnToLive** record. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| live_mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 
 ---
 
@@ -221,11 +221,11 @@ This represents all the different batteries of test that can be ordered.
 
 | Name | Type | Description |
 |---| --- |---|
-| labBatteryId | bigint | Unique identifier in EMAP for this **LabBattery** record. |
-| batteryCode | varchar(255) | Code for this battery of tests. |
-| batteryName | varchar(255) | Human readable name for this battery of tests. |
+| lab_battery_id | bigint | Unique identifier in EMAP for this **LabBattery** record. |
+| battery_code | varchar(255) | Code for this battery of tests. |
+| battery_name | varchar(255) | Human readable name for this battery of tests. |
 | description | varchar(255) | Desription of this battery of tests. |
-| labProvider | varchar(255) | Source system of this batteryCode. |
+| lab_provider | varchar(255) | Source system of this batteryCode. |
 
 ---
 
@@ -239,9 +239,9 @@ This represents all the different batteries of test that can be ordered.
 
 | Name | Type | Description |
 |---| --- |---|
-| labBatteryElementId | bigint | Unique identifier in EMAP for this **LabBatteryElement** record. |
-| labBatteryId | [LabBattery](#LabBattery) | Identifier for the [LabBattery](#LabBattery) associated with this record. |
-| labTestDefinitionId | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
+| lab_battery_element_id | bigint | Unique identifier in EMAP for this **LabBatteryElement** record. |
+| lab_battery_id | [LabBattery](#LabBattery) | Identifier for the [LabBattery](#LabBattery) associated with this record. |
+| lab_test_definition_id | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
 
 ---
 
@@ -255,14 +255,14 @@ Isolates identified from culture.
 
 | Name | Type | Description |
 |---| --- |---|
-| labIsolateId | bigint | Unique identifier in EMAP for this **LabIsolate** record. |
-| labResultId | [LabResult](#LabResult) | Identifier for the [LabResult](#LabResult) associated with this record. |
-| labInternalId | varchar(255) | Internal Id of the **LabIsolate**. |
-| isolateCode | varchar(255) | Lab system's code for the isolate. |
-| isolateName | varchar(255) | Name of the isolate. |
-| cultureType | varchar(255) | Method of culture. |
+| lab_isolate_id | bigint | Unique identifier in EMAP for this **LabIsolate** record. |
+| lab_result_id | [LabResult](#LabResult) | Identifier for the [LabResult](#LabResult) associated with this record. |
+| lab_internal_id | varchar(255) | Internal Id of the **LabIsolate**. |
+| isolate_code | varchar(255) | Lab system's code for the isolate. |
+| isolate_name | varchar(255) | Name of the isolate. |
+| culture_type | varchar(255) | Method of culture. |
 | quantity | varchar(255) | Usually CFU range, but can also be categorical. |
-| clinicalInformation | varchar(255) | Any clinical information for the isolate. |
+| clinical_information | varchar(255) | Any clinical information for the isolate. |
 
 ---
 
@@ -276,15 +276,15 @@ A LabOrder contains the details of the request to perform a lab investigation.
 
 | Name | Type | Description |
 |---| --- |---|
-| labOrderId | bigint | Unique identifier in EMAP for this **LabOrder** record. |
-| labSampleId | [LabSample](#LabSample) | Identifier for the [LabSample](#LabSample) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| labBatteryId | [LabBattery](#LabBattery) | Identifier for the [LabBattery](#LabBattery) associated with this record. |
-| orderDatetime | timestamp without timezone | Date and time at which this **LabOrder** was actioned. |
-| requestDatetime | timestamp without timezone | Date and time at which this **LabOrder** was requested. |
-| clinicalInformation | varchar(255) | Additional information supplied. |
-| internalLabNumber | varchar(255) | Identifier used in source system for this **LabOrder**. |
-| sourceSystem | varchar(255) | Name of the source system where this **LabOrder** was created. |
+| lab_order_id | bigint | Unique identifier in EMAP for this **LabOrder** record. |
+| lab_sample_id | [LabSample](#LabSample) | Identifier for the [LabSample](#LabSample) associated with this record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| lab_battery_id | [LabBattery](#LabBattery) | Identifier for the [LabBattery](#LabBattery) associated with this record. |
+| order_datetime | timestamp without timezone | Date and time at which this **LabOrder** was actioned. |
+| request_datetime | timestamp without timezone | Date and time at which this **LabOrder** was requested. |
+| clinical_information | varchar(255) | Additional information supplied. |
+| internal_lab_number | varchar(255) | Identifier used in source system for this **LabOrder**. |
+| source_system | varchar(255) | Name of the source system where this **LabOrder** was created. |
 
 ---
 
@@ -298,19 +298,19 @@ A LabResult is a single component result of a lab. A single order or sample is l
 
 | Name | Type | Description |
 |---| --- |---|
-| labResultId | bigint | Unique identifier in EMAP for this **LabResult** record. |
-| labOrderId | [LabOrder](#LabOrder) | Identifier for the [LabOrder](#LabOrder) associated with this record. |
-| labTestDefinitionId | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
-| resultLastModifiedTime | timestamp without timezone | Date and time at which the **LabResult** was last modified. |
-| abnormalFlag | varchar(255) | Lab system flag for value outside of normal range. |
-| mimeType | varchar(255) | Mime type (or custom type) of the value. |
-| valueAsText | varchar(255) | Value as text. |
-| valueAsReal | double precision | Value as a number. |
-| valueAsBytes | bytea | Value as bytes. |
-| resultOperator | varchar(255) | For numeric results, defines the operator used to define the value. |
-| rangeHigh | double precision | Upper limit of reference range. |
-| rangeLow | double precision | Lower limit of reference range. |
-| resultStatus | varchar(255) | Status of the result. |
+| lab_result_id | bigint | Unique identifier in EMAP for this **LabResult** record. |
+| lab_order_id | [LabOrder](#LabOrder) | Identifier for the [LabOrder](#LabOrder) associated with this record. |
+| lab_test_definition_id | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
+| result_last_modified_time | timestamp without timezone | Date and time at which the **LabResult** was last modified. |
+| abnormal_flag | varchar(255) | Lab system flag for value outside of normal range. |
+| mime_type | varchar(255) | Mime type (or custom type) of the value. |
+| value_as_text | varchar(255) | Value as text. |
+| value_as_real | double precision | Value as a number. |
+| value_as_bytes | bytea | Value as bytes. |
+| result_operator | varchar(255) | For numeric results, defines the operator used to define the value. |
+| range_high | double precision | Upper limit of reference range. |
+| range_low | double precision | Lower limit of reference range. |
+| result_status | varchar(255) | Status of the result. |
 | units | varchar(255) | Units of the result. |
 | comment | varchar(255) | Additional comments. |
 
@@ -326,14 +326,14 @@ A LabSample details the external lab's view of a sample being analysed and its r
 
 | Name | Type | Description |
 |---| --- |---|
-| labSampleId | bigint | Unique identifier in EMAP for this **LabSample** record. |
-| mrnId | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
-| externalLabNumber | varchar(255) | Lab number for the system doing the lab test. |
-| receiptAtLab | timestamp without timezone | Date and time at which this **LabSample** arrived at the lab. |
-| sampleCollectionTime | timestamp without timezone | Date and time at which this **LabSample** was take from the patient. |
-| specimenType | varchar(255) | Type of specimen. |
-| sampleSite | varchar(255) | Site on body the sample was taken from. |
-| collectionMethod | varchar(255) | Method of collection. |
+| lab_sample_id | bigint | Unique identifier in EMAP for this **LabSample** record. |
+| mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
+| external_lab_number | varchar(255) | Lab number for the system doing the lab test. |
+| receipt_at_lab | timestamp without timezone | Date and time at which this **LabSample** arrived at the lab. |
+| sample_collection_time | timestamp without timezone | Date and time at which this **LabSample** was take from the patient. |
+| specimen_type | varchar(255) | Type of specimen. |
+| sample_site | varchar(255) | Site on body the sample was taken from. |
+| collection_method | varchar(255) | Method of collection. |
 
 ---
 
@@ -347,11 +347,11 @@ Sensitivities show the affect of specific agents on isolates from cultures.
 
 | Name | Type | Description |
 |---| --- |---|
-| labSensitivityId | bigint | Unique identifier in EMAP for this **LabSensitivity** record. |
-| labIsolateId | [LabIsolate](#LabIsolate) | Identifier for the [LabIsolate](#LabIsolate) associated with this record. |
+| lab_sensitivity_id | bigint | Unique identifier in EMAP for this **LabSensitivity** record. |
+| lab_isolate_id | [LabIsolate](#LabIsolate) | Identifier for the [LabIsolate](#LabIsolate) associated with this record. |
 | agent | varchar(255) | The chemical (often antibiotic) used. |
 | sensitivity | varchar(255) | Sensitivity of the microbe to the agent. |
-| reportingDatetime | timestamp without timezone | Date and time at which this **LabSensitivity** was reported. |
+| reporting_datetime | timestamp without timezone | Date and time at which this **LabSensitivity** was reported. |
 
 ---
 
@@ -365,12 +365,12 @@ This represents the definition of a single lab test by a single provider.
 
 | Name | Type | Description |
 |---| --- |---|
-| labTestDefinitionId | bigint | Unique identifier in EMAP for this **LabTestDefinition** record. |
-| labProvider | varchar(255) | What system this code belongs to. Examples could be WinPath, or Epic. |
-| labDepartment | varchar(255) | The department within the lab responsible for the test. |
-| testLabCode | varchar(255) | The code for this test as reported by the lab. |
-| testStandardCode | varchar(255) | The code for this test in a standardised vocabulary. |
-| standardisedVocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
+| lab_test_definition_id | bigint | Unique identifier in EMAP for this **LabTestDefinition** record. |
+| lab_provider | varchar(255) | What system this code belongs to. Examples could be WinPath, or Epic. |
+| lab_department | varchar(255) | The department within the lab responsible for the test. |
+| test_lab_code | varchar(255) | The code for this test as reported by the lab. |
+| test_standard_code | varchar(255) | The code for this test in a standardised vocabulary. |
+| standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
 
 ---
 
@@ -384,9 +384,9 @@ Represents a bed in the hospital.
 
 | Name | Type | Description |
 |---| --- |---|
-| bedId | bigint | Unique identifier in EMAP for this **Bed** record. |
-| roomId | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
-| hl7String | varchar(255) | Text name used by HL7 for this **Bed**. |
+| bed_id | bigint | Unique identifier in EMAP for this **Bed** record. |
+| room_id | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
+| hl7_string | varchar(255) | Text name used by HL7 for this **Bed**. |
 
 ---
 
@@ -400,8 +400,8 @@ Represents a facility available at a Bed.
 
 | Name | Type | Description |
 |---| --- |---|
-| bedFacilityId | bigint | Unique identifier in EMAP for this **BedFacility** record. |
-| bedStateId | [BedState](#BedState) | Identifier for the [BedState](#BedState) associated with this record. |
+| bed_facility_id | bigint | Unique identifier in EMAP for this **BedFacility** record. |
+| bed_state_id | [BedState](#BedState) | Identifier for the [BedState](#BedState) associated with this record. |
 | type | varchar(255) | Type of facility available at bed. |
 
 ---
@@ -416,13 +416,13 @@ Represents the state of a given Bed.
 
 | Name | Type | Description |
 |---| --- |---|
-| bedStateId | bigint | Unique identifier in EMAP for this **BedState** record. |
-| bedId | [Bed](#Bed) | Identifier for the [Bed](#Bed) associated with this record. |
+| bed_state_id | bigint | Unique identifier in EMAP for this **BedState** record. |
+| bed_id | [Bed](#Bed) | Identifier for the [Bed](#Bed) associated with this record. |
 | csn | bigint | Indentifier ?? |
-| isInCensus | boolean | Predicate determining whether the Bed is in census. |
-| isBunk | boolean | Predicate determining whether the Bed is a bunk. |
+| is_in_census | boolean | Predicate determining whether the Bed is in census. |
+| is_bunk | boolean | Predicate determining whether the Bed is a bunk. |
 | status | varchar(255) | Current status of the Bed. |
-| poolBedCount | bigint | Pool bed count ?? |
+| pool_bed_count | bigint | Pool bed count ?? |
 
 ---
 
@@ -436,8 +436,8 @@ Represents a department in the hospital.
 
 | Name | Type | Description |
 |---| --- |---|
-| departmentId | bigint | Unique identifier in EMAP for this **Department** record. |
-| hl7String | varchar(255) | Text name used by HL7 for this **Department**. |
+| department_id | bigint | Unique identifier in EMAP for this **Department** record. |
+| hl7_string | varchar(255) | Text name used by HL7 for this **Department**. |
 | name | varchar(255) | Name of this **Department**. |
 | speciality | varchar(255) | Speciality of this **Department**. |
 
@@ -453,8 +453,8 @@ Represents the state of a given Department.
 
 | Name | Type | Description |
 |---| --- |---|
-| departmentStateId | bigint | Unique identifier in EMAP for this **DepartmentState** record. |
-| departmentId | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
+| department_state_id | bigint | Unique identifier in EMAP for this **DepartmentState** record. |
+| department_id | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
 | status | varchar(255) | Current status of the Department. |
 
 ---
@@ -469,11 +469,11 @@ Represents the state of a given Department.
 
 | Name | Type | Description |
 |---| --- |---|
-| locationId | bigint | Unique identifier in EMAP for this **Location** record. |
-| locationString | varchar(255) | Text value of the **Location**. |
-| departmentId | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
-| roomId | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
-| bedId | [Bed](#Bed) | Identifier for the [Bed](#Bed) associated with this record. |
+| location_id | bigint | Unique identifier in EMAP for this **Location** record. |
+| location_string | varchar(255) | Text value of the **Location**. |
+| department_id | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
+| room_id | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
+| bed_id | [Bed](#Bed) | Identifier for the [Bed](#Bed) associated with this record. |
 
 ---
 
@@ -487,14 +487,14 @@ This represents a patient being in a location for an amount of time.
 
 | Name | Type | Description |
 |---| --- |---|
-| locationVisitId | bigint | Unique identifier in EMAP for this **LocationVisit** record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| parentLocationVisitId | bigint | Identifier of the parent **LocationVisit**. |
-| admissionTime | timestamp without timezone | Date and time at which the patient was admitted to this location. |
-| dischargeTime | timestamp without timezone | Date and time at which the patient was discharged from this location. |
-| locationId | [Location](#Location) | Identifier of the [Location](#Location) associated with this **LocationVisit**. |
-| inferredAdmission | boolean | Predicate determining whether the admission time has been inferred (not set from an A01, A02 or A03). |
-| inferredDischarge | boolean | Predicate determining whether discharge time has been inferred (not set from an A01, A02 or A03). |
+| location_visit_id | bigint | Unique identifier in EMAP for this **LocationVisit** record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| parent_location_visit_id | bigint | Identifier of the parent **LocationVisit**. |
+| admission_time | timestamp without timezone | Date and time at which the patient was admitted to this location. |
+| discharge_time | timestamp without timezone | Date and time at which the patient was discharged from this location. |
+| location_id | [Location](#Location) | Identifier of the [Location](#Location) associated with this **LocationVisit**. |
+| inferred_admission | boolean | Predicate determining whether the admission time has been inferred (not set from an A01, A02 or A03). |
+| inferred_discharge | boolean | Predicate determining whether discharge time has been inferred (not set from an A01, A02 or A03). |
 
 ---
 
@@ -508,9 +508,9 @@ Represents a room in the hospital.
 
 | Name | Type | Description |
 |---| --- |---|
-| roomId | bigint | Unique identifier in EMAP for this **Room** record. |
-| departmentId | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
-| hl7String | varchar(255) | Text name used by HL7 for this **Room**. |
+| room_id | bigint | Unique identifier in EMAP for this **Room** record. |
+| department_id | [Department](#Department) | Identifier for the [Department](#Department) associated with this record. |
+| hl7_string | varchar(255) | Text name used by HL7 for this **Room**. |
 | name | varchar(255) | Name for this **Room**. |
 
 ---
@@ -525,11 +525,11 @@ Represents the state of a given Room.
 
 | Name | Type | Description |
 |---| --- |---|
-| roomStateId | bigint | Unique identifier in EMAP for this **RoomState** record. |
-| roomId | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
+| room_state_id | bigint | Unique identifier in EMAP for this **RoomState** record. |
+| room_id | [Room](#Room) | Identifier for the [Room](#Room) associated with this record. |
 | csn | bigint | Indentifier ?? |
 | status | varchar(255) | Current status of the Room. |
-| isReady | boolean | Predicate determining whether the Room is ready. |
+| is_ready | boolean | Predicate determining whether the Room is ready. |
 
 ---
 
@@ -543,10 +543,10 @@ Questions that can be attached to several data types, such as lab samples or con
 
 | Name | Type | Description |
 |---| --- |---|
-| questionId | bigint | Unique identifier in EMAP for this **Question** record. |
+| question_id | bigint | Unique identifier in EMAP for this **Question** record. |
 | question | varchar(255) | Text content of the **Question**. |
-| storedFrom | timestamp without timezone | Date and time from which this **Question** is stored. |
-| validFrom | timestamp without timezone | Date and time from which this **Question** is valid. |
+| stored_from | timestamp without timezone | Date and time from which this **Question** is stored. |
+| valid_from | timestamp without timezone | Date and time from which this **Question** is valid. |
 
 ---
 
@@ -560,11 +560,11 @@ Answers to questions listed in Question table.
 
 | Name | Type | Description |
 |---| --- |---|
-| requestAnswerId | bigint | Unique identifier in EMAP for this **RequestAnswer**Id record. |
+| request_answer_id | bigint | Unique identifier in EMAP for this **RequestAnswer**Id record. |
 | answer | varchar(255) | Text content of the **RequestAnswer**. |
-| questionId | [Question](#Question) | Identifier for the [Question](#Question) associated with this record. |
-| parentTable | varchar(255) | Parent table that should be included as a part of the join. |
-| parentId | bigint | Identifier for the parentTable associated with this record. |
+| question_id | [Question](#Question) | Identifier for the [Question](#Question) associated with this record. |
+| parent_table | varchar(255) | Parent table that should be included as a part of the join. |
+| parent_id | bigint | Identifier for the parentTable associated with this record. |
 
 ---
 
@@ -578,16 +578,16 @@ An observation recorded about patient.
 
 | Name | Type | Description |
 |---| --- |---|
-| visitObservationId | bigint | Unique identifier in EMAP for this **VisitObservation** record. |
-| visitObservationTypeId | [VisitObservationType](#VisitObservationType) | Identifier for the [VisitObservationType](#VisitObservationType) associated with this record. |
-| hospitalVisitId | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| observationDatetime | timestamp without timezone | Date and time at which this **VisitObservation** was first made. |
-| valueAsText | varchar(255) | Value as text. |
-| valueAsReal | double precision | Value as a number. |
-| valueAsDate | date | Value as a date. |
+| visit_observation_id | bigint | Unique identifier in EMAP for this **VisitObservation** record. |
+| visit_observation_type_id | [VisitObservationType](#VisitObservationType) | Identifier for the [VisitObservationType](#VisitObservationType) associated with this record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| observation_datetime | timestamp without timezone | Date and time at which this **VisitObservation** was first made. |
+| value_as_text | varchar(255) | Value as text. |
+| value_as_real | double precision | Value as a number. |
+| value_as_date | date | Value as a date. |
 | unit | varchar(255) | Units of the **VisitObservation**. |
 | comment | varchar(255) | Comments added by clinician. |
-| sourceSystem | varchar(255) | The hospital system that emap received the data from (caboodle or EPIC). |
+| source_system | varchar(255) | The hospital system that emap received the data from (caboodle or EPIC). |
 
 ---
 
@@ -601,16 +601,16 @@ VisitObservationType describes the meaning behind a specific observation.
 
 | Name | Type | Description |
 |---| --- |---|
-| visitObservationTypeId | bigint | Unique identifier in EMAP for this **VisitObservationType**Id record. |
-| interfaceId | varchar(255) | The ID used in the HL7 messages for referring to this visit observation type. |
-| sourceObservationType | varchar(255) | The data type in the source system. |
-| idInApplication | varchar(255) | The code used by the source system to identify the observation type. |
+| visit_observation_type_id | bigint | Unique identifier in EMAP for this **VisitObservationType**Id record. |
+| interface_id | varchar(255) | The ID used in the HL7 messages for referring to this visit observation type. |
+| source_observation_type | varchar(255) | The data type in the source system. |
+| id_in_application | varchar(255) | The code used by the source system to identify the observation type. |
 | name | varchar(255) | Readable name for the source system observation type. |
-| displayName | varchar(255) | Name displayed to users. |
+| display_name | varchar(255) | Name displayed to users. |
 | description | varchar(255) | Description of the data type. |
-| standardisedCode | varchar(255) | Mapping code for the observation from the standardised vocabulary system. Not yet implemented. |
-| standardisedVocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
-| primaryDataType | varchar(255) | Data type expected to be returned. |
-| creationTime | timestamp without timezone | Date and time at which this **VisitObservationType** was created in the source system. |
+| standardised_code | varchar(255) | Mapping code for the observation from the standardised vocabulary system. Not yet implemented. |
+| standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
+| primary_data_type | varchar(255) | Data type expected to be returned. |
+| creation_time | timestamp without timezone | Date and time at which this **VisitObservationType** was created in the source system. |
 
 ---
