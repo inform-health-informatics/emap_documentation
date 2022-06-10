@@ -26,26 +26,6 @@ Type of condition that a patient can have.
 
 
 
-## ConditionTypeAudit
-
-Audit table of ConditionType.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| condition_type_audit_id | bigint | None |
-| condition_type_id | bigint | None |
-| data_type | varchar(255) | None |
-| internal_code | varchar(255) | None |
-| name | varchar(255) | None |
-| standardised_code | varchar(255) | None |
-| standardised_vocabulary | varchar(255) | None |
-
----
-
-
-
 ## PatientCondition
 
 Represents patient conditions that start and can end.
@@ -66,32 +46,6 @@ Represents patient conditions that start and can end.
 | status | varchar(255) | Status of **PatientCondition**. |
 | priority | varchar(255) | Problem List priority. |
 | comment | varchar(255) | Comments added by clinician. |
-
----
-
-
-
-## PatientConditionAudit
-
-Audit table of PatientCondition.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| patient_condition_audit_id | bigint | None |
-| patient_condition_id | bigint | None |
-| condition_type_id | bigint | None |
-| internal_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| hospital_visit_id | bigint | None |
-| added_datetime | timestamp without timezone | None |
-| resolution_datetime | timestamp without timezone | None |
-| onset_date | date | None |
-| classification | varchar(255) | None |
-| status | varchar(255) | None |
-| priority | varchar(255) | None |
-| comment | varchar(255) | None |
 
 ---
 
@@ -119,29 +73,6 @@ Holds information relevant to consultation requests for patients.
 
 
 
-## ConsultationRequestAudit
-
-Audit table of ConsultationRequest.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| consultation_request_audit_id | bigint | None |
-| consultation_request_id | bigint | None |
-| consultation_type_id | bigint | None |
-| hospital_visit_id | bigint | None |
-| internal_id | bigint | None |
-| closed_due_to_discharge | boolean | None |
-| comments | varchar(255) | None |
-| status_change_datetime | timestamp without timezone | None |
-| scheduled_datetime | timestamp without timezone | None |
-| cancelled | boolean | None |
-
----
-
-
-
 ## ConsultationType
 
 Type of a ConsultationRequest made for a patient.
@@ -153,23 +84,6 @@ Type of a ConsultationRequest made for a patient.
 | consultation_type_id | bigint | Unique identifier in EMAP for this **ConsultationType** record. |
 | code | varchar(255) | Code used in source system for this **ConsultationType**. |
 | name | varchar(255) | Human readable name for this **ConsultationType**. |
-
----
-
-
-
-## ConsultationTypeAudit
-
-Audit table of ConsultationType.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| consultation_type_audit_id | bigint | None |
-| consultation_type_id | bigint | None |
-| code | varchar(255) | None |
-| name | varchar(255) | None |
 
 ---
 
@@ -192,29 +106,6 @@ Holds information relevant to advance decisions taken by patients.
 | status_change_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was last updated. |
 | requested_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was first recorded. |
 | cancelled | boolean | Predicate determining whether this **AdvanceDecision** has been cancelled by a user. |
-
----
-
-
-
-## AdvanceDecisionAudit
-
-Audit table of AdvanceDecision.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| advance_decision_audit_id | bigint | None |
-| advance_decision_id | bigint | None |
-| advance_decision_type_id | [uk.ac.ucl.rits.inform.informdb.decisions.AdvanceDecisionType](#uk.ac.ucl.rits.inform.informdb.decisions.AdvanceDecisionType) | None |
-| hospital_visit_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| internal_id | bigint | None |
-| closed_due_to_discharge | boolean | None |
-| status_change_datetime | timestamp without timezone | None |
-| requested_datetime | timestamp without timezone | None |
-| cancelled | boolean | None |
 
 ---
 
@@ -262,33 +153,6 @@ A core demographic represents the main demographics stored around patients.
 
 
 
-## CoreDemographicAudit
-
-Audit table of CoreDemographic.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| core_demographic_audit_id | bigint | None |
-| core_demographic_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| firstname | varchar(255) | None |
-| middlename | varchar(255) | None |
-| lastname | varchar(255) | None |
-| date_of_birth | date | None |
-| date_of_death | date | None |
-| datetime_of_birth | timestamp without timezone | None |
-| datetime_of_death | timestamp without timezone | None |
-| alive | boolean | None |
-| home_postcode | varchar(255) | None |
-| sex | varchar(255) | None |
-| ethnicity | varchar(255) | None |
-
----
-
-
-
 ## HospitalVisit
 
 This a single visit to the hospital.
@@ -309,31 +173,6 @@ This a single visit to the hospital.
 | discharge_disposition | varchar(255) | The patient's disposition on departure. |
 | encounter | varchar(255) | The source system identifier of this hospital visit. |
 | visit_observations | Missing Type | Visit observations should be deleted if an encounter is deleted. |
-
----
-
-
-
-## HospitalVisitAudit
-
-Audit table of HospitalVisit.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| hospital_visit_audit_id | bigint | None |
-| hospital_visit_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| source_system | varchar(255) | None |
-| presentation_datetime | timestamp without timezone | None |
-| admission_datetime | timestamp without timezone | None |
-| discharge_datetime | timestamp without timezone | None |
-| patient_class | varchar(255) | None |
-| arrival_method | varchar(255) | None |
-| discharge_destination | varchar(255) | None |
-| discharge_disposition | varchar(255) | None |
-| encounter | varchar(255) | None |
 
 ---
 
@@ -374,44 +213,6 @@ This table stores a mapping from every MRN known to the system, to its currently
 
 
 
-## MrnToLiveAudit
-
-Audit table of MrnToLive.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| mrn_to_live_audit_id | bigint | None |
-| mrn_to_live_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| live_mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-
----
-
-
-
-## ClimbSequenceAudit
-
-Audit table of ClimbSequence.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| climb_sequence_audit_id | bigint | None |
-| climb_sequence_id | bigint | None |
-| lab_sample_id | bigint | None |
-| fasta_header | varchar(255) | None |
-| sequence | varchar(255) | None |
-| cog_id | varchar(255) | None |
-| phe_id | varchar(255) | None |
-| collection_date | date | None |
-
----
-
-
-
 ## LabBattery
 
 This represents all the different batteries of test that can be ordered.
@@ -430,25 +231,6 @@ This represents all the different batteries of test that can be ordered.
 
 
 
-## LabBatteryAudit
-
-Audit table of LabBattery.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_battery_audit_id | bigint | None |
-| lab_battery_id | bigint | None |
-| battery_code | varchar(255) | None |
-| battery_name | varchar(255) | None |
-| description | varchar(255) | None |
-| lab_provider | varchar(255) | None |
-
----
-
-
-
 ## LabBatteryElement
 
 This represents all the different batteries of test that can be ordered.
@@ -460,23 +242,6 @@ This represents all the different batteries of test that can be ordered.
 | lab_battery_element_id | bigint | Unique identifier in EMAP for this **LabBatteryElement** record. |
 | lab_battery_id | [LabBattery](#LabBattery) | Identifier for the [LabBattery](#LabBattery) associated with this record. |
 | lab_test_definition_id | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
-
----
-
-
-
-## LabBatteryElementAudit
-
-Audit table of LabBatteryElement.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_battery_element_audit_id | bigint | None |
-| lab_battery_element_id | bigint | None |
-| lab_battery_id | bigint | None |
-| lab_test_definition_id | bigint | None |
 
 ---
 
@@ -503,28 +268,6 @@ Isolates identified from culture.
 
 
 
-## LabIsolateAudit
-
-Audit table of LabIsolate.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_isolate_audit_id | bigint | None |
-| lab_isolate_id | bigint | None |
-| lab_result_id | bigint | None |
-| lab_internal_id | varchar(255) | None |
-| isolate_code | varchar(255) | None |
-| isolate_name | varchar(255) | None |
-| culture_type | varchar(255) | None |
-| quantity | varchar(255) | None |
-| clinical_information | varchar(255) | None |
-
----
-
-
-
 ## LabOrder
 
 A LabOrder contains the details of the request to perform a lab investigation.
@@ -542,29 +285,6 @@ A LabOrder contains the details of the request to perform a lab investigation.
 | clinical_information | varchar(255) | Additional information supplied. |
 | internal_lab_number | varchar(255) | Identifier used in source system for this **LabOrder**. |
 | source_system | varchar(255) | Name of the source system where this **LabOrder** was created. |
-
----
-
-
-
-## LabOrderAudit
-
-Audit table of LabOrder.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_order_audit_id | bigint | None |
-| lab_order_id | bigint | None |
-| lab_sample_id | bigint | None |
-| hospital_visit_id | bigint | None |
-| lab_battery_id | bigint | None |
-| order_datetime | timestamp without timezone | None |
-| request_datetime | timestamp without timezone | None |
-| clinical_information | varchar(255) | None |
-| internal_lab_number | varchar(255) | None |
-| source_system | varchar(255) | None |
 
 ---
 
@@ -598,35 +318,6 @@ A LabResult is a single component result of a lab. A single order or sample is l
 
 
 
-## LabResultAudit
-
-Audit table of LabResult.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_result_audit_id | bigint | None |
-| lab_result_id | bigint | None |
-| lab_order_id | bigint | None |
-| lab_test_definition_id | bigint | None |
-| result_last_modified_datetime | timestamp without timezone | None |
-| abnormal_flag | varchar(255) | None |
-| mime_type | varchar(255) | None |
-| value_as_text | varchar(255) | None |
-| value_as_real | double precision | None |
-| value_as_bytes | bytea | None |
-| result_operator | varchar(255) | None |
-| range_high | double precision | None |
-| range_low | double precision | None |
-| result_status | varchar(255) | None |
-| units | varchar(255) | None |
-| comment | varchar(255) | None |
-
----
-
-
-
 ## LabSample
 
 A LabSample details the external lab's view of a sample being analysed and its receipt by the lab system.
@@ -643,28 +334,6 @@ A LabSample details the external lab's view of a sample being analysed and its r
 | specimen_type | varchar(255) | Type of specimen. |
 | sample_site | varchar(255) | Site on body the sample was taken from. |
 | collection_method | varchar(255) | Method of collection. |
-
----
-
-
-
-## LabSampleAudit
-
-Audit table of LabSample.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| lab_sample_audit_id | bigint | None |
-| lab_sample_id | bigint | None |
-| mrn_id | [uk.ac.ucl.rits.inform.informdb.identity.Mrn](#uk.ac.ucl.rits.inform.informdb.identity.Mrn) | None |
-| external_lab_number | varchar(255) | None |
-| receipt_at_lab_datetime | timestamp without timezone | None |
-| sample_collection_datetime | timestamp without timezone | None |
-| specimen_type | varchar(255) | None |
-| sample_site | varchar(255) | None |
-| collection_method | varchar(255) | None |
 
 ---
 
@@ -688,20 +357,20 @@ Sensitivities show the affect of specific agents on isolates from cultures.
 
 
 
-## LabSensitivityAudit
+## LabTestDefinition
 
-Audit table of LabSensitivity.
+This represents the definition of a single lab test by a single provider.
 
 ### **Attributes/Column Headers**
 
 | Name | Type | Description |
 |---| --- |---|
-| lab_sensitivity_audit_id | bigint | None |
-| lab_sensitivity_id | bigint | None |
-| lab_isolate_id | bigint | None |
-| agent | varchar(255) | None |
-| sensitivity | varchar(255) | None |
-| reporting_datetime | timestamp without timezone | None |
+| lab_test_definition_id | bigint | Unique identifier in EMAP for this **LabTestDefinition** record. |
+| lab_provider | varchar(255) | What system this code belongs to. Examples could be WinPath, or Epic. |
+| lab_department | varchar(255) | The department within the lab responsible for the test. |
+| test_lab_code | varchar(255) | The code for this test as reported by the lab. |
+| test_standard_code | varchar(255) | The code for this test in a standardised vocabulary. |
+| standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
 
 ---
 
@@ -831,28 +500,6 @@ This represents a patient being in a location for an amount of time.
 
 
 
-## LocationVisitAudit
-
-Audit table of LocationVisit.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| location_visit_audit_id | bigint | None |
-| location_visit_id | bigint | None |
-| hospital_visit_id | bigint | None |
-| parent_location_visit_id | bigint | None |
-| admission_datetime | timestamp without timezone | None |
-| discharge_datetime | timestamp without timezone | None |
-| location_id | [uk.ac.ucl.rits.inform.informdb.movement.Location](#uk.ac.ucl.rits.inform.informdb.movement.Location) | None |
-| inferred_admission | boolean | None |
-| inferred_discharge | boolean | None |
-
----
-
-
-
 ## Room
 
 Represents a room in the hospital.
@@ -923,25 +570,6 @@ Answers to questions listed in Question table.
 
 
 
-## RequestAnswerAudit
-
-Audit table of RequestAnswer.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| request_answer_audit_id | bigint | None |
-| request_answer_id | bigint | None |
-| answer | varchar(255) | None |
-| question_id | [uk.ac.ucl.rits.inform.informdb.questions.Question](#uk.ac.ucl.rits.inform.informdb.questions.Question) | None |
-| parent_table | varchar(255) | None |
-| parent_id | bigint | None |
-
----
-
-
-
 ## VisitObservation
 
 An observation recorded about patient.
@@ -960,30 +588,6 @@ An observation recorded about patient.
 | unit | varchar(255) | Units of the **VisitObservation**. |
 | comment | varchar(255) | Comments added by clinician. |
 | source_system | varchar(255) | The hospital system that emap received the data from (caboodle or EPIC). |
-
----
-
-
-
-## VisitObservationAudit
-
-Audit table of VisitObservation.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| visit_observation_audit_id | bigint | None |
-| visit_observation_id | bigint | None |
-| visit_observation_type_id | bigint | None |
-| hospital_visit_id | bigint | None |
-| observation_datetime | timestamp without timezone | None |
-| value_as_text | varchar(255) | None |
-| value_as_real | double precision | None |
-| value_as_date | date | None |
-| unit | varchar(255) | None |
-| comment | varchar(255) | None |
-| source_system | varchar(255) | None |
 
 ---
 
@@ -1008,30 +612,5 @@ VisitObservationType describes the meaning behind a specific observation.
 | standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
 | primary_data_type | varchar(255) | Data type expected to be returned. |
 | creation_time | timestamp without timezone | Date and time at which this **VisitObservationType** was created in the source system. |
-
----
-
-
-
-## VisitObservationTypeAudit
-
-Audit table of VisitObservationType.
-
-### **Attributes/Column Headers**
-
-| Name | Type | Description |
-|---| --- |---|
-| visit_observation_type_audit_id | bigint | None |
-| visit_observation_type_id | bigint | None |
-| interface_id | varchar(255) | None |
-| source_observation_type | varchar(255) | None |
-| id_in_application | varchar(255) | None |
-| name | varchar(255) | None |
-| display_name | varchar(255) | None |
-| description | varchar(255) | None |
-| standardised_code | varchar(255) | None |
-| standardised_vocabulary | varchar(255) | None |
-| primary_data_type | varchar(255) | None |
-| creation_datetime | timestamp without timezone | None |
 
 ---
