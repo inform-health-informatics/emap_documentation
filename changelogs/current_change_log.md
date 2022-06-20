@@ -7,7 +7,7 @@
 ### Tables changed
 
 Table           | Attributes added | Attributes removed | Renamed
-:-- |:-- |:--
+:-- |:-- |:-- | --
 patient_condition     | added_datetime | added_date_time | ✓
 patient_condition     | resolution_date_time |resolution_datetime | ✓
 consultation_request  | status_change_time |status_change_datetime | ✓
