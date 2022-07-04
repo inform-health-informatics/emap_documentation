@@ -26,6 +26,7 @@ visit_observation_type | creation_datetime | creation_time | ✓
 
 - Modifies column names with a data type that includes a data and a time to have a _datetime suffix
 - Lab test definitions and batteries now have human readable names
+- `BIO_CONNECT` lab results lab_test_definition code has changed to match metadata from EPIC: `Glu` -> `2341-6`, `Ket` -> `53061-8`. Human readable `name` column in `lab_test_definition` makes these codes interpretable. 
 
 ---
 <!--
