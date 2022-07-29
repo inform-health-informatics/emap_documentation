@@ -15,9 +15,10 @@ hospital_visit        | presentation_datetime | presentation_time | ✓
 hospital_visit        | admission_datetime | admission_time | ✓
 hospital_visit        | discharge_datetime | discharge_time | ✓
 lab_test_definition   | name | | 
+lab_result            | result_last_modified_datetime | result_last_modified_time | ✓
 lab_sample            | receipt_at_lab_datetime | receipt_at_lab | ✓
 lab_sample            | sample_collection_datetime | sample_collection_time | ✓
-lab_result            | result_last_modified_datetime | result_last_modified_time | ✓
+
 location_visit        | admission_datetime | admission_time | ✓
 location_visit        | discharge_datetime | discharge_time | ✓
 visit_observation_type | creation_datetime | creation_time | ✓
