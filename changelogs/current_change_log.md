@@ -26,8 +26,8 @@ Tracks the final history for each planned movement within the hospital.
 Table           | Attributes added | Attributes removed | Renamed
 :-- |:-- |:-- | --
 patient_condition     | added_datetime | added_date_time | ✓
-patient_condition     | resolution_date_time |resolution_datetime | ✓
-consultation_request  | status_change_time |status_change_datetime | ✓
+patient_condition     | resolution_datetime | resolution_date_time| ✓
+consultation_request  | status_change_datetime | status_change_time | ✓
 hospital_visit        | presentation_datetime | presentation_time | ✓
 hospital_visit        | admission_datetime | admission_time | ✓
 hospital_visit        | discharge_datetime | discharge_time | ✓
