@@ -4,6 +4,25 @@
 
 ---
 
+
+### Tables added
+
+## PlannedMovement
+
+Tracks the final history for each planned movement within the hospital.
+
+### **Attributes/Column Headers**
+
+| Name | Type | Description |
+|---| --- |---|
+| planned_movement_id | bigint | Unique identifier in EMAP for this PlannedMovement record. |
+| hospital_visit_id | HospitalVisit | Identifier for the HospitalVisit associated with this record. |
+| location_id | Location | Planned Location  to move to, may be null. |
+| event_type | varchar(255) | /brief The type of planned movement event (ADMIT, TRANSFER, DISCHARGE). |
+| event_datetime | timestamp without timezone | /brief The date and time that the planned movement event was made. |
+| cancelled | boolean | /brief Has the planned movement been cancelled (either by a user or because a different movement has occurred). |
+| cancelled_datetime | timestamp without timezone | /brief The date and time that the planned movement was cancelled. |
+
 ### Tables changed
 
 Table           | Attributes added | Attributes removed | Renamed
