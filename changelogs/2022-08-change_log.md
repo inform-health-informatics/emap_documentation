@@ -21,6 +21,10 @@ Tracks the final history for each planned movement within the hospital.
 | cancelled | boolean | Has the planned movement been cancelled (either by a user or because a different movement has occurred). |
 | cancelled_datetime | timestamp without timezone | The date and time that the planned movement was cancelled. |
 
+Diagram:
+
+![planned_movement](diagrams/planned_movement.png)
+
 ### Tables changed
 
 Table           | Attributes added | Attributes removed | Renamed
