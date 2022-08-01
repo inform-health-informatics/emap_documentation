@@ -7,11 +7,9 @@
 
 ### Tables added
 
-## PlannedMovement
+#### PlannedMovement
 
 Tracks the final history for each planned movement within the hospital.
-
-### **Attributes/Column Headers**
 
 | Name | Type | Description |
 |---| --- |---|
