@@ -32,7 +32,8 @@
 - <a id="caboodle">**Caboodle**</a>
   
 	Database used by [EPIC](#epic) for reporting purposes. Updated every 24 hours with the data available
-    through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database.
+    through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database. 
+    Within the UCLH intranet, you can access the [Caboodle Dictionary](https://uclvwlbpraecb01.uclh201.net/Warehouse) to explore the tables.
 
 - <a id="chron">**Chronicles**</a>
   

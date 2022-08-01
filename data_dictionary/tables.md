@@ -7,7 +7,6 @@
 
 
 
-
 ## ConditionType
 
 Type of condition that a patient can have.
