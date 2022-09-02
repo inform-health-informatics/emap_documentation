@@ -30,10 +30,15 @@ visit_observation_type | is_real_time |
 
 ### Changes/fixes
 
+- Adds columns to patient_condition to accommodate problem lists 
+- Adds a `has_visit_observation` column to `visit_observation_type` as a flag for whether this type has underlying data
+- Adds a `is_real_time` column to `visit_observation_type` as a flag whether the data is being updated in real time
+
 ---
-<!--
+
 ## Data sources
 
+- Problem lists
 
 
 ### Repository Versions
@@ -45,4 +50,3 @@ visit_observation_type | is_real_time |
 |Emap-Core              | 2.6     |
 |Inform-DB              | 2.6     |
 |Hoover                 | 2.6     |
->
