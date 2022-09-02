@@ -21,17 +21,23 @@ Linker table for the many-to-many relationship between problem lists and hospita
 
 Table           | Attributes added | Attributes removed | 
 :-- |:-- |:--
-patient_condition     | added_date |
-patient_condition     | resolution_date |
-patient_condition     | is_deleted |
+patient_condition      | added_date |
+patient_condition      | resolution_date |
+patient_condition      | is_deleted |
+visit_observation_type | has_visit_observation |
+visit_observation_type | is_real_time |
 
 
 ### Changes/fixes
 
+- Adds columns to patient_condition to accommodate problem lists 
+- You can now know if a visit observation type has any data (`has_visit_observation` column) and if it is being updated in real time (`is_real_time` column)
+
 ---
-<!--
+
 ## Data sources
 
+- Problem lists
 
 
 ### Repository Versions
@@ -43,4 +49,3 @@ patient_condition     | is_deleted |
 |Emap-Core              | 2.6     |
 |Inform-DB              | 2.6     |
 |Hoover                 | 2.6     |
->
