@@ -31,8 +31,7 @@ visit_observation_type | is_real_time |
 ### Changes/fixes
 
 - Adds columns to patient_condition to accommodate problem lists 
-- Adds a `has_visit_observation` column to `visit_observation_type` as a flag for whether this type has underlying data
-- Adds a `is_real_time` column to `visit_observation_type` as a flag whether the data is being updated in real time
+- You can now know if a visit observation type has any data (`has_visit_observation` column) and if it is being updated in real time (`is_real_time` column)
 
 ---
 
