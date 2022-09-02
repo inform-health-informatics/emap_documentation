@@ -21,9 +21,11 @@ Linker table for the many-to-many relationship between problem lists and hospita
 
 Table           | Attributes added | Attributes removed | 
 :-- |:-- |:--
-patient_condition     | added_date |
-patient_condition     | resolution_date |
-patient_condition     | is_deleted |
+patient_condition      | added_date |
+patient_condition      | resolution_date |
+patient_condition      | is_deleted |
+visit_observation_type | has_visit_observation |
+visit_observation_type | is_real_time |
 
 
 ### Changes/fixes
