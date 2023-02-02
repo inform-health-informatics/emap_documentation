@@ -108,7 +108,7 @@
 
 ## F
 
-- <a id="fk">**Flowsheets**</a>
+- <a id="flowsheets">**Flowsheets**</a>
 	
 	Flowsheets within hospital data refer to data taken as a measurements over a period of time.
 
@@ -267,6 +267,11 @@
 	The UCL [Research Software Development Group](https://www.ucl.ac.uk/isd/services/research-it/research-software-development) are professional software developers with particular expertise in creating software for academic research.
 
 ## S
+
+- <a id="sde">**SDEs**</a>
+
+	Smart Data Elements, form-based information used within EPIC as a more customisable way to input data.
+	Similar to [flowsheets](#flowsheets), but much more based on form answers rather than clinical measurements.
 
 - <a id="set">**setter**</a>
 
