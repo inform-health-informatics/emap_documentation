@@ -268,9 +268,11 @@
 
 ## S
 
-- <a id="sde">**SDEs**</a>
+- <a id="sde">**SDE**</a>
 
-	Smart Data Elements, form-based information used within EPIC as a more customisable way to input data.
+
+	Smart Data Elements, used within EPIC as a more customisable way to input form-based information.
+
 	Similar to [flowsheets](#flowsheets), but much more based on form answers rather than clinical measurements.
 
 - <a id="set">**setter**</a>
