@@ -41,6 +41,8 @@ between the two.
 | visit_observation_type | has_visit_observation |                    |
 | visit_observation_type | is_real_time          |                    |
 
+![patient condition changes](diagrams/patient_condition.png)
+
 ### Changes/fixes
 
 - NHS patient opt out from research is now available using the `research_opt_out` column
