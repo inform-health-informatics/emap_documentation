@@ -7,9 +7,9 @@
 ### Tables changed
 
 
-| Table | Attributes added | Attributes removed |
-|:---|:---|:---|
-| -| -  | - |
+| Table | Attributes added | Attributes removed | Renamed |
+|:---|:---|:---|:---|
+| -| -  | - | - |
 
 
 
