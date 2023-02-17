@@ -6,8 +6,11 @@
 
 ### Tables changed
 
-Table           | Attributes added | Attributes removed | Renamed
-:-- |:-- |:--
+
+| Table | Attributes added | Attributes removed |
+|:---|:---|:---|
+| -| -  | - |
+
 
 
 ### Changes/fixes
