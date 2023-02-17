@@ -28,7 +28,7 @@ between the two.
 |---| --- |---|
 | condition_visits_id | bigint | Unique identifier in EMAP for this condition visit record. |
 | hospital_visit_id | bigint | Identifier for the HospitalVisit associated with this record. |
-| patient_condition_id | bigint | Identifier for the PatientCondition associated with this record.
+| patient_condition_id | bigint | Identifier for the PatientCondition associated with this record. |
 
 ### Tables changed
 
