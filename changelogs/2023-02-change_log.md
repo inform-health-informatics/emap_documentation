@@ -43,7 +43,7 @@ between the two.
 
 ### Changes/fixes
 
-- NHS patient opt our from research is now available using the `research_opt_out` column
+- NHS patient opt out from research is now available using the `research_opt_out` column
 - Allergies now added
 - Imaging reports from PACS now added
 - Problem lists now added
