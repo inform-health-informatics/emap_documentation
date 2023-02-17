@@ -14,17 +14,17 @@ Table           | Attributes added | Attributes removed | Renamed
 
 ---
 <!--
-## Data sources
-
-
-
-### Repository Versions
-
-| Repository            | Version |
-| :-                    | :-:     |
-|Hl7-processor          | x.x     |
-|Emap_interchange       | x.x     |
-|Emap-Core              | x.x     |
-|Inform-DB              | x.x     |
-|Hoover                 | x.x     |
+    ## Data sources
+    
+    
+    
+    ### Repository Versions
+    
+    | Repository            | Version |
+    | :-                    | :-:     |
+    |Hl7-processor          | x.x     |
+    |Emap_interchange       | x.x     |
+    |Emap-Core              | x.x     |
+    |Inform-DB              | x.x     |
+    |Hoover                 | x.x     |
 >
