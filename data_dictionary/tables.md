@@ -58,8 +58,7 @@ Represents patient conditions that start and can end.
 | internal_id | bigint | Identifier used in source system for this **PatientCondition**. |
 | mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| added_datetime | timestamp without timezone | Date and time at which this **
-PatientCondition** was added to the record. |
+| added_datetime | timestamp without timezone | Date and time at which this **PatientCondition** was added to the record. |
 | added_date | date | Date at which this **PatientCondition** was added to the record. |
 | resolution_datetime | timestamp without timezone | Date and time at which this **PatientCondition** was resolved. |
 | resolution_date | date | Date at which this **PatientCondition** was resolved. |
@@ -85,11 +84,9 @@ Holds information relevant to consultation requests for patients.
 | consultation_type_id | [ConsultationType](#ConsultationType) | Identifier for the [ConsultationType](#ConsultationType) associated with this record. |
 | hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
 | internal_id | bigint | Identifier used in source system for this **ConsultationRequest**. |
-| closed_due_to_discharge | boolean | Predicate determining whether this **
-ConsultationRequest** was closed on discharge. |
+| closed_due_to_discharge | boolean | Predicate determining whether this **ConsultationRequest** was closed on discharge. |
 | comments | varchar(255) | Notes added to the **ConsultationRequest** which are not tied to a Question. |
-| status_change_datetime | timestamp without timezone | Date and time at which this **
-ConsultationRequest** was last updated. |
+| status_change_datetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was last updated. |
 | scheduled_datetime | timestamp without timezone | Date and time at which this **ConsultationRequest** was scheduled. |
 | cancelled | boolean | Predicate determining whether this **ConsultationRequest** has been cancelled by a user. |
 
@@ -122,10 +119,8 @@ Holds information relevant to advance decisions taken by patients.
 | hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
 | internal_id | bigint | Identifier used in source system for this **AdvanceDecision**. |
 | closed_due_to_discharge | boolean | Predicate determining whether this **AdvanceDecision** was closed on discharge. |
-| status_change_datetime | timestamp without timezone | Date and time at which this **
-AdvanceDecision** was last updated. |
-| requested_datetime | timestamp without timezone | Date and time at which this **
-AdvanceDecision** was first recorded. |
+| status_change_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was last updated. |
+| requested_datetime | timestamp without timezone | Date and time at which this **AdvanceDecision** was first recorded. |
 | cancelled | boolean | Predicate determining whether this **AdvanceDecision** has been cancelled by a user. |
 
 ---
@@ -179,8 +174,7 @@ This a single visit to the hospital.
 | hospital_visit_id | bigint | Unique identifier in EMAP for this **HospitalVisit** record. |
 | mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | source_system | varchar(255) | The source system from which we learnt about this hospital visit. |
-| presentation_datetime | timestamp without timezone | Date and time at which this **
-HospitalVisit** was first recorded. |
+| presentation_datetime | timestamp without timezone | Date and time at which this **HospitalVisit** was first recorded. |
 | admission_datetime | timestamp without timezone | Date and time at which this **HospitalVisit** formally began. |
 | discharge_datetime | timestamp without timezone | Date and time at which this **HospitalVisit** formally ended. |
 | patient_class | varchar(255) | The patient class. E.g. Inpatient or Outpaitent. |
@@ -303,8 +297,7 @@ A LabResult is a single component result of a lab. A single order or sample is l
 | lab_result_id | bigint | Unique identifier in EMAP for this **LabResult** record. |
 | lab_order_id | [LabOrder](#LabOrder) | Identifier for the [LabOrder](#LabOrder) associated with this record. |
 | lab_test_definition_id | [LabTestDefinition](#LabTestDefinition) | Identifier for the [LabTestDefinition](#LabTestDefinition) associated with this record. |
-| result_last_modified_datetime | timestamp without timezone | Date and time at which the **
-LabResult** was last modified. |
+| result_last_modified_datetime | timestamp without timezone | Date and time at which the **LabResult** was last modified. |
 | abnormal_flag | varchar(255) | Lab system flag for value outside of normal range. |
 | mime_type | varchar(255) | Mime type (or custom type) of the value. |
 | value_as_text | varchar(255) | Value as text. |
@@ -331,8 +324,7 @@ A LabSample details the external lab's view of a sample being analysed and its r
 | mrn_id | [Mrn](#Mrn) | Identifier for the [Mrn](#Mrn) associated with this record. |
 | external_lab_number | varchar(255) | Lab number for the system doing the lab test. |
 | receipt_at_lab_datetime | timestamp without timezone | Date and time at which this **LabSample** arrived at the lab. |
-| sample_collection_datetime | timestamp without timezone | Date and time at which this **
-LabSample** was take from the patient. |
+| sample_collection_datetime | timestamp without timezone | Date and time at which this **LabSample** was take from the patient. |
 | specimen_type | varchar(255) | Type of specimen. |
 | sample_site | varchar(255) | Site on body the sample was taken from. |
 | collection_method | varchar(255) | Method of collection. |
@@ -477,8 +469,7 @@ This represents a patient being in a location for an amount of time.
 | parent_location_visit_id | bigint | Identifier of the parent **LocationVisit**. |
 | admission_datetime | timestamp without timezone | Date and time at which the patient was admitted to this location. |
 | discharge_datetime | timestamp without timezone | Date and time at which the patient was discharged from this location. |
-| location_id | [Location](#Location) | Identifier of the [Location](#Location) associated with this **
-LocationVisit**. |
+| location_id | [Location](#Location) | Identifier of the [Location](#Location) associated with this **LocationVisit**. |
 | inferred_admission | boolean | Predicate determining whether the admission time has been inferred (not set from an A01, A02 or A03). |
 | inferred_discharge | boolean | Predicate determining whether discharge time has been inferred (not set from an A01, A02 or A03). |
 
@@ -605,6 +596,5 @@ VisitObservationType describes the meaning behind a specific observation.
 | standardised_code | varchar(255) | Mapping code for the observation from the standardised vocabulary system. Not yet implemented. |
 | standardised_vocabulary | varchar(255) | Nomenclature or classification system used. Not yet implemented. |
 | primary_data_type | varchar(255) | Data type expected to be returned. |
-| creation_datetime | timestamp without timezone | Date and time at which this **
-VisitObservationType** was created in the source system. |
+| creation_datetime | timestamp without timezone | Date and time at which this **VisitObservationType** was created in the source system. |
 
