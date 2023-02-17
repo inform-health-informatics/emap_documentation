@@ -14,7 +14,7 @@ Reactions to allergens that a patient can have so that it can be recognised by c
 | Name | Type | Description |
 |---| --- |---|
 | allergen_reaction_id | bigint | Unique identifier in EMAP for this **AllergenReaction** record. |
-| patient_condition_id | [PatientCondition](#PatientCondition) | Identifier for the [PatientCondition](#PatientCondition) associated with this record. |
+| patient_condition_id | bigint | Identifier for the PatientCondition associated with this record. |
 | name | varchar(255) | Human readable name for this **AllergenReaction**. |
 
 
@@ -27,8 +27,8 @@ between the two.
 | Name | Type | Description |
 |---| --- |---|
 | condition_visits_id | bigint | Unique identifier in EMAP for this condition visit record. |
-| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
-| patient_condition_id | [PatientCondition](#PatientCondition) | Identifier for the [PatientCondition](#PatientCondition) associated with this record. |
+| hospital_visit_id | bigint | Identifier for the HospitalVisit associated with this record. |
+| patient_condition_id | bigint | Identifier for the PatientCondition associated with this record.
 
 ### Tables changed
 
