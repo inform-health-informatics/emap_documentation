@@ -6,16 +6,29 @@
 
 ### Tables added
 
+#### AllergenReaction
+
+Reactions to allergens that a patient can have so that it can be recognised by clinical staff.
+
+
+| Name | Type | Description |
+|---| --- |---|
+| allergen_reaction_id | bigint | Unique identifier in EMAP for this **AllergenReaction** record. |
+| patient_condition_id | [PatientCondition](#PatientCondition) | Identifier for the [PatientCondition](#PatientCondition) associated with this record. |
+| name | varchar(255) | Human readable name for this **AllergenReaction**. |
+
+
+
 #### ConditionVisits
 
-Linker table for the many-to-many relationship between problem lists and hospital visits.
+Linker table between the PatientCondition and HospitalVisit tables to efficiently model the many-many relationship
+between the two.
 
-
-| Name               | Type | Description                                                                             |
-|--------------------| --- |-----------------------------------------------------------------------------------------|
-| condition_visit_id | bigint | Unique identifier in EMAP for this ConditionVisit record.                               |
-| hospital_visit_id | bigint | Unique identifier in EMAP for the hospital visit (primary key in hospital_visit).       |
-| patient_condition_id | bigint | Unique identifier in EMAP for the patient condition (primary key in patient_condition). |
+| Name | Type | Description |
+|---| --- |---|
+| condition_visits_id | bigint | Unique identifier in EMAP for this condition visit record. |
+| hospital_visit_id | [HospitalVisit](#HospitalVisit) | Identifier for the [HospitalVisit](#HospitalVisit) associated with this record. |
+| patient_condition_id | [PatientCondition](#PatientCondition) | Identifier for the [PatientCondition](#PatientCondition) associated with this record. |
 
 ### Tables changed
 
@@ -42,20 +55,22 @@ visit_observation_type | is_real_time |
 - A patient can now be opted out of research with the `research_opt_out` column
 
 ---
+<!--
 
-## Data sources
+    ## Data sources
+    
+    - Allergies
+    - PACS imaging reports. Results added
+    - Problem lists
 
-- Allergies
-- PACS imaging reports. Results added
-- Problem lists
+    ### Repository Versions
+    
+    | Repository            | Version |
+    | :-                    | :-:     |
+    |Hl7-processor          | 2.6     |
+    |Emap_interchange       | 2.6     |
+    |Emap-Core              | 2.6     |
+    |Inform-DB              | 2.6     |
+    |Hoover                 | 2.6     |
 
-
-### Repository Versions
-
-| Repository            | Version |
-| :-                    | :-:     |
-|Hl7-processor          | 2.6     |
-|Emap_interchange       | 2.6     |
-|Emap-Core              | 2.6     |
-|Inform-DB              | 2.6     |
-|Hoover                 | 2.6     |
+-->
