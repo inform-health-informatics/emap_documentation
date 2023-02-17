@@ -43,6 +43,7 @@ between the two.
 
 ### Changes/fixes
 
+- NHS patient opt our from research is now available using the `research_opt_out` column
 - Allergies now added
 - Imaging reports from PACS now added
 - Problem lists now added
@@ -52,7 +53,6 @@ between the two.
 - Adds columns to patient_condition to accommodate problem lists
 - You can now know if a visit observation type has any data (`has_visit_observation` column) and if it is being updated
   in real time (`is_real_time` column)
-- A patient can now be opted out of research with the `research_opt_out` column
 
 ---
 <!--
