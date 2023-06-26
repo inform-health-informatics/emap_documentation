@@ -25,10 +25,6 @@ This is a work in progress.
 
 * [Star data](data_dictionary/tables.md)
 
-### Standards of Practice
-
-* [Versioning of code repositories](SOP/repo_versioning.md)
-* [Updating live star instance](SOP/release_procedure.md)
 
 ### Technical Overview
 
