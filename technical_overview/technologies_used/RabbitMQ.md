@@ -23,15 +23,15 @@ The EMAP pipeline currently has two publishers (the live hl7 processor and the h
 We deploy the RabbitMQ 'at least once' strategy. When a message is received by RabbitMQ from the publisher it is immediately persisted to disk. 
 The ensures that in the event of a system crash the data can be recovered. Following a crash when the system reboots messages are retrieved from the disk and no data is lost. 
 Once the message is written to disk RabbitMQ informs the publisher that it has successfully received the message. 
-If the queue is full, the publisher will wait and retry to send the message until RabbitMQ acknowledges it has a copy. 
+If the queue is full, the publisher will wait ([NACK](https://www.rabbitmq.com/confirms.html) message received) and retry to send the message until RabbitMQ acknowledges it has a copy ([ACK](https://www.rabbitmq.com/confirms.html) message received). 
 This means that the publisher does not consider itself finished with a message until it receives an acknowledgment from RabbitMQ that the message has been successfully received. 
 If there is an issue between sending a message and receiving an acknowledgement, the publisher will resend the message until such time as it gets the acknowledgment.  
 
  
 
 Once RabbitMQ has successfully acknowledged receipt of the message from the publisher it then sends the message to the subscriber when requested. 
-The subscriber received the message and does any necessary processing, in this case writing to the star database and once this is done the subscriber sends an acknowledgment to RabbitMQ to say that it has successfully received and dealt with the message. 
-Only when RabbitMQ receives this acknowledgement does it delete the message from its queue.  
+The subscriber received the message and does any necessary processing, in this case writing to the star database and once this is done the subscriber sends an acknowledgment (ACK message) to RabbitMQ to say that it has successfully received and dealt with the message. 
+Only when RabbitMQ receives this acknowledgement does it delete the message from its queue. If a message cannot be processed then a NACK message is sent, telling RabbitMQ not to requeue the message.
 Again, if the system fails between sending the message and receiving the acknowledgement, then the message can be recovered and resent.        
 This is part of the rationale for using RabbitMQ. 
 By waiting and holding onto messages until they are needed, it acts as a reliable message buffer that cleanly allows all the different services, which work at varying rates, to work smoothly together.
