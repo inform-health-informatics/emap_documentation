@@ -196,6 +196,10 @@
 
 ## M
 
+- <a id="mrn">**MDT**</a>
+
+	Multi-disciplinary team.
+
 - <a id="mrn">**MRN**</a>
 
 	Medical Record Number assigned to a patient arriving in the hospital. Also referred to as [Hospital number](#hos_num). These are the canonical internal representation of identity (as opposed to [NHS Number](#nhs_num)) which is an external identifier). MRNs try to be mapped 1:1 to real people. This is practically difficult, so while a single person may have many MRNs over the course of their life, they should most of the time only have 1 active MRN within a given Trust. Much of the information relating to a patient
@@ -295,6 +299,10 @@
 	Strategic Integration Platform acts as a central controller for all electronic messages sent within the 
     Trust. It routes messages from various sources ([POC](#poc), [HSL](#hsl), Imaging) to be recorded in the 
     appropriate databases.
+
+- <a id="star">**SPC**</a>
+
+	Statistical Process Chart (or Control).
   
 - <a id="star">**Star**</a>
 
