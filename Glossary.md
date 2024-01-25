@@ -302,7 +302,8 @@
 
 - <a id="star">**SPC**</a>
 
-	Statistical Process Chart (or Control).
+	Statistical Process Control.
+
   
 - <a id="star">**Star**</a>
 
