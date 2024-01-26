@@ -35,6 +35,10 @@
     through live streams. More processing makes data more readable than [Clarity](#clarity), another reporting database. 
     Within the UCLH intranet, you can access the [Caboodle Dictionary](https://uclvwlbpraecb01.uclh201.net/Warehouse) to explore the tables.
 
+- <a id="ccu">**CCU**</a>
+
+	Critical Care Unit.
+
 - <a id="chron">**Chronicles**</a>
   
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
@@ -119,6 +123,10 @@
 
 ## G
 
+- <a id="gae">**GAE**</a>
+
+	Generic application environment.
+
 - <a id="get">**getter**</a>
 
 	Term used to refer to computer code used to retrieve types of data e.g. a function getName() would be used to 
@@ -196,7 +204,7 @@
 
 ## M
 
-- <a id="mrn">**MDT**</a>
+- <a id="mdt">**MDT**</a>
 
 	Multi-disciplinary team.
 
@@ -259,7 +267,11 @@
 	
 	[RabbitMQ](https://www.rabbitmq.com/) is a message-brokering software used in the [EMAP pipeline](#emap) to buffer communications between the different services.
 	(See further documentation on use of [RabbitMQ in EMAP](./technical_overview/technologies_used/RabbitMQ.md))
-  
+
+- <a id="rass">**RASS**</a>
+
+	[Richmond Agitation Sedation Scale](https://en.wikipedia.org/wiki/Richmond_Agitation-Sedation_Scale).
+
 - <a id="db">**Relational database**</a>
 
 	A relational database is a collection of data items with pre-defined relationships between them. 
@@ -334,7 +346,7 @@
   
 - <a id="uds">**UDS**</a>
 	
-	This is the storage space for the [Star database](#star).
+	Uniform Data System. This is the storage space for the [Star database](#star).
 
 ## V
 
