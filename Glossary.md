@@ -237,6 +237,7 @@
     [Observational Health Data Science and Informatics](https://www.ohdsi.org/data-standardization/the-common-data-model/).
 
 - <a id="openehr">**openEHR**</a>
+
 	[openEHR](https://www.openehr.org/) is the name of a technology for e-health, consisting of open specifications, clinical models and software that can be used to create standards, and build information and interoperability solutions for healthcare.
 
 - <a id="openemr">**OpenEMR**</a>
