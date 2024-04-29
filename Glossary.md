@@ -44,9 +44,9 @@
 	The live data store of the running [Epic application](#epic). Live chronicles is the data you interact with when 
     using Epic. A second copy of the live data is available through [Shadow-Chronicles](#shadowchron).
 
-- <a id="ci">**Continuous Integration**</a>
+- <a id="ci">**CI**</a>
     
-	The practice of automating the integration of code changes from multiple contributors into a software project.
+	Continuous Integration. The practice of automating the integration of code changes from multiple contributors into a software project.
 
 - <a id="clarity">**Clarity**</a>
   	
