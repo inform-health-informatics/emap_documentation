@@ -1,37 +1,5 @@
 # EMAP Documentation
 
-This is a work in progress.
+This repository has been superseded by a single EMAP repository which contains a docs directory.
 
-## Table of Content
-
-### [Glossary](Glossary.md)
-
-### Change Logs
-
-* [2021-08-10](changelogs/2021-08-change_log.md)
-* [2021-09-27](changelogs/2021-09-change_log.md)
-* [2021-11-30](changelogs/2021-11-change_log.md)
-* [2022-02-14](changelogs/2022-02-change_log.md) 💝
-* [2022-08-03](changelogs/2022-08-change_log.md)
-* [2023-02-17](changelogs/2023-02-change_log.md) <!-- so close to valentines -->
-
-### Data and Validation
-
-* [Types of validation](Data_and_validation/validation.md)
-* [Data used in validation report](Data_and_validation/data_used_by_validation.md)
-* [Issues encountered in validation report](Data_and_validation/validation_issues.md)
-  
-### Data Dictionary
-
-* [Star data](data_dictionary/tables.md)
-
-
-### Technical Overview
-
-* [Historical overview of EMAP development](technical_overview/Historical_overview_of_EMAP.md)
-* [Technical overview of current EMAP](technical_overview/Technical_overview_of_EMAP.md)
-
-    Technologies used in more detail
-    
-    * [RabbitMQ](technical_overview/technologies_used/RabbitMQ.md)
-
+Please see [here](https://github.com/UCLH-DHCT/emap).
